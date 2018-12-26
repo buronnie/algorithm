@@ -11,6 +11,10 @@
 * [962: Max Width Ramp](two-pointer/962-max-width-ramp.md)
 * [948: Bag of Tokens](two-pointer/948-bag-of-tokens.md)
 
+## Graph
+### Undirected Graph
+* [947: Most Stones Removed with Same Row or Column](graph/947-moast-stones-removed-with-same-row-or-col.md)
+
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)
 

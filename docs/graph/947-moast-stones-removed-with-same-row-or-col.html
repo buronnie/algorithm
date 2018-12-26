@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>957: Prison Cells After N Days · GitBook</title>
+        <title>947: Most Stones Removed with Same Row or Column · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html" />
+    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
     
     
-    <link rel="prev" href="../graph/947-moast-stones-removed-with-same-row-or-col.html" />
+    <link rel="prev" href="../two-pointer/948-bag-of-tokens.html" />
     
 
     </head>
@@ -198,9 +198,9 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../graph/947-moast-stones-removed-with-same-row-or-col.html">
+        <li class="chapter active" data-level="7.1" data-path="947-moast-stones-removed-with-same-row-or-col.html">
             
-                <a href="../graph/947-moast-stones-removed-with-same-row-or-col.html">
+                <a href="947-moast-stones-removed-with-same-row-or-col.html">
             
                     
                     947: Most Stones Removed with Same Row or Column
@@ -218,9 +218,9 @@
         
         
     
-        <li class="chapter active" data-level="8.1" data-path="957-prison-cells-after-N-days.html">
+        <li class="chapter " data-level="8.1" data-path="../state-loop/957-prison-cells-after-N-days.html">
             
-                <a href="957-prison-cells-after-N-days.html">
+                <a href="../state-loop/957-prison-cells-after-N-days.html">
             
                     
                     957: Prison Cells After N Days
@@ -281,7 +281,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >957: Prison Cells After N Days</a>
+        <a href=".." >947: Most Stones Removed with Same Row or Column</a>
     </h1>
 </div>
 
@@ -296,49 +296,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x5F53;&#x770B;&#x5230;example2&#x7684;N=100000000&#x65F6;&#xFF0C;&#x5C31;&#x5E94;&#x8BE5;&#x610F;&#x8BC6;&#x5230;&#x72B6;&#x6001;&#x80AF;&#x5B9A;&#x4F1A;&#x5FAA;&#x73AF;&#x91CD;&#x590D;&#x3002;&#x53EA;&#x8981;&#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x68C0;&#x6D4B;&#x5230;&#x72B6;&#x6001;&#x91CD;&#x590D;&#x65F6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x5FAA;&#x73AF;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x548C;&#x5FAA;&#x73AF;&#x957F;&#x5EA6;&#x3002;</p>
-<pre><code>pos = (N - periodStart) % period + periodStart
-</code></pre><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> prisonAfterNDays = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cells, N</span>) </span>{
-    <span class="hljs-keyword">const</span> len = cells.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || N === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> [];
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x6027;&#x95EE;&#x9898;&#x3002;&#x901A;&#x8FC7;&#x884C;&#x5217;&#x5750;&#x6807;&#x53EF;&#x4EE5;&#x6784;&#x9020;&#x51FA;&#x65E0;&#x5411;&#x56FE;&#x3002;&#x7136;&#x540E;DFS&#x904D;&#x5386;&#x6BCF;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x6570;&#x7B97;&#x51FA;&#x56FE;&#x4E2D;&#x6240;&#x6709;&#x8FDE;&#x901A;&#x7684;&#x8282;&#x70B9;&#x6570;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x6BCF;&#x6B21;&#x51FA;&#x53D1;&#x7684;&#x8D77;&#x70B9;&#x4E0D;&#x8981;&#x8BA1;&#x7B97;&#xFF0C;&#x56E0;&#x4E3A;&#x5220;&#x9664;&#x5230;&#x6700;&#x540E;&#x6BCF;&#x4E2A;&#x8FDE;&#x901A;&#x5B50;&#x56FE;&#x9700;&#x8981;&#x7559;&#x4E0B;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x70B9;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x4E0D;&#x8BBA;&#x5728;&#x4EC0;&#x4E48;&#x89C4;&#x5219;&#x4E0B;&#x5BFC;&#x81F4;&#x4E24;&#x70B9;&#x8FDE;&#x901A;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5148;&#x6784;&#x9020;&#x51FA;adjacent map&#x3002;&#x4E0B;&#x6B21;&#x5373;&#x4F7F;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x7684;&#x70B9;&#x4E5F;&#x8FDE;&#x901A;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> removeStones = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">stones</span>) </span>{
+    <span class="hljs-keyword">const</span> len = stones.length;
+    <span class="hljs-keyword">if</span> (len &lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">const</span> map = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i&lt; len; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i+<span class="hljs-number">1</span>; j &lt; len; j++) {
+            <span class="hljs-keyword">if</span> (stones[i][<span class="hljs-number">0</span>] === stones[j][<span class="hljs-number">0</span>] || stones[i][<span class="hljs-number">1</span>] === stones[j][<span class="hljs-number">1</span>]) {
+                <span class="hljs-keyword">if</span> (i <span class="hljs-keyword">in</span> map) {
+                    map[i].push(j);
+                } <span class="hljs-keyword">else</span> {
+                    map[i] = [j];
+                }
+                <span class="hljs-keyword">if</span> (j <span class="hljs-keyword">in</span> map) {
+                    map[j].push(i);
+                } <span class="hljs-keyword">else</span> {
+                    map[j] = [i];
+                }
+            }
+        }
     }
 
-    <span class="hljs-keyword">const</span> map = {[cells.join(<span class="hljs-string">&apos;&apos;</span>)]: <span class="hljs-number">0</span>};
-    <span class="hljs-keyword">const</span> states=  [cells];
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">let</span> period = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">let</span> periodStartPos = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
-        <span class="hljs-keyword">const</span> nextState = getNextCell(cells);
-        <span class="hljs-keyword">const</span> nextStateStr = nextState.join(<span class="hljs-string">&apos;&apos;</span>);
-        <span class="hljs-keyword">if</span> (nextStateStr <span class="hljs-keyword">in</span> map) {
-            periodStartPos = map[nextStateStr];
-            period = states.length - map[nextStateStr];
-            <span class="hljs-keyword">break</span>;
-        } <span class="hljs-keyword">else</span> {
-            map[nextStateStr] = i;
-        }
-        states.push(nextState);
-        cells = nextState;
-        i++;
+    <span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        visited[i] = <span class="hljs-literal">false</span>;
     }
-    <span class="hljs-keyword">return</span> states[(N-periodStartPos) % period + periodStartPos];
+
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        res += dfs(i, visited, map, <span class="hljs-literal">true</span>);
+    }
+    <span class="hljs-keyword">return</span> res;
 };
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNextCell</span>(<span class="hljs-params">cells</span>) </span>{
-    <span class="hljs-keyword">const</span> len = cells.length;
-    <span class="hljs-keyword">const</span> next = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-    next[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>; 
-    next[len<span class="hljs-number">-1</span>] = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i&lt; len<span class="hljs-number">-1</span>; i++) {
-        <span class="hljs-keyword">if</span> (cells[i<span class="hljs-number">-1</span>] === cells[i+<span class="hljs-number">1</span>]) {
-            next[i] = <span class="hljs-number">1</span>;
-        } <span class="hljs-keyword">else</span> {
-            next[i] = <span class="hljs-number">0</span>;
-        }
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">curr, visited, map, isStart</span>) </span>{
+    <span class="hljs-keyword">if</span> (visited[curr]) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    <span class="hljs-keyword">return</span> next;
+    <span class="hljs-keyword">if</span> (!(curr <span class="hljs-keyword">in</span> map)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    visited[curr] = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">const</span> neighbors = map[curr];
+    <span class="hljs-keyword">let</span> res = isStart ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; neighbors.length; i++) {
+        res += dfs(neighbors[i], visited, map, <span class="hljs-literal">false</span>);
+    }
+    <span class="hljs-keyword">return</span> res;
 }
 </code></pre>
 
@@ -368,12 +375,12 @@
 
             
                 
-                <a href="../graph/947-moast-stones-removed-with-same-row-or-col.html" class="navigation navigation-prev " aria-label="Previous page: 947: Most Stones Removed with Same Row or Column">
+                <a href="../two-pointer/948-bag-of-tokens.html" class="navigation navigation-prev " aria-label="Previous page: 948: Bag of Tokens">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html" class="navigation navigation-next " aria-label="Next page: 955: Delete Columns to Make Sorted II">
+                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -384,7 +391,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"957: Prison Cells After N Days","level":"8.1","depth":1,"next":{"title":"955: Delete Columns to Make Sorted II","level":"9.1","depth":1,"path":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","ref":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","articles":[]},"previous":{"title":"947: Most Stones Removed with Same Row or Column","level":"7.1","depth":1,"path":"graph/947-moast-stones-removed-with-same-row-or-col.md","ref":"graph/947-moast-stones-removed-with-same-row-or-col.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"state-loop/957-prison-cells-after-N-days.md","mtime":"2018-12-26T04:42:21.293Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T21:20:14.156Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"947: Most Stones Removed with Same Row or Column","level":"7.1","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"8.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"948: Bag of Tokens","level":"5.2","depth":1,"path":"two-pointer/948-bag-of-tokens.md","ref":"two-pointer/948-bag-of-tokens.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/947-moast-stones-removed-with-same-row-or-col.md","mtime":"2018-12-26T19:48:50.879Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T21:20:14.156Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

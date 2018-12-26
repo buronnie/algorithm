@@ -15,6 +15,7 @@
 ### Undirected Graph
 * [947: Most Stones Removed with Same Row or Column](graph/947-moast-stones-removed-with-same-row-or-col.md)
 * [200 : Number of Islands](graph/200-number-of-islands.md)
+* [694 : Number of Distinct Islands](graph/694-number-of-distinct-islands.md)
 
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)

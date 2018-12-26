@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>948: Bag of Tokens · GitBook</title>
+        <title>694 : Number of Distinct Islands · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../graph/947-moast-stones-removed-with-same-row-or-col.html" />
+    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
     
     
-    <link rel="prev" href="962-max-width-ramp.html" />
+    <link rel="prev" href="200-number-of-islands.html" />
     
 
     </head>
@@ -158,9 +158,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="962-max-width-ramp.html">
+        <li class="chapter " data-level="5.1" data-path="../two-pointer/962-max-width-ramp.html">
             
-                <a href="962-max-width-ramp.html">
+                <a href="../two-pointer/962-max-width-ramp.html">
             
                     
                     962: Max Width Ramp
@@ -171,9 +171,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.2" data-path="948-bag-of-tokens.html">
+        <li class="chapter " data-level="5.2" data-path="../two-pointer/948-bag-of-tokens.html">
             
-                <a href="948-bag-of-tokens.html">
+                <a href="../two-pointer/948-bag-of-tokens.html">
             
                     
                     948: Bag of Tokens
@@ -198,9 +198,9 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../graph/947-moast-stones-removed-with-same-row-or-col.html">
+        <li class="chapter " data-level="7.1" data-path="947-moast-stones-removed-with-same-row-or-col.html">
             
-                <a href="../graph/947-moast-stones-removed-with-same-row-or-col.html">
+                <a href="947-moast-stones-removed-with-same-row-or-col.html">
             
                     
                     947: Most Stones Removed with Same Row or Column
@@ -211,9 +211,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="../graph/200-number-of-islands.html">
+        <li class="chapter " data-level="7.2" data-path="200-number-of-islands.html">
             
-                <a href="../graph/200-number-of-islands.html">
+                <a href="200-number-of-islands.html">
             
                     
                     200 : Number of Islands
@@ -224,9 +224,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.3" data-path="../graph/694-number-of-distinct-islands.html">
+        <li class="chapter active" data-level="7.3" data-path="694-number-of-distinct-islands.html">
             
-                <a href="../graph/694-number-of-distinct-islands.html">
+                <a href="694-number-of-distinct-islands.html">
             
                     
                     694 : Number of Distinct Islands
@@ -307,7 +307,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >948: Bag of Tokens</a>
+        <a href=".." >694 : Number of Distinct Islands</a>
     </h1>
 </div>
 
@@ -322,37 +322,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9996;&#x9898;&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x5230;dp, &#x5206;&#x6CBB;&#x53BB;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x70B9;&#x50CF;&#x53D6;&#x77F3;&#x5B50;&#x7684;&#x9898;&#x3002;&#x7528;&#x5206;&#x6CBB;&#x6CD5;&#x5199;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x6700;&#x540E;&#x8FD8;&#x8D85;&#x65F6;&#x4E86;&#x3002;&#x6CA1;&#x529E;&#x6CD5;&#x91CD;&#x65B0;&#x60F3;&#x601D;&#x8DEF;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x9053;&#x9898;&#x6709;&#x4E00;&#x4E2A;&#x9690;&#x542B;&#x6761;&#x4EF6;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x4E70;&#x5165;&#x6700;&#x5C0F;&#x7684;&#xFF0C;&#x5356;&#x51FA;&#x6700;&#x5927;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x51ED;&#x7A7A;&#x589E;&#x52A0;power&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x80FD;&#x4E70;&#x5230;&#x66F4;&#x591A;&#x7684;&#x5206;&#x6570;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#x8FD8;&#x662F;&#x4E00;&#x9053;&#x53CC;&#x6307;&#x9488;&#x9898;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x6BCF;&#x6B21;&#x4E70;&#x5165;&#x524D;&#x8981;&#x68C0;&#x5BDF;&#x662F;&#x5426;&#x5F53;&#x524D;&#x7684;power&#x6570;&#x8DB3;&#x591F;&#x4E70;&#x5165;point.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> bagOfTokensScore = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tokens, P</span>) </span>{
-    <span class="hljs-keyword">const</span> len = tokens.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || P &lt;= <span class="hljs-number">0</span>) {
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;200&#x9898;number of islands&#x5F88;&#x50CF;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x8981;&#x68C0;&#x67E5;island&#x7684;&#x5F62;&#x72B6;&#x3002;&#x96BE;&#x70B9;&#x5728;&#x4E8E;&#x5982;&#x4F55;&#x7ED9;&#x5F62;&#x72B6;&#x7F16;&#x7801;&#x3002;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;dfs traverse&#x7684;&#x8DEF;&#x5F84;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x6BCF;&#x4E00;&#x4E2A;island&#x7684;&#x8D77;&#x70B9;&#x4E3A;&#x5F52;&#x4E00;&#x5316;&#x7684;&#x96F6;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6CBF;&#x8DEF;&#x8BBF;&#x95EE;&#x8FC7;&#x7684;&#x5F52;&#x4E00;&#x5316;&#x7684;&#x8282;&#x70B9;&#x5750;&#x6807;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;, &#x5C31;&#x53EF;&#x4EE5;&#x505A;&#x4E3A;island&#x7684;&#x5F62;&#x72B6;&#x7F16;&#x7801;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> numDistinctIslands = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>{
+    <span class="hljs-keyword">const</span> rows = grid.length;
+    <span class="hljs-keyword">if</span> (rows === <span class="hljs-number">0</span>) {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    tokens.sort((a, b) =&gt; a - b);
+    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
 
-    <span class="hljs-keyword">let</span> max = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>, end = len<span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">while</span> (start &lt;= end) {
-        max = <span class="hljs-built_in">Math</span>.max(max, getPoints(tokens, start, end, P));
-        <span class="hljs-keyword">if</span> (P &gt;= tokens[start]) {
-            P += (tokens[end--] - tokens[start++]);
-        } <span class="hljs-keyword">else</span> {
-            <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">const</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; rows; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; cols; j++) {
+            <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-number">1</span>) {
+                <span class="hljs-keyword">const</span> code = dfs(i, j, grid, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+                <span class="hljs-keyword">if</span> (!set.has(code)) {
+                    res++;
+                    set.add(code);
+                }
+            }
         }
     }
-    <span class="hljs-keyword">return</span> max;
+    <span class="hljs-keyword">return</span> res;
 };
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPoints</span>(<span class="hljs-params">tokens, start, end, P</span>) </span>{
-    <span class="hljs-keyword">if</span> (end - start &lt; <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">row, col, grid, row0, col0</span>) </span>{
+    <span class="hljs-keyword">const</span> rows = grid.length;
+    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
+    <span class="hljs-keyword">let</span> code = <span class="hljs-string">`<span class="hljs-subst">${row0}</span><span class="hljs-subst">${col0}</span>`</span>;
+    <span class="hljs-keyword">const</span> dx = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>];
+    <span class="hljs-keyword">const</span> dy = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>];
+    grid[row][col] = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) {
+        <span class="hljs-keyword">if</span> (row+dx[i] &gt;= <span class="hljs-number">0</span> &amp;&amp; row+dx[i] &lt; rows &amp;&amp; col+dy[i] &gt;= <span class="hljs-number">0</span> &amp;&amp; col+dy[i] &lt; cols &amp;&amp; grid[row+dx[i]][col+dy[i]] === <span class="hljs-number">1</span>) {
+            code += dfs(row+dx[i], col+dy[i], grid, row0+dx[i], col0+dy[i]);
+        }
     }
-    <span class="hljs-keyword">let</span> points = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (start &lt;= end &amp;&amp; P &gt;= tokens[start]) {
-        P -= tokens[start++];
-        points++;
-    }
-    <span class="hljs-keyword">return</span> points;
+    <span class="hljs-keyword">return</span> code;
 }
 </code></pre>
 
@@ -382,12 +388,12 @@
 
             
                 
-                <a href="962-max-width-ramp.html" class="navigation navigation-prev " aria-label="Previous page: 962: Max Width Ramp">
+                <a href="200-number-of-islands.html" class="navigation navigation-prev " aria-label="Previous page: 200 : Number of Islands">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../graph/947-moast-stones-removed-with-same-row-or-col.html" class="navigation navigation-next " aria-label="Next page: 947: Most Stones Removed with Same Row or Column">
+                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -398,7 +404,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"948: Bag of Tokens","level":"5.2","depth":1,"next":{"title":"947: Most Stones Removed with Same Row or Column","level":"7.1","depth":1,"path":"graph/947-moast-stones-removed-with-same-row-or-col.md","ref":"graph/947-moast-stones-removed-with-same-row-or-col.md","articles":[]},"previous":{"title":"962: Max Width Ramp","level":"5.1","depth":1,"path":"two-pointer/962-max-width-ramp.md","ref":"two-pointer/962-max-width-ramp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"two-pointer/948-bag-of-tokens.md","mtime":"2018-12-26T18:40:35.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T23:41:52.906Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"694 : Number of Distinct Islands","level":"7.3","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"8.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"200 : Number of Islands","level":"7.2","depth":1,"path":"graph/200-number-of-islands.md","ref":"graph/200-number-of-islands.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/694-number-of-distinct-islands.md","mtime":"2018-12-26T23:40:02.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T23:41:52.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

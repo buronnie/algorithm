@@ -1,0 +1,310 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>957: Prison cells after N days · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../two-pointer/962-max-width-ramp.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Introduction</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Two Pointer</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../two-pointer/962-max-width-ramp.html">
+            
+                <a href="../two-pointer/962-max-width-ramp.html">
+            
+                    
+                    962: Max width ramp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">State loop</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="957-prison-cells-after-N-days.html">
+            
+                <a href="957-prison-cells-after-N-days.html">
+            
+                    
+                    957: Prison cells after N days
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >957: Prison cells after N days</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x5F53;&#x770B;&#x5230;example2&#x7684;N=100000000&#x65F6;&#xFF0C;&#x5C31;&#x5E94;&#x8BE5;&#x610F;&#x8BC6;&#x5230;&#x72B6;&#x6001;&#x80AF;&#x5B9A;&#x4F1A;&#x5FAA;&#x73AF;&#x91CD;&#x590D;&#x3002;&#x53EA;&#x8981;&#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x68C0;&#x6D4B;&#x5230;&#x72B6;&#x6001;&#x91CD;&#x590D;&#x65F6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x5FAA;&#x73AF;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x548C;&#x5FAA;&#x73AF;&#x957F;&#x5EA6;&#x3002;</p>
+<pre><code>pos = (N - periodStart) % period + periodStart
+</code></pre><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> prisonAfterNDays = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cells, N</span>) </span>{
+    <span class="hljs-keyword">const</span> len = cells.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || N === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> [];
+    }
+
+    <span class="hljs-keyword">const</span> map = {[cells.join(<span class="hljs-string">&apos;&apos;</span>)]: <span class="hljs-number">0</span>};
+    <span class="hljs-keyword">const</span> states=  [cells];
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">let</span> period = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> periodStartPos = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+        <span class="hljs-keyword">const</span> nextState = getNextCell(cells);
+        <span class="hljs-keyword">const</span> nextStateStr = nextState.join(<span class="hljs-string">&apos;&apos;</span>);
+        <span class="hljs-keyword">if</span> (nextStateStr <span class="hljs-keyword">in</span> map) {
+            periodStartPos = map[nextStateStr];
+            period = states.length - map[nextStateStr];
+            <span class="hljs-keyword">break</span>;
+        } <span class="hljs-keyword">else</span> {
+            map[nextStateStr] = i;
+        }
+        states.push(nextState);
+        cells = nextState;
+        i++;
+    }
+    <span class="hljs-keyword">return</span> states[(N-periodStartPos) % period + periodStartPos];
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNextCell</span>(<span class="hljs-params">cells</span>) </span>{
+    <span class="hljs-keyword">const</span> len = cells.length;
+    <span class="hljs-keyword">const</span> next = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    next[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>; 
+    next[len<span class="hljs-number">-1</span>] = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i&lt; len<span class="hljs-number">-1</span>; i++) {
+        <span class="hljs-keyword">if</span> (cells[i<span class="hljs-number">-1</span>] === cells[i+<span class="hljs-number">1</span>]) {
+            next[i] = <span class="hljs-number">1</span>;
+        } <span class="hljs-keyword">else</span> {
+            next[i] = <span class="hljs-number">0</span>;
+        }
+    }
+    <span class="hljs-keyword">return</span> next;
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../two-pointer/962-max-width-ramp.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 962: Max width ramp">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"957: Prison cells after N days","level":"3.1","depth":1,"previous":{"title":"962: Max width ramp","level":"2.1","depth":1,"path":"two-pointer/962-max-width-ramp.md","ref":"two-pointer/962-max-width-ramp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"state-loop/957-prison-cells-after-N-days.md","mtime":"2018-12-26T04:42:21.293Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T04:45:16.229Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

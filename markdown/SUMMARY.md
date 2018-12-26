@@ -9,6 +9,7 @@
 
 ## Two Pointers
 * [962: Max Width Ramp](two-pointer/962-max-width-ramp.md)
+* [948: Bag of Tokens](two-pointer/948-bag-of-tokens.md)
 
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)

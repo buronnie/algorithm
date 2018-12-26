@@ -167,7 +167,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>hahaha</p>
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x4E4D;&#x4E00;&#x770B;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x601D;&#x8DEF;&#xFF0C;&#x4F3C;&#x4E4E;&#x53EA;&#x80FD;&#x7528;&#x53CC;&#x91CD;&#x5FAA;&#x73AF;&#x66B4;&#x529B;&#x6C42;&#x89E3;&#x3002;&#x4F46;&#x662F;&#x4ED4;&#x7EC6;&#x60F3;&#x60F3;&#x53D1;&#x73B0;&#x662F;&#x4E00;&#x9053;&#x53CC;&#x6307;&#x9488;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x6ED1;&#x52A8;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x4F7F;&#x5F97;&#x7A97;&#x53E3;&#x7684;&#x5927;&#x5C0F;&#x5C3D;&#x91CF;&#x6700;&#x5927;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x8F85;&#x52A9;&#x7684;array&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x8BB0;&#x5F55;&#x4ECE;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x5230;&#x6700;&#x53F3;&#x8FB9;&#x8FD9;&#x4E2A;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x6700;&#x5927;&#x503C;&#x3002;</p>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x90FD;&#x5728;&#x6700;&#x5DE6;&#x8FB9;&#xFF0C;&#x9996;&#x5148;&#x8BD5;&#x56FE;&#x5C3D;&#x91CF;&#x5411;&#x53F3;&#x79FB;&#x52A8;&#x53F3;&#x8FB9;&#x7684;&#x6307;&#x9488;&#x3002;&#x5F53;&#x53F3;&#x8FB9;&#x5B50;&#x5E8F;&#x5217;&#x6709;&#x6570;&#x6BD4;&#x5DE6;&#x6307;&#x9488;&#x7684;&#x6570;&#x5927;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4E00;&#x76F4;&#x79FB;&#x52A8;&#x53F3;&#x6307;&#x9488;&#x3002;&#x5F53;&#x53F3;&#x6307;&#x9488;&#x6240;&#x5728;&#x7684;&#x53F3;&#x5E8F;&#x5217;&#x6CA1;&#x6709;&#x6570;&#x6BD4;&#x5DE6;&#x6307;&#x9488;&#x7684;&#x6570;&#x5927;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x79FB;&#x52A8;&#x5DE6;&#x6307;&#x9488;&#xFF0C;&#x76F4;&#x5230;&#x53F3;&#x6307;&#x9488;&#x6240;&#x5728;&#x7684;&#x53F3;&#x5E8F;&#x5217;&#x6709;&#x6570;&#x6BD4;&#x5DE6;&#x6307;&#x9488;&#x7684;&#x6570;&#x5927;&#x505C;&#x6B62;&#x3002;&#x6CE8;&#x610F;&#x8981;&#x68C0;&#x67E5;&#x53F3;&#x6307;&#x9488;&#x4E0D;&#x80FD;&#x8D8A;&#x754C;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> maxWidthRamp = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">A</span>) </span>{
+    <span class="hljs-keyword">const</span> len = A.length;
+    <span class="hljs-keyword">if</span> (len &lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">const</span> max = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    max[len<span class="hljs-number">-1</span>] = A[len<span class="hljs-number">-1</span>];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = len<span class="hljs-number">-2</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
+        max[i] = <span class="hljs-built_in">Math</span>.max(max[i+<span class="hljs-number">1</span>], A[i]);
+    }
+
+    <span class="hljs-keyword">let</span> left = <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>, res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (right &lt; len) {
+        <span class="hljs-keyword">while</span> (right &lt; len &amp;&amp; A[left] &lt;= max[right]) {
+            res = <span class="hljs-built_in">Math</span>.max(res, right-left);
+            right++;
+        }
+        <span class="hljs-keyword">if</span> (right === len) {
+            <span class="hljs-keyword">return</span> res;
+        }
+        <span class="hljs-keyword">while</span> (A[left] &gt; max[right]) {
+            left++;
+        }
+    }
+    <span class="hljs-keyword">return</span> res;
+};
+</code></pre>
 
                                 
                                 </section>
@@ -207,7 +236,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"962: Max Width Ramp","level":"2.1","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"two-pointer/leetcode-962-max-width-ramp.md","mtime":"2018-12-26T03:05:50.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T03:07:49.026Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"962: Max Width Ramp","level":"2.1","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"two-pointer/leetcode-962-max-width-ramp.md","mtime":"2018-12-26T03:34:07.578Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T03:34:33.673Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

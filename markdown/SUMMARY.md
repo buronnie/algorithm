@@ -1,5 +1,8 @@
 ## [Introduction](README.md)
 
+## Hashmap
+* [954: Array of Doubled Pairs](hashmap/954-array-of-doubled-pairs.md)
+
 ## Binary Tree
 ### BFS
 * [958: Check Completeness of a Binary Tree](binary-tree/958-check-completeness-of-a-binary-tree.md)

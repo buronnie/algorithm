@@ -1,0 +1,23 @@
+{
+    "name": "leetcode",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rm -rf node* target docs",
+        "build": "gitbook build markdown docs",
+        "serve": "gitbook serve markdown docs",
+        "prepublishOnly": "npm test",
+        "test": "npm run build",
+        "start": "npm run build && npm run serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "devDependencies": {
+        "gitbook-cli": "^2.3.2"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

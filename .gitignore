@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+_book
+target
+node
+node_tmp
+npm-debug.log
+*.iml
+*.tgz
+/.settings/
+/.project
+/package-lock.json

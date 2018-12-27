@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>962: Max Width Ramp · GitBook</title>
+        <title>863: All Nodes Distance K in Binary Tree · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="948-bag-of-tokens.html" />
+    <link rel="next" href="863-all-nodes-distance-K-in-binary-tree.html" />
     
     
-    <link rel="prev" href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html" />
+    <link rel="prev" href="958-check-completeness-of-a-binary-tree.html" />
     
 
     </head>
@@ -138,9 +138,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../binary-tree/958-check-completeness-of-a-binary-tree.html">
+        <li class="chapter " data-level="4.1" data-path="958-check-completeness-of-a-binary-tree.html">
             
-                <a href="../binary-tree/958-check-completeness-of-a-binary-tree.html">
+                <a href="958-check-completeness-of-a-binary-tree.html">
             
                     
                     958: Check Completeness of a Binary Tree
@@ -151,9 +151,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter active" data-level="4.2" data-path="863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -171,9 +171,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter active" data-level="5.1" data-path="863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -191,9 +191,9 @@
         
         
     
-        <li class="chapter active" data-level="6.1" data-path="962-max-width-ramp.html">
+        <li class="chapter " data-level="6.1" data-path="../two-pointer/962-max-width-ramp.html">
             
-                <a href="962-max-width-ramp.html">
+                <a href="../two-pointer/962-max-width-ramp.html">
             
                     
                     962: Max Width Ramp
@@ -204,9 +204,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="948-bag-of-tokens.html">
+        <li class="chapter " data-level="6.2" data-path="../two-pointer/948-bag-of-tokens.html">
             
-                <a href="948-bag-of-tokens.html">
+                <a href="../two-pointer/948-bag-of-tokens.html">
             
                     
                     948: Bag of Tokens
@@ -366,7 +366,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >962: Max Width Ramp</a>
+        <a href=".." >863: All Nodes Distance K in Binary Tree</a>
     </h1>
 </div>
 
@@ -381,35 +381,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x4E4D;&#x4E00;&#x770B;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x601D;&#x8DEF;&#xFF0C;&#x4F3C;&#x4E4E;&#x53EA;&#x80FD;&#x7528;&#x53CC;&#x91CD;&#x5FAA;&#x73AF;&#x66B4;&#x529B;&#x6C42;&#x89E3;&#x3002;&#x4F46;&#x662F;&#x4ED4;&#x7EC6;&#x60F3;&#x60F3;&#x53D1;&#x73B0;&#x662F;&#x4E00;&#x9053;&#x53CC;&#x6307;&#x9488;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x6ED1;&#x52A8;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x4F7F;&#x5F97;&#x7A97;&#x53E3;&#x7684;&#x5927;&#x5C0F;&#x5C3D;&#x91CF;&#x6700;&#x5927;&#x3002;</p>
-<p>&#x5176;&#x4E2D;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x8F85;&#x52A9;&#x7684;array&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x8BB0;&#x5F55;&#x4ECE;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x5230;&#x6700;&#x53F3;&#x8FB9;&#x8FD9;&#x4E2A;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x6700;&#x5927;&#x503C;&#x3002;</p>
-<p>&#x4E00;&#x5F00;&#x59CB;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x90FD;&#x5728;&#x6700;&#x5DE6;&#x8FB9;&#xFF0C;&#x9996;&#x5148;&#x8BD5;&#x56FE;&#x5C3D;&#x91CF;&#x5411;&#x53F3;&#x79FB;&#x52A8;&#x53F3;&#x8FB9;&#x7684;&#x6307;&#x9488;&#x3002;&#x5F53;&#x53F3;&#x8FB9;&#x5B50;&#x5E8F;&#x5217;&#x6709;&#x6570;&#x6BD4;&#x5DE6;&#x6307;&#x9488;&#x7684;&#x6570;&#x5927;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4E00;&#x76F4;&#x79FB;&#x52A8;&#x53F3;&#x6307;&#x9488;&#x3002;&#x5F53;&#x53F3;&#x6307;&#x9488;&#x6240;&#x5728;&#x7684;&#x53F3;&#x5E8F;&#x5217;&#x6CA1;&#x6709;&#x6570;&#x6BD4;&#x5DE6;&#x6307;&#x9488;&#x7684;&#x6570;&#x5927;&#x65F6;&#xFF0C;&#x5F00;&#x59CB;&#x79FB;&#x52A8;&#x5DE6;&#x6307;&#x9488;&#xFF0C;&#x76F4;&#x5230;&#x53F3;&#x6307;&#x9488;&#x6240;&#x5728;&#x7684;&#x53F3;&#x5E8F;&#x5217;&#x6709;&#x6570;&#x6BD4;&#x5DE6;&#x6307;&#x9488;&#x7684;&#x6570;&#x5927;&#x505C;&#x6B62;&#x3002;&#x6CE8;&#x610F;&#x8981;&#x68C0;&#x67E5;&#x53F3;&#x6307;&#x9488;&#x4E0D;&#x80FD;&#x8D8A;&#x754C;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> maxWidthRamp = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">A</span>) </span>{
-    <span class="hljs-keyword">const</span> len = A.length;
-    <span class="hljs-keyword">if</span> (len &lt;= <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x975E;&#x5E38;&#x5DE7;&#x5999;&#x7684;&#x5C06;tree&#x7684;&#x95EE;&#x9898;&#x8F6C;&#x5316;&#x4E3A;graph&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E2A;&#x89E3;&#x6CD5;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x6240;&#x6709;&#x9700;&#x8981;&#x5411;&#x4E0A;&#x641C;&#x7D22;parent&#x7684;&#x95EE;&#x9898;&#x4E0A;&#x3002;</p>
+<ul>
+<li>DFS&#x5EFA;&#x7ACB;&#x65E0;&#x5411;&#x56FE;&#x7684;map</li>
+<li>BFS&#x641C;&#x7D22;&#x7B2C;K&#x5C42;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> distanceK = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root, target, K</span>) </span>{
+    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span> || K &lt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> [];
     }
-    <span class="hljs-keyword">const</span> max = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-    max[len<span class="hljs-number">-1</span>] = A[len<span class="hljs-number">-1</span>];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = len<span class="hljs-number">-2</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
-        max[i] = <span class="hljs-built_in">Math</span>.max(max[i+<span class="hljs-number">1</span>], A[i]);
+    <span class="hljs-keyword">if</span> (K === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> [target.val];
     }
 
-    <span class="hljs-keyword">let</span> left = <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>, res = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (right &lt; len) {
-        <span class="hljs-keyword">while</span> (right &lt; len &amp;&amp; A[left] &lt;= max[right]) {
-            res = <span class="hljs-built_in">Math</span>.max(res, right-left);
-            right++;
-        }
-        <span class="hljs-keyword">if</span> (right === len) {
-            <span class="hljs-keyword">return</span> res;
-        }
-        <span class="hljs-keyword">while</span> (A[left] &gt; max[right]) {
-            left++;
-        }
+    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+    dfs(root, map);
+
+    <span class="hljs-keyword">const</span> queue = map.get(target);
+    <span class="hljs-keyword">if</span> (!queue) {
+        <span class="hljs-keyword">return</span> [];
     }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+    visited.add(target);
+    <span class="hljs-keyword">let</span> level = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span> (queue.length &gt; <span class="hljs-number">0</span> &amp;&amp; level &lt; K) {
+        <span class="hljs-keyword">const</span> size = queue.length;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) {
+            <span class="hljs-keyword">const</span> curr = queue.pop();
+            <span class="hljs-keyword">const</span> neighbors = map.get(curr);
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; neighbors.length; j++) {
+                <span class="hljs-keyword">if</span> (!visited.has(neighbors[j])) {
+                    queue.unshift(neighbors[j]);
+                }
+            }
+            visited.add(curr);
+        }
+        level++;
+    }
+    <span class="hljs-keyword">return</span> queue.map(a =&gt; a.val);
 };
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">root, map</span>) </span>{
+    <span class="hljs-keyword">const</span> left = root.left;
+    <span class="hljs-keyword">const</span> right = root.right;
+    <span class="hljs-keyword">if</span> (left !== <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">if</span> (!map.get(root)) {
+            map.set(root, [left]);
+        } <span class="hljs-keyword">else</span> {
+            map.set(root, [...map.get(root), left]);
+        }
+        map.set(left, [root]);
+        dfs(left, map);
+    }
+    <span class="hljs-keyword">if</span> (right !== <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">if</span> (!map.get(root)) {
+            map.set(root, [right]);
+        } <span class="hljs-keyword">else</span> {
+            map.set(root, [...map.get(root), right]);
+        }
+        map.set(right, [root]);
+        dfs(right, map);
+    }
+}
 </code></pre>
 
                                 
@@ -438,12 +471,12 @@
 
             
                 
-                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 863: All Nodes Distance K in Binary Tree">
+                <a href="958-check-completeness-of-a-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 958: Check Completeness of a Binary Tree">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="948-bag-of-tokens.html" class="navigation navigation-next " aria-label="Next page: 948: Bag of Tokens">
+                <a href="863-all-nodes-distance-K-in-binary-tree.html" class="navigation navigation-next " aria-label="Next page: 863: All Nodes Distance K in Binary Tree">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -454,7 +487,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"962: Max Width Ramp","level":"6.1","depth":1,"next":{"title":"948: Bag of Tokens","level":"6.2","depth":1,"path":"two-pointer/948-bag-of-tokens.md","ref":"two-pointer/948-bag-of-tokens.md","articles":[]},"previous":{"title":"863: All Nodes Distance K in Binary Tree","level":"5.1","depth":1,"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","ref":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"two-pointer/962-max-width-ramp.md","mtime":"2018-12-26T04:33:28.201Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-27T21:45:26.460Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"863: All Nodes Distance K in Binary Tree","level":"4.2","depth":1,"next":{"title":"863: All Nodes Distance K in Binary Tree","level":"5.1","depth":1,"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","ref":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","articles":[]},"previous":{"title":"958: Check Completeness of a Binary Tree","level":"4.1","depth":1,"path":"binary-tree/958-check-completeness-of-a-binary-tree.md","ref":"binary-tree/958-check-completeness-of-a-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","mtime":"2018-12-27T21:45:10.855Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-27T21:45:26.460Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

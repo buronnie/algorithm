@@ -6,6 +6,10 @@
 ## Binary Tree
 ### BFS
 * [958: Check Completeness of a Binary Tree](binary-tree/958-check-completeness-of-a-binary-tree.md)
+* [863: All Nodes Distance K in Binary Tree](binary-tree/863-all-nodes-distance-K-in-binary-tree.md)
+
+### DFS
+* [863: All Nodes Distance K in Binary Tree](binary-tree/863-all-nodes-distance-K-in-binary-tree.md)
 
 ## Two Pointers
 * [962: Max Width Ramp](two-pointer/962-max-width-ramp.md)

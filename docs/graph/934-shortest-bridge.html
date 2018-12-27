@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>200 : Number of Islands · GitBook</title>
+        <title>934: Shortest Bridge · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="694-number-of-distinct-islands.html" />
+    <link rel="next" href="200-number-of-islands.html" />
     
     
-    <link rel="prev" href="934-shortest-bridge.html" />
+    <link rel="prev" href="947-moast-stones-removed-with-same-row-or-col.html" />
     
 
     </head>
@@ -211,7 +211,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="934-shortest-bridge.html">
+        <li class="chapter active" data-level="7.2" data-path="934-shortest-bridge.html">
             
                 <a href="934-shortest-bridge.html">
             
@@ -224,7 +224,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="7.3" data-path="200-number-of-islands.html">
+        <li class="chapter " data-level="7.3" data-path="200-number-of-islands.html">
             
                 <a href="200-number-of-islands.html">
             
@@ -333,7 +333,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >200 : Number of Islands</a>
+        <a href=".." >934: Shortest Bridge</a>
     </h1>
 </div>
 
@@ -348,44 +348,122 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;947&#x9898;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x5229;&#x7528;dfs&#x904D;&#x5386;&#x6240;&#x6709;&#x8FDE;&#x901A;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x70B9;&#x3002;&#x8FD9;&#x4E2A;&#x9898;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6B8A;&#x6027;&#xFF0C;&#x4F7F;&#x4EE3;&#x7801;&#x7B80;&#x5316;&#xFF1A;</p>
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;&#x5176;&#x5B83;&#x7684;islands&#x9898;&#x76EE;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x3002;&#x96BE;&#x70B9;&#x5728;&#x4E8E;&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x4E24;&#x4E2A;islands&#x4E4B;&#x95F4;&#x7684;&#x6700;&#x77ED;&#x8DDD;&#x79BB;&#x3002;
+&#x6700;&#x76F4;&#x63A5;&#x7684;&#x60F3;&#x6CD5;&#x662F;:</p>
 <ul>
-<li>&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x5B9A;&#x4E49;visited&#x77E9;&#x9635;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539; <code>grid[i][j] = 0</code> &#x6765;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x70B9;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8BBF;&#x95EE;&#x8FC7;</li>
-<li>&#x6BCF;&#x4E00;&#x4E2A;&#x8D77;&#x70B9;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;island&#x7684;&#x5F00;&#x59CB;&#xFF0C;dfs&#x51FD;&#x6570;&#x4E0D;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x503C;&#xFF0C;&#x5728;&#x4E3B;&#x51FD;&#x6570;&#x4E2D;&#x8BBE;&#x8BA1;&#x6570;&#x5668;&#x5373;&#x53EF;</li>
+<li>dfs&#x628A;&#x4E24;&#x4E2A;islands&#x7684;&#x5750;&#x6807;&#x5206;&#x522B;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF0C;&#x5B58;&#x5728;&#x4E24;&#x4E2A;array&#x4E2D;&#x3002;</li>
+<li>&#x53CC;&#x91CD;&#x5FAA;&#x73AF;&#x4E24;&#x4E2A;array, &#x627E;&#x5230;&#x5176;&#x4E2D;Manhattan&#x8DDD;&#x79BB;&#x6700;&#x77ED;&#x7684;&#x4E24;&#x4E2A;&#x70B9;&#x3002;</li>
+<li>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x52C9;&#x5F3A;AC, beat 0% (&#x56E7;)</li>
 </ul>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> numIslands = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>{
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> shortestBridge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>{
     <span class="hljs-keyword">const</span> rows = grid.length;
     <span class="hljs-keyword">if</span> (rows === <span class="hljs-number">0</span>) {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
     <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
 
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> islands = [];
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; rows; i++) {
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; cols; j++) {
-            <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-string">&apos;1&apos;</span>) {
-                dfs(i, j, grid);
-                res += <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-number">1</span>) {
+                islands.push(dfs(i, j, grid));
             }
         }
     }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">const</span> land1 = islands[<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">const</span> land2 = islands[<span class="hljs-number">1</span>];
+
+    <span class="hljs-keyword">let</span> res = rows + cols;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; land1.length; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; land2.length; j++) {
+            res = <span class="hljs-built_in">Math</span>.min(res,  dist(land1[i], land2[j]) - <span class="hljs-number">1</span>);
+        }
+    }
+    <span class="hljs-keyword">return</span> res;   
 };
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dist</span>(<span class="hljs-params">p1, p2</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(p1[<span class="hljs-number">0</span>] - p2[<span class="hljs-number">0</span>]) + <span class="hljs-built_in">Math</span>.abs(p1[<span class="hljs-number">1</span>] - p2[<span class="hljs-number">1</span>]);
+}
 
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">row, col, grid</span>) </span>{
     <span class="hljs-keyword">const</span> rows = grid.length;
     <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
-    grid[row][col] = <span class="hljs-string">&apos;0&apos;</span>;
+    grid[row][col] = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">const</span> dx = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>];
     <span class="hljs-keyword">const</span> dy = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>];
+    <span class="hljs-keyword">let</span> arr = [[row, col]];
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) {
         <span class="hljs-keyword">const</span> nextRow = dx[i] + row;
         <span class="hljs-keyword">const</span> nextCol = dy[i] + col;
-        <span class="hljs-keyword">if</span> (nextRow &gt;= <span class="hljs-number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextCol &gt;= <span class="hljs-number">0</span> &amp;&amp; nextCol &lt; cols &amp;&amp; grid[nextRow][nextCol] === <span class="hljs-string">&apos;1&apos;</span>) {
-            dfs(nextRow, nextCol, grid);
+        <span class="hljs-keyword">if</span> (nextRow &gt;= <span class="hljs-number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextCol &gt;= <span class="hljs-number">0</span> &amp;&amp; nextCol &lt; cols &amp;&amp; grid[nextRow][nextCol] === <span class="hljs-number">1</span>) {
+            arr = [...arr, ...dfs(nextRow, nextCol, grid)];
         }
     }
+    <span class="hljs-keyword">return</span> arr;
+}
+</code></pre>
+<p>&#x66F4;&#x597D;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF1A;</p>
+<ul>
+<li>dfs&#x627E;&#x5230;&#x4E00;&#x4E2A;island&#x7684;&#x6240;&#x6709;&#x70B9;</li>
+<li>&#x7528;bfs&#x4ECE;&#x6240;&#x6709;&#x70B9;&#x5411;&#x5916;&#x6269;&#x5F20;&#xFF0C;&#x76F4;&#x5230;&#x78B0;&#x5230;&#x7B2C;&#x4E8C;&#x4E2A;island&#x7684;&#x70B9;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> shortestBridge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>{
+    <span class="hljs-keyword">const</span> rows = grid.length;
+    <span class="hljs-keyword">if</span> (rows === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
+
+    <span class="hljs-keyword">let</span> queue;
+    <span class="hljs-keyword">let</span> flag = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; rows &amp;&amp; flag; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; cols &amp;&amp; flag; j++) {
+            <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-number">1</span>) {
+                queue = dfs(i, j, grid);
+                flag = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">break</span>;
+            }
+        }
+    }
+    <span class="hljs-keyword">let</span> dist = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> dx = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>];
+    <span class="hljs-keyword">const</span> dy = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>];
+    <span class="hljs-keyword">while</span> (queue.length &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">const</span> size = queue.length;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) {
+            <span class="hljs-keyword">const</span> [x, y] = queue.pop();
+            grid[x][y] = <span class="hljs-number">-1</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++) {
+                <span class="hljs-keyword">if</span> (x+dx[j] &gt;= <span class="hljs-number">0</span> &amp;&amp; x+dx[j] &lt; rows &amp;&amp; y+dy[j] &gt;= <span class="hljs-number">0</span> &amp;&amp; y+dy[j] &lt; cols &amp;&amp; grid[x+dx[j]][y+dy[j]] !== <span class="hljs-number">-1</span>) {
+                    <span class="hljs-keyword">if</span> (grid[x+dx[j]][y+dy[j]] === <span class="hljs-number">1</span>) {
+                        <span class="hljs-keyword">return</span> dist;
+                    }
+                    queue.unshift([x+dx[j], y+dy[j]]);
+                }
+            }
+        }
+        dist++;
+    }
+    <span class="hljs-keyword">return</span> dist;    
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">row, col, grid</span>) </span>{
+    <span class="hljs-keyword">const</span> rows = grid.length;
+    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
+    grid[row][col] = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> dx = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>];
+    <span class="hljs-keyword">const</span> dy = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>];
+    <span class="hljs-keyword">let</span> arr = [[row, col]];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) {
+        <span class="hljs-keyword">const</span> nextRow = dx[i] + row;
+        <span class="hljs-keyword">const</span> nextCol = dy[i] + col;
+        <span class="hljs-keyword">if</span> (nextRow &gt;= <span class="hljs-number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextCol &gt;= <span class="hljs-number">0</span> &amp;&amp; nextCol &lt; cols &amp;&amp; grid[nextRow][nextCol] === <span class="hljs-number">1</span>) {
+            arr = [...arr, ...dfs(nextRow, nextCol, grid)];
+        }
+    }
+    <span class="hljs-keyword">return</span> arr;
 }
 </code></pre>
 
@@ -415,12 +493,12 @@
 
             
                 
-                <a href="934-shortest-bridge.html" class="navigation navigation-prev " aria-label="Previous page: 934: Shortest Bridge">
+                <a href="947-moast-stones-removed-with-same-row-or-col.html" class="navigation navigation-prev " aria-label="Previous page: 947: Most Stones Removed with Same Row or Column">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="694-number-of-distinct-islands.html" class="navigation navigation-next " aria-label="Next page: 694 : Number of Distinct Islands">
+                <a href="200-number-of-islands.html" class="navigation navigation-next " aria-label="Next page: 200 : Number of Islands">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -431,7 +509,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"200 : Number of Islands","level":"7.3","depth":1,"next":{"title":"694 : Number of Distinct Islands","level":"7.4","depth":1,"path":"graph/694-number-of-distinct-islands.md","ref":"graph/694-number-of-distinct-islands.md","articles":[]},"previous":{"title":"934: Shortest Bridge","level":"7.2","depth":1,"path":"graph/934-shortest-bridge.md","ref":"graph/934-shortest-bridge.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/200-number-of-islands.md","mtime":"2018-12-26T21:31:11.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-27T00:43:06.483Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"934: Shortest Bridge","level":"7.2","depth":1,"next":{"title":"200 : Number of Islands","level":"7.3","depth":1,"path":"graph/200-number-of-islands.md","ref":"graph/200-number-of-islands.md","articles":[]},"previous":{"title":"947: Most Stones Removed with Same Row or Column","level":"7.1","depth":1,"path":"graph/947-moast-stones-removed-with-same-row-or-col.md","ref":"graph/947-moast-stones-removed-with-same-row-or-col.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/934-shortest-bridge.md","mtime":"2018-12-27T00:43:33.272Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-27T00:43:06.483Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>958: Check Completeness of a Binary Tree · GitBook</title>
+        <title>836: Rectangle Overlap · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="863-all-nodes-distance-K-in-binary-tree.html" />
     
-    
-    <link rel="prev" href="../hashmap/954-array-of-doubled-pairs.html" />
+    <link rel="prev" href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html" />
     
 
     </head>
@@ -138,9 +136,9 @@
         
         
     
-        <li class="chapter active" data-level="4.1" data-path="958-check-completeness-of-a-binary-tree.html">
+        <li class="chapter " data-level="4.1" data-path="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
-                <a href="958-check-completeness-of-a-binary-tree.html">
+                <a href="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
                     
                     958: Check Completeness of a Binary Tree
@@ -151,9 +149,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="4.2" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -171,9 +169,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="5.1" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -343,9 +341,9 @@
         
         
     
-        <li class="chapter " data-level="11.1" data-path="../geometry/836-rectange-overlap.html">
+        <li class="chapter active" data-level="11.1" data-path="836-rectange-overlap.html">
             
-                <a href="../geometry/836-rectange-overlap.html">
+                <a href="836-rectange-overlap.html">
             
                     
                     836: Rectangle Overlap
@@ -386,7 +384,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >958: Check Completeness of a Binary Tree</a>
+        <a href=".." >836: Rectangle Overlap</a>
     </h1>
 </div>
 
@@ -401,59 +399,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x4E2A;&#x9898;&#x641E;&#x4E86;&#x6211;&#x597D;&#x4E45;&#x624D;&#x901A;&#x8FC7;&#xFF0C;&#x601D;&#x8DEF;&#x6BD4;&#x8F83;&#x76F4;&#x63A5;&#xFF0C;&#x5C31;&#x662F;BFS&#x627E;&#x5230;&#x6700;&#x540E;&#x4E00;&#x5C42;&#xFF0C;&#x7136;&#x540E;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;NULL&#x4ECB;&#x4E8E;NON-NULL&#x4E4B;&#x95F4;&#x3002;&#x4E3A;&#x4E86;&#x601D;&#x8DEF;&#x6E05;&#x6670;&#xFF0C;&#x6700;&#x597D;&#x80FD;&#x5B9A;&#x4E49;&#x5355;&#x72EC;&#x7684;&#x51FD;&#x6570;&#x6765;&#x4F5C;&#x5224;&#x65AD;&#xFF0C;&#x6BD4;&#x5982;&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x6700;&#x540E;&#x4E00;&#x5C42;&#xFF0C;&#x5224;&#x65AD;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x662F;&#x5426;&#x6709;gap&#x3002;&#x8FD9;&#x6837;&#x4E66;&#x5199;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x9762;&#x8BD5;&#x65F6;&#x601D;&#x8DEF;&#x96C6;&#x4E2D;&#x5728;&#x67D0;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x95EE;&#x9898;&#x4E0A;&#xFF0C;&#x4E0D;&#x5BB9;&#x6613;&#x51FA;bug, &#x4E5F;&#x4F1A;&#x7ED9;&#x9762;&#x8BD5;&#x5B98;&#x7559;&#x4E0B;&#x597D;&#x5370;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x66F4;&#x7B26;&#x5408;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;&#x8981;&#x6C42;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> isCompleteTree = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-    }
-    <span class="hljs-keyword">const</span> queue = [[root]];
-    <span class="hljs-keyword">while</span> (queue.length &gt; <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">const</span> currLevel = queue.pop();
-        <span class="hljs-keyword">const</span> nextLevel = [];
-        <span class="hljs-keyword">if</span> (isBottom(currLevel)) {
-            <span class="hljs-keyword">return</span> !hasGap(currLevel);
-        }
-        <span class="hljs-keyword">if</span> (currLevel.filter(a =&gt; a === <span class="hljs-literal">null</span>).length &gt; <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-        }
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; currLevel.length; i++) {
-            nextLevel.push(currLevel[i].left);
-            nextLevel.push(currLevel[i].right);
-        }
-        queue.unshift(nextLevel);
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isBottom</span>(<span class="hljs-params">arr</span>) </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
-        <span class="hljs-keyword">if</span> (arr[i] !== <span class="hljs-literal">null</span> &amp;&amp; (arr[i].left !== <span class="hljs-literal">null</span> || arr[i].right !== <span class="hljs-literal">null</span>)) {
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-        }
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-}
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasGap</span>(<span class="hljs-params">arr</span>) </span>{
-    <span class="hljs-keyword">const</span> len = arr.length;
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; 
-    <span class="hljs-keyword">while</span> (i &lt; len &amp;&amp; arr[i] !== <span class="hljs-literal">null</span>) {
-        i++;
-    }
-    <span class="hljs-keyword">if</span> (i === len) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    }
-    <span class="hljs-keyword">let</span> j = i;
-    <span class="hljs-keyword">while</span> (j &lt; len &amp;&amp; arr[j] === <span class="hljs-literal">null</span>) {
-        j++;
-    }
-
-    <span class="hljs-keyword">if</span> (j === len) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-}
-</code></pre>
+                                <p>&#x8FD9;&#x4E2A;&#x9898;&#x4E00;&#x7EF4;&#x4E8C;&#x7EF4;&#x7684;&#x60C5;&#x51B5;&#x90FD;&#x5F88;&#x7ECF;&#x5178;&#xFF0C;&#x53EF;&#x4EE5;&#x8BB0;&#x4F4F;&#x7ED3;&#x8BBA;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x7EF4;&#xFF1A;[l1, r1], [l2, r2]. overlap &lt;=&gt; <code>l1 &lt; r2 &amp;&amp; l2 &lt; r1</code></li>
+<li>&#x4E8C;&#x7EF4;&#xFF1A;[blx1, bly1, trx1, try1], [blx2, bly2, trx2, try2]. overlap &lt;=&gt; <code>blx1 &lt; trx2 &amp;&amp; blx2 &lt; trx1 &amp;&amp; bly1 &lt; try2 &amp;&amp; bly2 &lt; try1</code></li>
+</ul>
 
                                 
                                 </section>
@@ -481,14 +431,10 @@
 
             
                 
-                <a href="../hashmap/954-array-of-doubled-pairs.html" class="navigation navigation-prev " aria-label="Previous page: 954: Array of Doubled Pairs">
+                <a href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 955: Delete Columns to Make Sorted II">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="863-all-nodes-distance-K-in-binary-tree.html" class="navigation navigation-next " aria-label="Next page: 863: All Nodes Distance K in Binary Tree">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -497,7 +443,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"958: Check Completeness of a Binary Tree","level":"4.1","depth":1,"next":{"title":"863: All Nodes Distance K in Binary Tree","level":"4.2","depth":1,"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","ref":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","articles":[]},"previous":{"title":"954: Array of Doubled Pairs","level":"2.1","depth":1,"path":"hashmap/954-array-of-doubled-pairs.md","ref":"hashmap/954-array-of-doubled-pairs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binary-tree/958-check-completeness-of-a-binary-tree.md","mtime":"2018-12-26T06:12:45.044Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-27T22:32:52.598Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"836: Rectangle Overlap","level":"11.1","depth":1,"previous":{"title":"955: Delete Columns to Make Sorted II","level":"10.1","depth":1,"path":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","ref":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"geometry/836-rectange-overlap.md","mtime":"2018-12-27T22:29:57.650Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-27T22:32:52.598Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -22,6 +22,7 @@
 * [200 : Number of Islands](graph/200-number-of-islands.md)
 * [694 : Number of Distinct Islands](graph/694-number-of-distinct-islands.md)
 * [695 : Max Area of Island](graph/695-max-area-of-island.md)
+* [815 : Bus Routes](graph/815-bus-routes.md)
 
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)

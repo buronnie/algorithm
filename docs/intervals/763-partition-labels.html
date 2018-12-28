@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>863: All Nodes Distance K in Binary Tree · GitBook</title>
+        <title>763: Partition Labels · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="863-all-nodes-distance-K-in-binary-tree.html" />
+    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
     
     
-    <link rel="prev" href="958-check-completeness-of-a-binary-tree.html" />
+    <link rel="prev" href="../graph/787-cheapest-flights-within-K-stops.html" />
     
 
     </head>
@@ -138,9 +138,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="958-check-completeness-of-a-binary-tree.html">
+        <li class="chapter " data-level="4.1" data-path="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
-                <a href="958-check-completeness-of-a-binary-tree.html">
+                <a href="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
                     
                     958: Check Completeness of a Binary Tree
@@ -151,9 +151,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="4.2" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -171,9 +171,9 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="5.1" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -336,9 +336,9 @@
         
         
     
-        <li class="chapter " data-level="10.1" data-path="../intervals/763-partition-labels.html">
+        <li class="chapter active" data-level="10.1" data-path="763-partition-labels.html">
             
-                <a href="../intervals/763-partition-labels.html">
+                <a href="763-partition-labels.html">
             
                     
                     763: Partition Labels
@@ -439,7 +439,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >863: All Nodes Distance K in Binary Tree</a>
+        <a href=".." >763: Partition Labels</a>
     </h1>
 </div>
 
@@ -454,68 +454,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x975E;&#x5E38;&#x5DE7;&#x5999;&#x7684;&#x5C06;tree&#x7684;&#x95EE;&#x9898;&#x8F6C;&#x5316;&#x4E3A;graph&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E2A;&#x89E3;&#x6CD5;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x6240;&#x6709;&#x9700;&#x8981;&#x5411;&#x4E0A;&#x641C;&#x7D22;parent&#x7684;&#x95EE;&#x9898;&#x4E0A;&#x3002;</p>
-<ul>
-<li>DFS&#x5EFA;&#x7ACB;&#x65E0;&#x5411;&#x56FE;&#x7684;map</li>
-<li>BFS&#x641C;&#x7D22;&#x7B2C;K&#x5C42;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;</li>
-</ul>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> distanceK = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root, target, K</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span> || K &lt; <span class="hljs-number">0</span>) {
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x9053;interval&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x53EA;&#x5173;&#x5FC3;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;letter&#xFF0C;&#x5B83;&#x9996;&#x6B21;&#x548C;&#x672B;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x4F9D;&#x6B21;merge interval&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;merged interval&#x7684;&#x957F;&#x5EA6;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> partitionLabels = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">S</span>) </span>{
+    <span class="hljs-keyword">const</span> len = S.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
         <span class="hljs-keyword">return</span> [];
     }
-    <span class="hljs-keyword">if</span> (K === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> [target.val];
-    }
-
-    <span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
-    dfs(root, map);
-
-    <span class="hljs-keyword">const</span> queue = map.get(target);
-    <span class="hljs-keyword">if</span> (!queue) {
-        <span class="hljs-keyword">return</span> [];
-    }
-    <span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
-    visited.add(target);
-    <span class="hljs-keyword">let</span> level = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">while</span> (queue.length &gt; <span class="hljs-number">0</span> &amp;&amp; level &lt; K) {
-        <span class="hljs-keyword">const</span> size = queue.length;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) {
-            <span class="hljs-keyword">const</span> curr = queue.pop();
-            <span class="hljs-keyword">const</span> neighbors = map.get(curr);
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; neighbors.length; j++) {
-                <span class="hljs-keyword">if</span> (!visited.has(neighbors[j])) {
-                    queue.unshift(neighbors[j]);
-                }
-            }
-            visited.add(curr);
+    <span class="hljs-keyword">const</span> map = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        <span class="hljs-keyword">if</span> (!(S[i] <span class="hljs-keyword">in</span> map)) {
+            map[S[i]] = [i, i];
+        } <span class="hljs-keyword">else</span> {
+            map[S[i]] = [map[S[i]][<span class="hljs-number">0</span>], i];
         }
-        level++;
     }
-    <span class="hljs-keyword">return</span> queue.map(a =&gt; a.val);
+
+    <span class="hljs-keyword">const</span> intervals = [map[S[<span class="hljs-number">0</span>]]];
+    <span class="hljs-keyword">delete</span> map[S[<span class="hljs-number">0</span>]];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; len; i++) {
+        <span class="hljs-keyword">const</span> curr = map[S[i]];
+        <span class="hljs-keyword">if</span> (!curr) {
+            <span class="hljs-keyword">continue</span>;
+        }
+        <span class="hljs-keyword">const</span> last = intervals[intervals.length<span class="hljs-number">-1</span>];
+        <span class="hljs-keyword">if</span> (last[<span class="hljs-number">1</span>] &gt; curr[<span class="hljs-number">0</span>]) {
+            intervals.pop();
+            intervals.push([last[<span class="hljs-number">0</span>], <span class="hljs-built_in">Math</span>.max(last[<span class="hljs-number">1</span>], curr[<span class="hljs-number">1</span>])]);
+        } <span class="hljs-keyword">else</span> {
+            intervals.push([curr[<span class="hljs-number">0</span>], curr[<span class="hljs-number">1</span>]]);
+        }
+        <span class="hljs-keyword">delete</span> map[S[i]];
+    }
+    <span class="hljs-keyword">return</span> intervals.map(i =&gt; i[<span class="hljs-number">1</span>] - i[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>);
 };
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">root, map</span>) </span>{
-    <span class="hljs-keyword">const</span> left = root.left;
-    <span class="hljs-keyword">const</span> right = root.right;
-    <span class="hljs-keyword">if</span> (left !== <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">if</span> (!map.get(root)) {
-            map.set(root, [left]);
-        } <span class="hljs-keyword">else</span> {
-            map.set(root, [...map.get(root), left]);
-        }
-        map.set(left, [root]);
-        dfs(left, map);
-    }
-    <span class="hljs-keyword">if</span> (right !== <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">if</span> (!map.get(root)) {
-            map.set(root, [right]);
-        } <span class="hljs-keyword">else</span> {
-            map.set(root, [...map.get(root), right]);
-        }
-        map.set(right, [root]);
-        dfs(right, map);
-    }
-}
 </code></pre>
 
                                 
@@ -544,12 +515,12 @@
 
             
                 
-                <a href="958-check-completeness-of-a-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 958: Check Completeness of a Binary Tree">
+                <a href="../graph/787-cheapest-flights-within-K-stops.html" class="navigation navigation-prev " aria-label="Previous page: 787 : Cheapest Flights Within K Stops">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="863-all-nodes-distance-K-in-binary-tree.html" class="navigation navigation-next " aria-label="Next page: 863: All Nodes Distance K in Binary Tree">
+                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -560,7 +531,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"863: All Nodes Distance K in Binary Tree","level":"4.2","depth":1,"next":{"title":"863: All Nodes Distance K in Binary Tree","level":"5.1","depth":1,"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","ref":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","articles":[]},"previous":{"title":"958: Check Completeness of a Binary Tree","level":"4.1","depth":1,"path":"binary-tree/958-check-completeness-of-a-binary-tree.md","ref":"binary-tree/958-check-completeness-of-a-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","mtime":"2018-12-27T21:45:10.855Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T05:27:07.764Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"763: Partition Labels","level":"10.1","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"11.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"787 : Cheapest Flights Within K Stops","level":"9.1","depth":1,"path":"graph/787-cheapest-flights-within-K-stops.md","ref":"graph/787-cheapest-flights-within-K-stops.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intervals/763-partition-labels.md","mtime":"2018-12-28T05:26:56.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T05:27:07.764Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

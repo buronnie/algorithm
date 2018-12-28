@@ -29,6 +29,9 @@
 ### Directed Graph
 * [787 : Cheapest Flights Within K Stops](graph/787-cheapest-flights-within-K-stops.md)
 
+## Intervals
+* [763: Partition Labels](intervals/763-partition-labels.md)
+
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)
 

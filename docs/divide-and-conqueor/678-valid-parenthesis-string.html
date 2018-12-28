@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>739: Daily Temperatures · GitBook</title>
+        <title>678: Valid Parenthesis String · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../geometry/836-rectange-overlap.html" />
     
-    <link rel="prev" href="../geometry/836-rectange-overlap.html" />
+    
+    <link rel="prev" href="955-delete-columns-to-make-sorted-2.html" />
     
 
     </head>
@@ -374,9 +376,9 @@
         
         
     
-        <li class="chapter " data-level="12.1" data-path="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html">
+        <li class="chapter " data-level="12.1" data-path="955-delete-columns-to-make-sorted-2.html">
             
-                <a href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html">
+                <a href="955-delete-columns-to-make-sorted-2.html">
             
                     
                     955: Delete Columns to Make Sorted II
@@ -387,9 +389,9 @@
             
         </li>
     
-        <li class="chapter " data-level="12.2" data-path="../divide-and-conqueor/678-valid-parenthesis-string.html">
+        <li class="chapter active" data-level="12.2" data-path="678-valid-parenthesis-string.html">
             
-                <a href="../divide-and-conqueor/678-valid-parenthesis-string.html">
+                <a href="678-valid-parenthesis-string.html">
             
                     
                     678: Valid Parenthesis String
@@ -427,9 +429,9 @@
         
         
     
-        <li class="chapter active" data-level="14.1" data-path="739-daily-temperatures.html">
+        <li class="chapter " data-level="14.1" data-path="../stack/739-daily-temperatures.html">
             
-                <a href="739-daily-temperatures.html">
+                <a href="../stack/739-daily-temperatures.html">
             
                     
                     739: Daily Temperatures
@@ -470,7 +472,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >739: Daily Temperatures</a>
+        <a href=".." >678: Valid Parenthesis String</a>
     </h1>
 </div>
 
@@ -485,38 +487,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;min stack&#xFF0C;&#x5F53;&#x9047;&#x5230;&#x7834;&#x574F;min stack&#x7684;&#x6570;&#x65F6;&#x5C31;&#x5148;pop, &#x518D;push&#x3002;&#x6280;&#x5DE7;&#x662F;&#x628A;index&#x5165;&#x6808;&#x800C;&#x4E0D;&#x662F;value&#x672C;&#x8EAB;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dailyTemperatures = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">T</span>) </span>{
-    <span class="hljs-keyword">const</span> len = T.length;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x6BD4;&#x6CA1;&#x6709;wild card&#x7684;&#x90A3;&#x9053;&#x770B;&#x8D77;&#x6765;&#x8981;&#x96BE;&#x4E86;&#x4E0D;&#x5C11;&#x3002;&#x5173;&#x952E;&#x662F;&#x6BCF;&#x6B21;&#x9047;&#x5230;*&#x5C31;&#x4F1A;&#x6709;3&#x4E2A;&#x5206;&#x652F;&#xFF0C;&#x8FD9;&#x6837;&#x603B;&#x5171;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x662F;&#x6307;&#x6570;&#x4E0A;&#x5347;&#x7684;&#x3002;&#x4E0D;&#x8003;&#x8651;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x60F3;&#x6CD5;&#x662F;&#x5206;&#x6CBB;&#x3002;&#x7528;&#x4E00;&#x4E2A;counter&#x7EDF;&#x8BA1;&#x5DE6;&#x53F3;&#x62EC;&#x53F7;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x7684;&#x5DEE;&#x3002;&#x5408;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8981;&#x6C42;&#x6700;&#x7EC8;&#x7684;counter = 0&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> checkValidString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+    <span class="hljs-keyword">const</span> len = s.length;
     <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> [];
-    } 
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> [<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     }
-
-    <span class="hljs-keyword">const</span> stack = [];
-    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        res[i] = <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        <span class="hljs-keyword">if</span> (stack.length === <span class="hljs-number">0</span> || T[i] &lt;= T[stack[stack.length<span class="hljs-number">-1</span>]]) {
-            stack.push(i);
-            <span class="hljs-keyword">continue</span>;
-        }
-        <span class="hljs-keyword">while</span> (stack.length &gt; <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">if</span> (T[i] &gt; T[stack[stack.length<span class="hljs-number">-1</span>]]) {
-                <span class="hljs-keyword">const</span> prevIdx = stack.pop();
-                res[prevIdx] = i - prevIdx;
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-keyword">break</span>;
-            }
-        }
-        stack.push(i);
-    }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">return</span> dfs(<span class="hljs-number">0</span>, s, <span class="hljs-number">0</span>);
 };
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">pos, str, curr</span>) </span>{
+    <span class="hljs-keyword">if</span> (pos &gt;= str.length) {
+        <span class="hljs-keyword">return</span> curr === <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">if</span> (curr &lt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">if</span> (str[pos] === <span class="hljs-string">&apos;(&apos;</span>) {
+        <span class="hljs-keyword">return</span> dfs(pos+<span class="hljs-number">1</span>, str, curr+<span class="hljs-number">1</span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (str[pos] === <span class="hljs-string">&apos;)&apos;</span>) {
+        <span class="hljs-keyword">return</span> dfs(pos+<span class="hljs-number">1</span>, str, curr<span class="hljs-number">-1</span>);
+    }
+    <span class="hljs-keyword">return</span> dfs(pos+<span class="hljs-number">1</span>, str, curr) || dfs(pos+<span class="hljs-number">1</span>, str, curr+<span class="hljs-number">1</span>) || dfs(pos+<span class="hljs-number">1</span>, str, curr<span class="hljs-number">-1</span>);
+}
 </code></pre>
 
                                 
@@ -545,10 +538,14 @@
 
             
                 
-                <a href="../geometry/836-rectange-overlap.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 836: Rectangle Overlap">
+                <a href="955-delete-columns-to-make-sorted-2.html" class="navigation navigation-prev " aria-label="Previous page: 955: Delete Columns to Make Sorted II">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../geometry/836-rectange-overlap.html" class="navigation navigation-next " aria-label="Next page: 836: Rectangle Overlap">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -557,7 +554,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"739: Daily Temperatures","level":"14.1","depth":1,"previous":{"title":"836: Rectangle Overlap","level":"13.1","depth":1,"path":"geometry/836-rectange-overlap.md","ref":"geometry/836-rectange-overlap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"stack/739-daily-temperatures.md","mtime":"2018-12-28T07:09:11.695Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T22:03:57.506Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"678: Valid Parenthesis String","level":"12.2","depth":1,"next":{"title":"836: Rectangle Overlap","level":"13.1","depth":1,"path":"geometry/836-rectange-overlap.md","ref":"geometry/836-rectange-overlap.md","articles":[]},"previous":{"title":"955: Delete Columns to Make Sorted II","level":"12.1","depth":1,"path":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","ref":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"divide-and-conqueor/678-valid-parenthesis-string.md","mtime":"2018-12-28T22:02:08.719Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T22:03:57.506Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

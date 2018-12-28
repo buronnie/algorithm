@@ -40,3 +40,6 @@
 
 ## Geometry
 * [836: Rectangle Overlap](geometry/836-rectange-overlap.md)
+
+## Stack
+* [739: Daily Temperatures](stack/739-daily-temperatures.md)

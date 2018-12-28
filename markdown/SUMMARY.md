@@ -4,6 +4,7 @@
 * [954: Array of Doubled Pairs](hashmap/954-array-of-doubled-pairs.md)
 
 ## Binary Tree
+
 ### BFS
 * [958: Check Completeness of a Binary Tree](binary-tree/958-check-completeness-of-a-binary-tree.md)
 * [863: All Nodes Distance K in Binary Tree](binary-tree/863-all-nodes-distance-K-in-binary-tree.md)
@@ -16,6 +17,7 @@
 * [948: Bag of Tokens](two-pointer/948-bag-of-tokens.md)
 
 ## Graph
+
 ### Undirected Graph
 * [947: Most Stones Removed with Same Row or Column](graph/947-moast-stones-removed-with-same-row-or-col.md)
 * [934: Shortest Bridge](graph/934-shortest-bridge.md)
@@ -23,6 +25,9 @@
 * [694 : Number of Distinct Islands](graph/694-number-of-distinct-islands.md)
 * [695 : Max Area of Island](graph/695-max-area-of-island.md)
 * [815 : Bus Routes](graph/815-bus-routes.md)
+
+### Directed Graph
+* [787 : Cheapest Flights Within K Stops](graph/787-cheapest-flights-within-K-stops.md)
 
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)

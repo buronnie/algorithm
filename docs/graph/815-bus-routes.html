@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>200 : Number of Islands · GitBook</title>
+        <title>815 : Bus Routes · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="694-number-of-distinct-islands.html" />
+    <link rel="next" href="787-cheapest-flights-within-K-stops.html" />
     
     
-    <link rel="prev" href="934-shortest-bridge.html" />
+    <link rel="prev" href="695-max-area-of-island.html" />
     
 
     </head>
@@ -257,7 +257,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.3" data-path="200-number-of-islands.html">
+        <li class="chapter " data-level="8.3" data-path="200-number-of-islands.html">
             
                 <a href="200-number-of-islands.html">
             
@@ -296,7 +296,7 @@
             
         </li>
     
-        <li class="chapter " data-level="8.6" data-path="815-bus-routes.html">
+        <li class="chapter active" data-level="8.6" data-path="815-bus-routes.html">
             
                 <a href="815-bus-routes.html">
             
@@ -419,7 +419,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >200 : Number of Islands</a>
+        <a href=".." >815 : Bus Routes</a>
     </h1>
 </div>
 
@@ -434,44 +434,88 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;947&#x9898;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x5229;&#x7528;dfs&#x904D;&#x5386;&#x6240;&#x6709;&#x8FDE;&#x901A;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x70B9;&#x3002;&#x8FD9;&#x4E2A;&#x9898;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6B8A;&#x6027;&#xFF0C;&#x4F7F;&#x4EE3;&#x7801;&#x7B80;&#x5316;&#xFF1A;</p>
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x867D;&#x7136;&#x662F;hard, &#x4F46;&#x662F;&#x601D;&#x8DEF;&#x6BD4;&#x8F83;&#x76F4;&#x63A5;&#x3002;&#x9996;&#x5148;&#x8981;&#x770B;&#x5230;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;graph&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FDE;&#x901A;&#x7684;&#x8282;&#x70B9;&#x4E0D;&#x662F;bus stop&#xFF0C;&#x800C;&#x662F;bus/route&#x3002;</p>
 <ul>
-<li>&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x5B9A;&#x4E49;visited&#x77E9;&#x9635;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539; <code>grid[i][j] = 0</code> &#x6765;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x70B9;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8BBF;&#x95EE;&#x8FC7;</li>
-<li>&#x6BCF;&#x4E00;&#x4E2A;&#x8D77;&#x70B9;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;island&#x7684;&#x5F00;&#x59CB;&#xFF0C;dfs&#x51FD;&#x6570;&#x4E0D;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x503C;&#xFF0C;&#x5728;&#x4E3B;&#x51FD;&#x6570;&#x4E2D;&#x8BBE;&#x8BA1;&#x6570;&#x5668;&#x5373;&#x53EF;</li>
+<li>&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;bus route&#x5EFA;&#x7ACB;stop map&#x6216;set&#xFF0C;&#x65B9;&#x4FBF;&#x4EE5;&#x540E;&#x67E5;&#x8BE2;</li>
+<li>&#x5229;&#x7528;&#x524D;&#x4E00;&#x6B65;&#x7684;stop map, &#x4E24;&#x4E24;&#x6BD4;&#x8F83;bus route&#xFF0C;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x4E24;&#x4E2A;route&#x4E4B;&#x95F4;&#x6709;&#x76F8;&#x540C;&#x7684;stop,&#x5982;&#x679C;&#x6709;&#x5219;&#x8FD9;&#x4E24;&#x4E2A;routes&#x662F;&#x8FDE;&#x901A;&#x7684;</li>
+<li>&#x5BF9;&#x8D77;&#x70B9;&#x548C;&#x7EC8;&#x70B9;&#x627E;&#x5230;&#x6240;&#x6709;bus routes&#x5305;&#x542B;&#x8D77;&#x70B9;&#x6216;&#x7EC8;&#x70B9;</li>
+<li>&#x4EE5;&#x6240;&#x6709;&#x5305;&#x62EC;&#x8D77;&#x70B9;&#x7684;bus routes&#x5F00;&#x59CB;&#x8FDB;&#x884C;bfs&#xFF0C;&#x5F53;&#x67D0;&#x4E2A;route&#x5728;&#x7EC8;&#x70B9;&#x6240;&#x5305;&#x62EC;&#x7684;routes&#x4E2D;&#xFF0C;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7684;level</li>
 </ul>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> numIslands = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>{
-    <span class="hljs-keyword">const</span> rows = grid.length;
-    <span class="hljs-keyword">if</span> (rows === <span class="hljs-number">0</span>) {
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> numBusesToDestination = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">routes, S, T</span>) </span>{
+    <span class="hljs-keyword">const</span> numBuses = routes.length;
+    <span class="hljs-keyword">if</span> (numBuses === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-keyword">if</span> (S === T) {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
+    <span class="hljs-keyword">const</span> stops = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numBuses; i++) {
+        <span class="hljs-keyword">const</span> map = {};
+        <span class="hljs-keyword">const</span> route = routes[i];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; route.length; j++) {
+            map[route[j]] = <span class="hljs-literal">true</span>;
+        }
+        stops.push(map);
+    }
 
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; rows; i++) {
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; cols; j++) {
-            <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-string">&apos;1&apos;</span>) {
-                dfs(i, j, grid);
-                res += <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">const</span> connection = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numBuses; i++) {
+        connection[i] = [];
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numBuses; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = i+<span class="hljs-number">1</span>; j &lt; numBuses; j++) {
+            <span class="hljs-keyword">if</span> (hasConnection(stops[i], stops[j])) {
+                connection[i].push(j);
+                connection[j].push(i);
+            }            
+        }
+    }
+
+    <span class="hljs-comment">// find which routes include start and end</span>
+    <span class="hljs-keyword">const</span> routesIncludeStartList = [...findStopFromRoutes(stops, S)];
+    <span class="hljs-keyword">const</span> routesIncludeEndSet = findStopFromRoutes(stops, T);
+
+    <span class="hljs-keyword">const</span> queue = routesIncludeStartList;
+    <span class="hljs-keyword">let</span> level = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+    <span class="hljs-keyword">while</span> (queue.length &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">const</span> size = queue.length;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) {
+            <span class="hljs-keyword">const</span> curr = queue.pop();
+            <span class="hljs-keyword">if</span> (routesIncludeEndSet.has(curr)) {
+                <span class="hljs-keyword">return</span> level;
             }
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; connection[curr].length; j++) {
+                <span class="hljs-keyword">if</span> (!visited.has(connection[curr][j])) {
+                    visited.add(connection[curr][j]);
+                    queue.unshift(connection[curr][j]);
+                }
+            }
+        }
+        level++;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findStopFromRoutes</span>(<span class="hljs-params">stops, S</span>) </span>{
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; stops.length; i++) {
+        <span class="hljs-keyword">const</span> routeMap = stops[i];
+        <span class="hljs-keyword">if</span> (S <span class="hljs-keyword">in</span> routeMap) {
+            res.add(i);
         }
     }
     <span class="hljs-keyword">return</span> res;
-};
+}
 
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">row, col, grid</span>) </span>{
-    <span class="hljs-keyword">const</span> rows = grid.length;
-    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
-    grid[row][col] = <span class="hljs-string">&apos;0&apos;</span>;
-    <span class="hljs-keyword">const</span> dx = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>];
-    <span class="hljs-keyword">const</span> dy = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) {
-        <span class="hljs-keyword">const</span> nextRow = dx[i] + row;
-        <span class="hljs-keyword">const</span> nextCol = dy[i] + col;
-        <span class="hljs-keyword">if</span> (nextRow &gt;= <span class="hljs-number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextCol &gt;= <span class="hljs-number">0</span> &amp;&amp; nextCol &lt; cols &amp;&amp; grid[nextRow][nextCol] === <span class="hljs-string">&apos;1&apos;</span>) {
-            dfs(nextRow, nextCol, grid);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasConnection</span>(<span class="hljs-params">map1, map2</span>) </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> map1) {
+        <span class="hljs-keyword">if</span> (key <span class="hljs-keyword">in</span> map2) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
         }
     }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
 }
 </code></pre>
 
@@ -501,12 +545,12 @@
 
             
                 
-                <a href="934-shortest-bridge.html" class="navigation navigation-prev " aria-label="Previous page: 934: Shortest Bridge">
+                <a href="695-max-area-of-island.html" class="navigation navigation-prev " aria-label="Previous page: 695 : Max Area of Island">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="694-number-of-distinct-islands.html" class="navigation navigation-next " aria-label="Next page: 694 : Number of Distinct Islands">
+                <a href="787-cheapest-flights-within-K-stops.html" class="navigation navigation-next " aria-label="Next page: 787 : Cheapest Flights Within K Stops">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -517,7 +561,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"200 : Number of Islands","level":"8.3","depth":1,"next":{"title":"694 : Number of Distinct Islands","level":"8.4","depth":1,"path":"graph/694-number-of-distinct-islands.md","ref":"graph/694-number-of-distinct-islands.md","articles":[]},"previous":{"title":"934: Shortest Bridge","level":"8.2","depth":1,"path":"graph/934-shortest-bridge.md","ref":"graph/934-shortest-bridge.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/200-number-of-islands.md","mtime":"2018-12-26T21:31:11.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T03:43:38.630Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"815 : Bus Routes","level":"8.6","depth":1,"next":{"title":"787 : Cheapest Flights Within K Stops","level":"9.1","depth":1,"path":"graph/787-cheapest-flights-within-K-stops.md","ref":"graph/787-cheapest-flights-within-K-stops.md","articles":[]},"previous":{"title":"695 : Max Area of Island","level":"8.5","depth":1,"path":"graph/695-max-area-of-island.md","ref":"graph/695-max-area-of-island.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/815-bus-routes.md","mtime":"2018-12-27T23:39:10.412Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T03:43:38.630Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

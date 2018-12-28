@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>200 : Number of Islands · GitBook</title>
+        <title>787 : Cheapest Flights Within K Stops · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="694-number-of-distinct-islands.html" />
+    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
     
     
-    <link rel="prev" href="934-shortest-bridge.html" />
+    <link rel="prev" href="815-bus-routes.html" />
     
 
     </head>
@@ -257,7 +257,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.3" data-path="200-number-of-islands.html">
+        <li class="chapter " data-level="8.3" data-path="200-number-of-islands.html">
             
                 <a href="200-number-of-islands.html">
             
@@ -316,7 +316,7 @@
         
         
     
-        <li class="chapter " data-level="9.1" data-path="787-cheapest-flights-within-K-stops.html">
+        <li class="chapter active" data-level="9.1" data-path="787-cheapest-flights-within-K-stops.html">
             
                 <a href="787-cheapest-flights-within-K-stops.html">
             
@@ -419,7 +419,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >200 : Number of Islands</a>
+        <a href=".." >787 : Cheapest Flights Within K Stops</a>
     </h1>
 </div>
 
@@ -434,43 +434,85 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;947&#x9898;&#x5F88;&#x7C7B;&#x4F3C;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x56FE;&#x7684;&#x8FDE;&#x901A;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x5229;&#x7528;dfs&#x904D;&#x5386;&#x6240;&#x6709;&#x8FDE;&#x901A;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x70B9;&#x3002;&#x8FD9;&#x4E2A;&#x9898;&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6B8A;&#x6027;&#xFF0C;&#x4F7F;&#x4EE3;&#x7801;&#x7B80;&#x5316;&#xFF1A;</p>
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x662F;&#x4E00;&#x9053;&#x7ECF;&#x5178;&#x7684;&#x5E26;&#x6743;&#x91CD;&#x7684;&#x6709;&#x5411;&#x56FE;&#x95EE;&#x9898;&#x3002;&#x65E2;&#x53EF;&#x4EE5;&#x7528;BFS&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;DFS&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
 <ul>
-<li>&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x5B9A;&#x4E49;visited&#x77E9;&#x9635;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539; <code>grid[i][j] = 0</code> &#x6765;&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x70B9;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8BBF;&#x95EE;&#x8FC7;</li>
-<li>&#x6BCF;&#x4E00;&#x4E2A;&#x8D77;&#x70B9;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;island&#x7684;&#x5F00;&#x59CB;&#xFF0C;dfs&#x51FD;&#x6570;&#x4E0D;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x503C;&#xFF0C;&#x5728;&#x4E3B;&#x51FD;&#x6570;&#x4E2D;&#x8BBE;&#x8BA1;&#x6570;&#x5668;&#x5373;&#x53EF;</li>
+<li>BFS: &#x96BE;&#x70B9;&#x5728;&#x4E8E;&#x6BCF;&#x4E2A;&#x52A0;&#x5165;&#x961F;&#x5217;&#x7684;&#x8282;&#x70B9;&#x9700;&#x8981;&#x5305;&#x542B;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x7684;accumulated cost&#x3002;&#x4E00;&#x5F00;&#x59CB;&#x8D85;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5165;&#x961F;&#x524D;&#x5224;&#x65AD;accumulated cost&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6BD4;&#x5F53;&#x524D;&#x7684;min cost&#x5927;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x5C31;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x518D;&#x5165;&#x961F;&#x4E86;&#x3002;</li>
 </ul>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> numIslands = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">grid</span>) </span>{
-    <span class="hljs-keyword">const</span> rows = grid.length;
-    <span class="hljs-keyword">if</span> (rows === <span class="hljs-number">0</span>) {
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> findCheapestPrice = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n, flights, src, dst, K</span>) </span>{
+    <span class="hljs-keyword">if</span> (n === <span class="hljs-number">0</span>) {
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
+    <span class="hljs-keyword">const</span> map = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+        map[i] = [];
+    }
+    <span class="hljs-keyword">const</span> cost = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; flights.length; i++) {
+        map[flights[i][<span class="hljs-number">0</span>]].push(flights[i][<span class="hljs-number">1</span>]);
+        cost[flights[i][<span class="hljs-number">0</span>]+<span class="hljs-string">&apos;,&apos;</span>+flights[i][<span class="hljs-number">1</span>]] = flights[i][<span class="hljs-number">2</span>];
+    }
 
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; rows; i++) {
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; cols; j++) {
-            <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-string">&apos;1&apos;</span>) {
-                dfs(i, j, grid);
-                res += <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">const</span> queue = [[src, <span class="hljs-number">0</span>]];
+    <span class="hljs-keyword">let</span> level = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> min = <span class="hljs-built_in">Number</span>.MAX_SAFE_INTEGER;
+    <span class="hljs-keyword">while</span> (queue.length &gt; <span class="hljs-number">0</span> &amp;&amp; level &lt;= K+<span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">const</span> size = queue.length;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; size; i++) {
+            <span class="hljs-keyword">const</span> [curr, accumCost] = queue.pop();
+            <span class="hljs-keyword">if</span> (curr === dst) {
+                min = <span class="hljs-built_in">Math</span>.min(min, accumCost);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; map[curr].length; j++) {
+                    <span class="hljs-keyword">if</span> (accumCost + cost[curr+<span class="hljs-string">&apos;,&apos;</span>+map[curr][j]] &gt;= min) <span class="hljs-keyword">continue</span>;
+                    queue.unshift([map[curr][j], accumCost + cost[curr+<span class="hljs-string">&apos;,&apos;</span>+map[curr][j]]]);
+                }
             }
         }
+        level++;
     }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">return</span> min === <span class="hljs-built_in">Number</span>.MAX_SAFE_INTEGER ? <span class="hljs-number">-1</span> : min;
+};
+</code></pre>
+<ul>
+<li>DFS: &#x540C;&#x6837;&#x8981;prone&#x4F18;&#x5316;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8D85;&#x65F6;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> findCheapestPrice = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n, flights, src, dst, K</span>) </span>{
+    <span class="hljs-keyword">if</span> (n === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">if</span> (src === dst) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">const</span> map = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+        map[i] = [];
+    }
+    <span class="hljs-keyword">const</span> cost = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; flights.length; i++) {
+        map[flights[i][<span class="hljs-number">0</span>]].push(flights[i][<span class="hljs-number">1</span>]);
+        cost[flights[i][<span class="hljs-number">0</span>]+<span class="hljs-string">&apos;,&apos;</span>+flights[i][<span class="hljs-number">1</span>]] = flights[i][<span class="hljs-number">2</span>];
+    }
+
+    <span class="hljs-keyword">const</span> min = [<span class="hljs-built_in">Number</span>.MAX_SAFE_INTEGER];
+    dfs(map, cost, src, dst, K, <span class="hljs-number">0</span>, min);
+    <span class="hljs-keyword">return</span> min[<span class="hljs-number">0</span>] === <span class="hljs-built_in">Number</span>.MAX_SAFE_INTEGER ? <span class="hljs-number">-1</span> : min[<span class="hljs-number">0</span>];
 };
 
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">row, col, grid</span>) </span>{
-    <span class="hljs-keyword">const</span> rows = grid.length;
-    <span class="hljs-keyword">const</span> cols = grid[<span class="hljs-number">0</span>].length;
-    grid[row][col] = <span class="hljs-string">&apos;0&apos;</span>;
-    <span class="hljs-keyword">const</span> dx = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>];
-    <span class="hljs-keyword">const</span> dy = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) {
-        <span class="hljs-keyword">const</span> nextRow = dx[i] + row;
-        <span class="hljs-keyword">const</span> nextCol = dy[i] + col;
-        <span class="hljs-keyword">if</span> (nextRow &gt;= <span class="hljs-number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextCol &gt;= <span class="hljs-number">0</span> &amp;&amp; nextCol &lt; cols &amp;&amp; grid[nextRow][nextCol] === <span class="hljs-string">&apos;1&apos;</span>) {
-            dfs(nextRow, nextCol, grid);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">map, cost, src, dst, K, sum, min</span>) </span>{
+    <span class="hljs-keyword">if</span> (src === dst) {
+        min[<span class="hljs-number">0</span>] = <span class="hljs-built_in">Math</span>.min(min[<span class="hljs-number">0</span>], sum);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">if</span> (K &lt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">const</span> neighbors = map[src];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; neighbors.length; i++) {
+        <span class="hljs-keyword">const</span> next = neighbors[i];
+        <span class="hljs-keyword">if</span> (sum + cost[src+<span class="hljs-string">&apos;,&apos;</span>+next] &gt;= min[<span class="hljs-number">0</span>]) {
+            <span class="hljs-keyword">continue</span>;
         }
+        dfs(map, cost, next, dst, K<span class="hljs-number">-1</span>, sum + cost[src+<span class="hljs-string">&apos;,&apos;</span>+next], min);
     }
 }
 </code></pre>
@@ -501,12 +543,12 @@
 
             
                 
-                <a href="934-shortest-bridge.html" class="navigation navigation-prev " aria-label="Previous page: 934: Shortest Bridge">
+                <a href="815-bus-routes.html" class="navigation navigation-prev " aria-label="Previous page: 815 : Bus Routes">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="694-number-of-distinct-islands.html" class="navigation navigation-next " aria-label="Next page: 694 : Number of Distinct Islands">
+                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -517,7 +559,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"200 : Number of Islands","level":"8.3","depth":1,"next":{"title":"694 : Number of Distinct Islands","level":"8.4","depth":1,"path":"graph/694-number-of-distinct-islands.md","ref":"graph/694-number-of-distinct-islands.md","articles":[]},"previous":{"title":"934: Shortest Bridge","level":"8.2","depth":1,"path":"graph/934-shortest-bridge.md","ref":"graph/934-shortest-bridge.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/200-number-of-islands.md","mtime":"2018-12-26T21:31:11.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T03:43:38.630Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"787 : Cheapest Flights Within K Stops","level":"9.1","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"10.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"815 : Bus Routes","level":"8.6","depth":1,"path":"graph/815-bus-routes.md","ref":"graph/815-bus-routes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"graph/787-cheapest-flights-within-K-stops.md","mtime":"2018-12-28T03:43:22.016Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-28T03:43:38.630Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

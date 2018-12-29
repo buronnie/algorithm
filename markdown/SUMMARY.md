@@ -55,3 +55,4 @@
 
 ## Stack
 * [739: Daily Temperatures](stack/739-daily-temperatures.md)
+* [496: Next Greater Element I](stack/496-next-greater-element-1.md)

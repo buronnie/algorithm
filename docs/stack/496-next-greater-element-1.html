@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>763: Partition Labels · GitBook</title>
+        <title>496: Next Greater Element I · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
     
-    
-    <link rel="prev" href="../graph/787-cheapest-flights-within-K-stops.html" />
+    <link rel="prev" href="739-daily-temperatures.html" />
     
 
     </head>
@@ -422,9 +420,9 @@
         
         
     
-        <li class="chapter active" data-level="13.1" data-path="763-partition-labels.html">
+        <li class="chapter " data-level="13.1" data-path="../intervals/763-partition-labels.html">
             
-                <a href="763-partition-labels.html">
+                <a href="../intervals/763-partition-labels.html">
             
                     
                     763: Partition Labels
@@ -515,9 +513,9 @@
         
         
     
-        <li class="chapter " data-level="17.1" data-path="../stack/739-daily-temperatures.html">
+        <li class="chapter " data-level="17.1" data-path="739-daily-temperatures.html">
             
-                <a href="../stack/739-daily-temperatures.html">
+                <a href="739-daily-temperatures.html">
             
                     
                     739: Daily Temperatures
@@ -528,9 +526,9 @@
             
         </li>
     
-        <li class="chapter " data-level="17.2" data-path="../stack/496-next-greater-element-1.html">
+        <li class="chapter active" data-level="17.2" data-path="496-next-greater-element-1.html">
             
-                <a href="../stack/496-next-greater-element-1.html">
+                <a href="496-next-greater-element-1.html">
             
                     
                     496: Next Greater Element I
@@ -571,7 +569,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >763: Partition Labels</a>
+        <a href=".." >496: Next Greater Element I</a>
     </h1>
 </div>
 
@@ -586,38 +584,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x9053;interval&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x53EA;&#x5173;&#x5FC3;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;letter&#xFF0C;&#x5B83;&#x9996;&#x6B21;&#x548C;&#x672B;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x4F9D;&#x6B21;merge interval&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;merged interval&#x7684;&#x957F;&#x5EA6;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> partitionLabels = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">S</span>) </span>{
-    <span class="hljs-keyword">const</span> len = S.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
+                                <p>&#x4E00;&#x770B;&#x5230; next greater number &#x5C31;&#x5E94;&#x8BE5;&#x60F3;&#x5230;stack, &#x8FD9;&#x9053;&#x9898;&#x548C;739&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x3002;&#x90FD;&#x662F;&#x8981;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;min stack&#xFF0C;&#x5F53;&#x9047;&#x5230;&#x7834;&#x574F;min stack&#x7684;&#x6570;&#x65F6;&#x5C31;&#x5148;pop, &#x518D;push&#x3002;&#x6280;&#x5DE7;&#x662F;&#x628A;index&#x5165;&#x6808;&#x800C;&#x4E0D;&#x662F;value&#x672C;&#x8EAB;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> nextGreaterElement = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums1, nums2</span>) </span>{
+    <span class="hljs-keyword">const</span> len1 = nums1.length;
+    <span class="hljs-keyword">const</span> len2 = nums2.length;
+    <span class="hljs-keyword">if</span> (len1 === <span class="hljs-number">0</span>) {
         <span class="hljs-keyword">return</span> [];
     }
-    <span class="hljs-keyword">const</span> map = {};
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        <span class="hljs-keyword">if</span> (!(S[i] <span class="hljs-keyword">in</span> map)) {
-            map[S[i]] = [i, i];
-        } <span class="hljs-keyword">else</span> {
-            map[S[i]] = [map[S[i]][<span class="hljs-number">0</span>], i];
-        }
+    <span class="hljs-keyword">if</span> (len2 === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len1).fill(<span class="hljs-number">-1</span>);
     }
 
-    <span class="hljs-keyword">const</span> intervals = [map[S[<span class="hljs-number">0</span>]]];
-    <span class="hljs-keyword">delete</span> map[S[<span class="hljs-number">0</span>]];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; len; i++) {
-        <span class="hljs-keyword">const</span> curr = map[S[i]];
-        <span class="hljs-keyword">if</span> (!curr) {
+    <span class="hljs-keyword">const</span> map = {};
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len1).fill(<span class="hljs-number">-1</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len1; i++) {
+        map[nums1[i]] = i;
+    }
+
+    <span class="hljs-keyword">const</span> stack = [];
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (i &lt; len2) {
+        <span class="hljs-keyword">if</span> (stack.length === <span class="hljs-number">0</span> || nums2[stack[stack.length<span class="hljs-number">-1</span>]] &gt;= nums2[i]) {
+            stack.push(i);
+            i++;
             <span class="hljs-keyword">continue</span>;
         }
-        <span class="hljs-keyword">const</span> last = intervals[intervals.length<span class="hljs-number">-1</span>];
-        <span class="hljs-keyword">if</span> (last[<span class="hljs-number">1</span>] &gt; curr[<span class="hljs-number">0</span>]) {
-            intervals.pop();
-            intervals.push([last[<span class="hljs-number">0</span>], <span class="hljs-built_in">Math</span>.max(last[<span class="hljs-number">1</span>], curr[<span class="hljs-number">1</span>])]);
-        } <span class="hljs-keyword">else</span> {
-            intervals.push([curr[<span class="hljs-number">0</span>], curr[<span class="hljs-number">1</span>]]);
+        <span class="hljs-keyword">while</span> (stack.length &gt; <span class="hljs-number">0</span> &amp;&amp; nums2[stack[stack.length<span class="hljs-number">-1</span>]] &lt; nums2[i]) {
+            <span class="hljs-keyword">const</span> valueInNums2 = nums2[stack.pop()];
+            <span class="hljs-keyword">if</span> (valueInNums2 <span class="hljs-keyword">in</span> map) {
+                res[map[valueInNums2]] = nums2[i];
+            }
         }
-        <span class="hljs-keyword">delete</span> map[S[i]];
+        stack.push(i);
+        i++;
     }
-    <span class="hljs-keyword">return</span> intervals.map(i =&gt; i[<span class="hljs-number">1</span>] - i[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">return</span> res;
+
 };
 </code></pre>
 
@@ -647,14 +649,10 @@
 
             
                 
-                <a href="../graph/787-cheapest-flights-within-K-stops.html" class="navigation navigation-prev " aria-label="Previous page: 787 : Cheapest Flights Within K Stops">
+                <a href="739-daily-temperatures.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 739: Daily Temperatures">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -663,7 +661,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"763: Partition Labels","level":"13.1","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"14.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"787 : Cheapest Flights Within K Stops","level":"12.1","depth":1,"path":"graph/787-cheapest-flights-within-K-stops.md","ref":"graph/787-cheapest-flights-within-K-stops.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intervals/763-partition-labels.md","mtime":"2018-12-28T05:26:56.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T19:58:36.836Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"496: Next Greater Element I","level":"17.2","depth":1,"previous":{"title":"739: Daily Temperatures","level":"17.1","depth":1,"path":"stack/739-daily-temperatures.md","ref":"stack/739-daily-temperatures.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"stack/496-next-greater-element-1.md","mtime":"2018-12-29T19:58:22.168Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T19:58:36.836Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

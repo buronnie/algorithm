@@ -1,5 +1,10 @@
 ## [Introduction](README.md)
 
+## String
+
+### Palindrome
+* [647: Palindromic Substrings](string/647-palindromic-substrings.md)
+
 ## Hashmap
 * [954: Array of Doubled Pairs](hashmap/954-array-of-doubled-pairs.md)
 * [653: Two Sum IV - Input is a BST](hashmap/653-two-sum-iv-binary-tree.md)

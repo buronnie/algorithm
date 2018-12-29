@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>763: Partition Labels · GitBook</title>
+        <title>647: Palindromic Substrings · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
+    <link rel="next" href="../hashmap/954-array-of-doubled-pairs.html" />
     
     
-    <link rel="prev" href="../graph/787-cheapest-flights-within-K-stops.html" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -118,9 +118,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../string/647-palindromic-substrings.html">
+        <li class="chapter active" data-level="3.1" data-path="647-palindromic-substrings.html">
             
-                <a href="../string/647-palindromic-substrings.html">
+                <a href="647-palindromic-substrings.html">
             
                     
                     647: Palindromic Substrings
@@ -402,9 +402,9 @@
         
         
     
-        <li class="chapter active" data-level="12.1" data-path="763-partition-labels.html">
+        <li class="chapter " data-level="12.1" data-path="../intervals/763-partition-labels.html">
             
-                <a href="763-partition-labels.html">
+                <a href="../intervals/763-partition-labels.html">
             
                     
                     763: Partition Labels
@@ -538,7 +538,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >763: Partition Labels</a>
+        <a href=".." >647: Palindromic Substrings</a>
     </h1>
 </div>
 
@@ -553,39 +553,81 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x9053;interval&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x53EA;&#x5173;&#x5FC3;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;letter&#xFF0C;&#x5B83;&#x9996;&#x6B21;&#x548C;&#x672B;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x4F9D;&#x6B21;merge interval&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;merged interval&#x7684;&#x957F;&#x5EA6;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> partitionLabels = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">S</span>) </span>{
-    <span class="hljs-keyword">const</span> len = S.length;
+                                <p>Palindrome&#x95EE;&#x9898;&#x5E38;&#x89C1;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#xFF1A;</p>
+<ul>
+<li>DP: &#x4E8C;&#x7EF4;dp[start][len]&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x5B50;&#x4E32;&#x662F;&#x5426;&#x662F;palindrome</li>
+<li>&#x6269;&#x5C55;&#x6CD5;&#xFF1A;&#x4ECE;&#x4E00;&#x4E2A;letter&#x5F00;&#x59CB;&#x5DE6;&#x53F3;&#x6269;&#x5C55;</li>
+</ul>
+<p>DP: </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> countSubstrings = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+    <span class="hljs-keyword">const</span> len = s.length;
     <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> [];
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    <span class="hljs-keyword">const</span> map = {};
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        <span class="hljs-keyword">if</span> (!(S[i] <span class="hljs-keyword">in</span> map)) {
-            map[S[i]] = [i, i];
-        } <span class="hljs-keyword">else</span> {
-            map[S[i]] = [map[S[i]][<span class="hljs-number">0</span>], i];
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i&lt; len; i++) {
+        dp[i] = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; len; j++) {
+            dp[i][j] = <span class="hljs-literal">false</span>;
         }
     }
 
-    <span class="hljs-keyword">const</span> intervals = [map[S[<span class="hljs-number">0</span>]]];
-    <span class="hljs-keyword">delete</span> map[S[<span class="hljs-number">0</span>]];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; len; i++) {
-        <span class="hljs-keyword">const</span> curr = map[S[i]];
-        <span class="hljs-keyword">if</span> (!curr) {
-            <span class="hljs-keyword">continue</span>;
-        }
-        <span class="hljs-keyword">const</span> last = intervals[intervals.length<span class="hljs-number">-1</span>];
-        <span class="hljs-keyword">if</span> (last[<span class="hljs-number">1</span>] &gt; curr[<span class="hljs-number">0</span>]) {
-            intervals.pop();
-            intervals.push([last[<span class="hljs-number">0</span>], <span class="hljs-built_in">Math</span>.max(last[<span class="hljs-number">1</span>], curr[<span class="hljs-number">1</span>])]);
-        } <span class="hljs-keyword">else</span> {
-            intervals.push([curr[<span class="hljs-number">0</span>], curr[<span class="hljs-number">1</span>]]);
-        }
-        <span class="hljs-keyword">delete</span> map[S[i]];
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        dp[i][<span class="hljs-number">0</span>] = <span class="hljs-literal">true</span>;
+        res++;
     }
-    <span class="hljs-keyword">return</span> intervals.map(i =&gt; i[<span class="hljs-number">1</span>] - i[<span class="hljs-number">0</span>] + <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++) {
+        <span class="hljs-keyword">if</span> (s[i] === s[i+<span class="hljs-number">1</span>]) {
+            dp[i][<span class="hljs-number">1</span>] = <span class="hljs-literal">true</span>;
+            res++;
+        }
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> gap = <span class="hljs-number">2</span>; gap &lt; len; gap++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i+gap &lt; len; i++) {
+            <span class="hljs-keyword">if</span> (s[i] === s[i+gap] &amp;&amp; dp[i+<span class="hljs-number">1</span>][gap<span class="hljs-number">-2</span>]) {
+                dp[i][gap] = <span class="hljs-literal">true</span>;
+                res++;
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> res;
 };
+</code></pre>
+<p>&#x6269;&#x5C55;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> countSubstrings = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+    <span class="hljs-keyword">const</span> len = s.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        res += extend(s, i, i);
+        res += extend(s, i, i+<span class="hljs-number">1</span>);
+    }
+    <span class="hljs-keyword">return</span> res;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">extend</span>(<span class="hljs-params">s, left, right</span>) </span>{
+    <span class="hljs-keyword">const</span> len = s.length;
+    <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (left &gt;= <span class="hljs-number">0</span> &amp;&amp; right &lt; len) {
+        <span class="hljs-keyword">if</span> (s[left] === s[right]) {
+            count++;
+            left--;
+            right++;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">break</span>;
+        }
+    }
+    <span class="hljs-keyword">return</span> count;
+}
 </code></pre>
 
                                 
@@ -614,12 +656,12 @@
 
             
                 
-                <a href="../graph/787-cheapest-flights-within-K-stops.html" class="navigation navigation-prev " aria-label="Previous page: 787 : Cheapest Flights Within K Stops">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
+                <a href="../hashmap/954-array-of-doubled-pairs.html" class="navigation navigation-next " aria-label="Next page: 954: Array of Doubled Pairs">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -630,7 +672,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"763: Partition Labels","level":"12.1","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"13.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"787 : Cheapest Flights Within K Stops","level":"11.1","depth":1,"path":"graph/787-cheapest-flights-within-K-stops.md","ref":"graph/787-cheapest-flights-within-K-stops.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intervals/763-partition-labels.md","mtime":"2018-12-28T05:26:56.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T02:53:25.466Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"647: Palindromic Substrings","level":"3.1","depth":1,"next":{"title":"954: Array of Doubled Pairs","level":"4.1","depth":1,"path":"hashmap/954-array-of-doubled-pairs.md","ref":"hashmap/954-array-of-doubled-pairs.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"string/647-palindromic-substrings.md","mtime":"2018-12-29T02:51:33.971Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T02:53:25.466Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>518: Coin Change 2 · GitBook</title>
+        <title>503: Next Greater Element II · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../string/647-palindromic-substrings.html" />
     
-    
-    <link rel="prev" href="../" />
+    <link rel="prev" href="496-next-greater-element-1.html" />
     
 
     </head>
@@ -111,9 +109,9 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="518-coin-change2.html">
+        <li class="chapter " data-level="2.1" data-path="../dynamic-programming/518-coin-change2.html">
             
-                <a href="518-coin-change2.html">
+                <a href="../dynamic-programming/518-coin-change2.html">
             
                     
                     518: Coin Change 2
@@ -515,9 +513,9 @@
         
         
     
-        <li class="chapter " data-level="17.1" data-path="../stack/739-daily-temperatures.html">
+        <li class="chapter " data-level="17.1" data-path="739-daily-temperatures.html">
             
-                <a href="../stack/739-daily-temperatures.html">
+                <a href="739-daily-temperatures.html">
             
                     
                     739: Daily Temperatures
@@ -528,9 +526,9 @@
             
         </li>
     
-        <li class="chapter " data-level="17.2" data-path="../stack/496-next-greater-element-1.html">
+        <li class="chapter " data-level="17.2" data-path="496-next-greater-element-1.html">
             
-                <a href="../stack/496-next-greater-element-1.html">
+                <a href="496-next-greater-element-1.html">
             
                     
                     496: Next Greater Element I
@@ -541,9 +539,9 @@
             
         </li>
     
-        <li class="chapter " data-level="17.3" data-path="../stack/503-next-greater-element-2.html">
+        <li class="chapter active" data-level="17.3" data-path="503-next-greater-element-2.html">
             
-                <a href="../stack/503-next-greater-element-2.html">
+                <a href="503-next-greater-element-2.html">
             
                     
                     503: Next Greater Element II
@@ -584,7 +582,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >518: Coin Change 2</a>
+        <a href=".." >503: Next Greater Element II</a>
     </h1>
 </div>
 
@@ -599,62 +597,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x4E00;&#x770B;&#x5C31;&#x662F;&#x65E0;&#x8111;dfs&#xFF0C;&#x7ED3;&#x679C;&#x8D85;&#x65F6;&#x3002;&#x3002;&#x3002;&#x3002;&#x679C;&#x7136;&#x8FD9;&#x9898;&#x6CA1;&#x60F3;&#x50CF;&#x4E2D;&#x7B80;&#x5355;&#x3002;
-&#x8FD8;&#x662F;&#x8D34;&#x51FA;&#x6765;dfs&#x5427;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> change = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">amount, coins</span>) </span>{
-    <span class="hljs-keyword">const</span> len = coins.length;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;496&#x57FA;&#x672C;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x8981;&#x5148;&#x628A;array&#x6269;&#x5C55;&#x4E3A;&#x539F;&#x6765;&#x7684;&#x4E00;&#x500D;&#x5C31;&#x53EF;&#x4EE5;&#x5904;&#x7406;circular&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> nextGreaterElements = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums</span>) </span>{
+    <span class="hljs-keyword">const</span> len = nums.length;
     <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">if</span> (amount === <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> [];    
     }
-    <span class="hljs-keyword">const</span> res = [<span class="hljs-number">0</span>];
-    helper(coins, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, amount, res);
-    <span class="hljs-keyword">return</span> res[<span class="hljs-number">0</span>];
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helper</span>(<span class="hljs-params">coins, pos, curr, amount, res</span>) </span>{
-    <span class="hljs-keyword">if</span> (amount === curr) {
-        res[<span class="hljs-number">0</span>]++;
-        <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-keyword">if</span> (curr &gt; amount) {
-        <span class="hljs-keyword">return</span>;
-    }
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = pos; i &lt; coins.length; i++) {
-        helper(coins, i, curr + coins[i], amount, res);
-    }
-}
-</code></pre>
-<p>&#x5176;&#x5B9E;&#x8FD9;&#x4E5F;&#x662F;&#x4E00;&#x9053;&#x7ECF;&#x5178;&#x7684;&#x80CC;&#x5305;&#x95EE;&#x9898;&#xFF0C;&#x7565;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x6B21;&#x4F7F;&#x7528;&#x3002;&#x6CE8;&#x610F;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x7684;&#x9009;&#x62E9;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> change = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">amount, coins</span>) </span>{
-    <span class="hljs-keyword">const</span> len = coins.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">if</span> (amount === <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len+<span class="hljs-number">1</span>);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;= len; i++) {
-        dp[i] = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(amount+<span class="hljs-number">1</span>).fill(<span class="hljs-number">0</span>);
-    }
-    dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= len; i++) {
-        dp[i][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>; j &lt;= amount; j++) {
-            dp[i][j] = dp[i<span class="hljs-number">-1</span>][j];
-            <span class="hljs-keyword">if</span> (j &gt;= coins[i<span class="hljs-number">-1</span>]) {
-                <span class="hljs-comment">// &#x591A;&#x6B21;&#x4F7F;&#x7528;</span>
-                dp[i][j] += dp[i][j-coins[i<span class="hljs-number">-1</span>]];
-                <span class="hljs-comment">// &#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E00;&#x6B21;</span>
-                <span class="hljs-comment">// dp[i][j] += dp[i-1][j-coins[i-1]];</span>
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len).fill(<span class="hljs-number">-1</span>);
+    nums = [...nums, ...nums.slice(<span class="hljs-number">0</span>, len<span class="hljs-number">-1</span>)];
+    <span class="hljs-keyword">const</span> stack = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i++) {
+        <span class="hljs-keyword">if</span> (stack.length === <span class="hljs-number">0</span> || nums[stack[stack.length<span class="hljs-number">-1</span>]] &gt;= nums[i]) {
+            stack.push(i);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">while</span> (stack.length &gt; <span class="hljs-number">0</span> &amp;&amp; nums[stack[stack.length<span class="hljs-number">-1</span>]] &lt; nums[i]) {
+                res[stack.pop()] = nums[i];
             }
+            stack.push(i);
         }
     }
-    <span class="hljs-keyword">return</span> dp[len][amount];
+
+    <span class="hljs-keyword">return</span> res.slice(<span class="hljs-number">0</span>, len);
 };
 </code></pre>
 
@@ -684,14 +647,10 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="496-next-greater-element-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 496: Next Greater Element I">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../string/647-palindromic-substrings.html" class="navigation navigation-next " aria-label="Next page: 647: Palindromic Substrings">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -700,7 +659,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"518: Coin Change 2","level":"2.1","depth":1,"next":{"title":"647: Palindromic Substrings","level":"4.1","depth":1,"path":"string/647-palindromic-substrings.md","ref":"string/647-palindromic-substrings.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dynamic-programming/518-coin-change2.md","mtime":"2018-12-29T19:12:59.869Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T20:14:42.262Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"503: Next Greater Element II","level":"17.3","depth":1,"previous":{"title":"496: Next Greater Element I","level":"17.2","depth":1,"path":"stack/496-next-greater-element-1.md","ref":"stack/496-next-greater-element-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"stack/503-next-greater-element-2.md","mtime":"2018-12-29T20:14:27.517Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T20:14:42.262Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

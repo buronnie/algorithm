@@ -12,6 +12,7 @@
 
 ### DFS
 * [863: All Nodes Distance K in Binary Tree](binary-tree/863-all-nodes-distance-K-in-binary-tree.md)
+* [652: Find Duplicate Subtrees](binary-tree/652-find-duplicate-subtrees.md)
 
 ## Two Pointers
 * [962: Max Width Ramp](two-pointer/962-max-width-ramp.md)

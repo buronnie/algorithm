@@ -36,6 +36,7 @@
 * [695 : Max Area of Island](graph/695-max-area-of-island.md)
 * [815 : Bus Routes](graph/815-bus-routes.md)
 * [675 : Cut Off Trees for Golf Event](graph/675-cut-off-trees-for-golf-event.md)
+* [490 : The Maze](graph/490-the-maze.md)
 
 ### Directed Graph
 * [787 : Cheapest Flights Within K Stops](graph/787-cheapest-flights-within-K-stops.md)

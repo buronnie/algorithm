@@ -1,3 +1,11 @@
 {
-    "root": "./markdown"
+    "root": "./markdown",
+    "plugins": [
+        "analytics"
+    ],
+    "pluginConfig": {
+        "analytics": {
+            "google": "UA-131521919-1"
+        }
+    }
 }

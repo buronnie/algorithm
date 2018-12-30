@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>652: Find Duplicate Subtrees · GitBook</title>
+        <title>454: 4Sum II · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../two-pointer/962-max-width-ramp.html" />
+    <link rel="next" href="../binary-tree/958-check-completeness-of-a-binary-tree.html" />
     
     
-    <link rel="prev" href="863-all-nodes-distance-K-in-binary-tree.html" />
+    <link rel="prev" href="653-two-sum-iv-binary-tree.html" />
     
 
     </head>
@@ -158,9 +158,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../hashmap/954-array-of-doubled-pairs.html">
+        <li class="chapter " data-level="5.1" data-path="954-array-of-doubled-pairs.html">
             
-                <a href="../hashmap/954-array-of-doubled-pairs.html">
+                <a href="954-array-of-doubled-pairs.html">
             
                     
                     954: Array of Doubled Pairs
@@ -171,9 +171,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../hashmap/653-two-sum-iv-binary-tree.html">
+        <li class="chapter " data-level="5.2" data-path="653-two-sum-iv-binary-tree.html">
             
-                <a href="../hashmap/653-two-sum-iv-binary-tree.html">
+                <a href="653-two-sum-iv-binary-tree.html">
             
                     
                     653: Two Sum IV - Input is a BST
@@ -184,9 +184,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="../hashmap/454-4-sum-2.html">
+        <li class="chapter active" data-level="5.3" data-path="454-4-sum-2.html">
             
-                <a href="../hashmap/454-4-sum-2.html">
+                <a href="454-4-sum-2.html">
             
                     
                     454: 4Sum II
@@ -211,9 +211,9 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="958-check-completeness-of-a-binary-tree.html">
+        <li class="chapter " data-level="7.1" data-path="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
-                <a href="958-check-completeness-of-a-binary-tree.html">
+                <a href="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
                     
                     958: Check Completeness of a Binary Tree
@@ -224,9 +224,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="7.2" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -244,9 +244,9 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="8.1" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -257,9 +257,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.2" data-path="652-find-duplicate-subtrees.html">
+        <li class="chapter " data-level="8.2" data-path="../binary-tree/652-find-duplicate-subtrees.html">
             
-                <a href="652-find-duplicate-subtrees.html">
+                <a href="../binary-tree/652-find-duplicate-subtrees.html">
             
                     
                     652: Find Duplicate Subtrees
@@ -623,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >652: Find Duplicate Subtrees</a>
+        <a href=".." >454: 4Sum II</a>
     </h1>
 </div>
 
@@ -638,36 +638,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x4E4D;&#x4E00;&#x770B;&#x6CA1;&#x6709;&#x5934;&#x7EEA;&#xFF0C;&#x5176;&#x5B9E;&#x4E0D;&#x96BE;&#x3002;&#x627E;duplicate&#x80AF;&#x5B9A;&#x662F;&#x5F80;hashmap&#x4E0A;&#x60F3;&#xFF0C;&#x68C0;&#x67E5;&#x5B50;&#x6811;&#x7ED3;&#x6784;&#x662F;&#x5426;&#x76F8;&#x540C;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5982;&#x4F55;&#x5BF9;&#x5B50;&#x6811;&#x7F16;&#x7801;&#xFF0C;&#x5229;&#x7528;&#x5206;&#x6CBB;&#x6CD5;&#x5728;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5904;&#x5F97;&#x5230;&#x8BE5;&#x5B50;&#x6811;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x770B;&#x662F;&#x5426;&#x5728;hashmap&#x4E2D;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> findDuplicateSubtrees = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> [];
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;2 sum&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x7528;hashmap&#x5B58;&#x50A8;-A[i]-B[j]&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;C[i]+D[j]&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x4E8E;map&#x4E2D;&#xFF0C;&#x5219;&#x7D2F;&#x52A0;&#x3002;&#x8981;&#x6CE8;&#x610F;map&#x7684;value&#x8981;&#x5B58;A[i]+B[j]&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x80FD;&#x4E0D;&#x540C;&#x7684;i,j&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x548C;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> fourSumCount = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">A, B, C, D</span>) </span>{
+    <span class="hljs-keyword">const</span> len = A.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
     <span class="hljs-keyword">const</span> map = {};
-    helper(root, map);
-    <span class="hljs-keyword">let</span> res = [];
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> map) {
-        <span class="hljs-keyword">if</span> (map[key].length &gt; <span class="hljs-number">1</span>) {
-            res.push(map[key][<span class="hljs-number">0</span>]);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; len; j++) {
+            <span class="hljs-keyword">const</span> curr = A[i]+B[j];
+            <span class="hljs-keyword">if</span> (curr <span class="hljs-keyword">in</span> map) {
+                map[curr]++;
+            } <span class="hljs-keyword">else</span> {
+                map[curr] = <span class="hljs-number">1</span>;
+            }
+        }
+    }
+
+    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; len; j++) {
+            <span class="hljs-keyword">const</span> curr = C[i]+D[j];
+            <span class="hljs-keyword">if</span> (-curr <span class="hljs-keyword">in</span> map) {
+                res += map[-curr];
+            }
         }
     }
     <span class="hljs-keyword">return</span> res;
 };
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helper</span>(<span class="hljs-params">root, map</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;null&apos;</span>;
-    }
-    <span class="hljs-keyword">const</span> left = helper(root.left, map);
-    <span class="hljs-keyword">const</span> right = helper(root.right, map);
-    <span class="hljs-keyword">const</span> code = <span class="hljs-string">`<span class="hljs-subst">${root.val}</span>-&gt;<span class="hljs-subst">${left}</span>-&gt;<span class="hljs-subst">${right}</span>`</span>;
-    <span class="hljs-keyword">if</span> (code <span class="hljs-keyword">in</span> map) {
-        map[code].push(root);
-    } <span class="hljs-keyword">else</span> {
-        map[code] = [root];
-    }
-    <span class="hljs-keyword">return</span> code;
-}
 </code></pre>
 
                                 
@@ -696,12 +695,12 @@
 
             
                 
-                <a href="863-all-nodes-distance-K-in-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 863: All Nodes Distance K in Binary Tree">
+                <a href="653-two-sum-iv-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 653: Two Sum IV - Input is a BST">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../two-pointer/962-max-width-ramp.html" class="navigation navigation-next " aria-label="Next page: 962: Max Width Ramp">
+                <a href="../binary-tree/958-check-completeness-of-a-binary-tree.html" class="navigation navigation-next " aria-label="Next page: 958: Check Completeness of a Binary Tree">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -712,7 +711,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"652: Find Duplicate Subtrees","level":"8.2","depth":1,"next":{"title":"962: Max Width Ramp","level":"9.1","depth":1,"path":"two-pointer/962-max-width-ramp.md","ref":"two-pointer/962-max-width-ramp.md","articles":[]},"previous":{"title":"863: All Nodes Distance K in Binary Tree","level":"8.1","depth":1,"path":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","ref":"binary-tree/863-all-nodes-distance-K-in-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binary-tree/652-find-duplicate-subtrees.md","mtime":"2018-12-29T02:22:53.527Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-30T01:30:37.367Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"454: 4Sum II","level":"5.3","depth":1,"next":{"title":"958: Check Completeness of a Binary Tree","level":"7.1","depth":1,"path":"binary-tree/958-check-completeness-of-a-binary-tree.md","ref":"binary-tree/958-check-completeness-of-a-binary-tree.md","articles":[]},"previous":{"title":"653: Two Sum IV - Input is a BST","level":"5.2","depth":1,"path":"hashmap/653-two-sum-iv-binary-tree.md","ref":"hashmap/653-two-sum-iv-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hashmap/454-4-sum-2.md","mtime":"2018-12-30T01:29:58.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-30T01:30:37.367Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

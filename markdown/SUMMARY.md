@@ -37,6 +37,7 @@
 * [815 : Bus Routes](graph/815-bus-routes.md)
 * [675 : Cut Off Trees for Golf Event](graph/675-cut-off-trees-for-golf-event.md)
 * [490 : The Maze](graph/490-the-maze.md)
+* [489 : Robot Room Cleaner](graph/489-robot-room-cleaner.md)
 
 ### Directed Graph
 * [787 : Cheapest Flights Within K Stops](graph/787-cheapest-flights-within-K-stops.md)

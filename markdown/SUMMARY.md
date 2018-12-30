@@ -22,6 +22,7 @@
 ### DFS
 * [863: All Nodes Distance K in Binary Tree](binary-tree/863-all-nodes-distance-K-in-binary-tree.md)
 * [652: Find Duplicate Subtrees](binary-tree/652-find-duplicate-subtrees.md)
+* [449: Serialize and Deserialize BST](binary-tree/449-serialize-and-deserialize-bst.md)
 
 ## Two Pointers
 * [962: Max Width Ramp](two-pointer/962-max-width-ramp.md)

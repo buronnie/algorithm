@@ -4,6 +4,7 @@
 * [518: Coin Change 2](dynamic-programming/518-coin-change2.md)
 
 ## String
+* [394: Decode String](string/394-decode-string.md)
 
 ### Palindrome
 * [647: Palindromic Substrings](string/647-palindromic-substrings.md)

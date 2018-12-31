@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>647: Palindromic Substrings · GitBook</title>
+        <title>394: Decode String · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../hashmap/954-array-of-doubled-pairs.html" />
+    <link rel="next" href="647-palindromic-substrings.html" />
     
     
-    <link rel="prev" href="394-decode-string.html" />
+    <link rel="prev" href="../dynamic-programming/518-coin-change2.html" />
     
 
     </head>
@@ -131,7 +131,7 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="394-decode-string.html">
+        <li class="chapter active" data-level="3.1" data-path="394-decode-string.html">
             
                 <a href="394-decode-string.html">
             
@@ -151,7 +151,7 @@
         
         
     
-        <li class="chapter active" data-level="4.1" data-path="647-palindromic-substrings.html">
+        <li class="chapter " data-level="4.1" data-path="647-palindromic-substrings.html">
             
                 <a href="647-palindromic-substrings.html">
             
@@ -682,7 +682,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >647: Palindromic Substrings</a>
+        <a href=".." >394: Decode String</a>
     </h1>
 </div>
 
@@ -697,80 +697,88 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>Palindrome&#x95EE;&#x9898;&#x5E38;&#x89C1;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#xFF1A;</p>
-<ul>
-<li>DP: &#x4E8C;&#x7EF4;dp[start][len]&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x5B50;&#x4E32;&#x662F;&#x5426;&#x662F;palindrome</li>
-<li>&#x6269;&#x5C55;&#x6CD5;&#xFF1A;&#x4ECE;&#x4E00;&#x4E2A;letter&#x5F00;&#x59CB;&#x5DE6;&#x53F3;&#x6269;&#x5C55;</li>
-</ul>
-<p>DP: </p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> countSubstrings = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
-    <span class="hljs-keyword">const</span> len = s.length;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x53EF;&#x4EE5;&#x4ECE;&#x4EBA;&#x7684;&#x601D;&#x7EF4;&#x65B9;&#x5F0F;&#x5165;&#x624B;&#x3002;&#x5982;&#x679C;&#x662F;&#x4EBA;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F1A;&#x5148;&#x627E;&#x5230;&#x6700;&#x5185;&#x5C42;&#x7684;[]&#xFF0C;&#x7136;&#x540E;decode&#x4E4B;&#x95F4;&#x7684;string&#x3002;&#x91CD;&#x590D;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x76F4;&#x5230;&#x6240;&#x6709;&#x7684;[]&#x90FD;&#x88AB;decode&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> decodeString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+    <span class="hljs-keyword">let</span> len = s.length;
     <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
     }
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-    }
-    <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i&lt; len; i++) {
-        dp[i] = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; len; j++) {
-            dp[i][j] = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+        <span class="hljs-comment">// find first &apos;]&apos; and corresponding matched &apos;[&apos;</span>
+        <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; 
+        len = s.length;
+        <span class="hljs-keyword">while</span> (i &lt; len &amp;&amp; s[i] !== <span class="hljs-string">&apos;]&apos;</span>) i++;
+        <span class="hljs-keyword">if</span> (i === len) {
+            <span class="hljs-keyword">return</span> s;
         }
-    }
+        <span class="hljs-keyword">let</span> j = i<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; s[j] !== <span class="hljs-string">&apos;[&apos;</span>) j--;
 
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        dp[i][<span class="hljs-number">0</span>] = <span class="hljs-literal">true</span>;
-        res++;
-    }
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len<span class="hljs-number">-1</span>; i++) {
-        <span class="hljs-keyword">if</span> (s[i] === s[i+<span class="hljs-number">1</span>]) {
-            dp[i][<span class="hljs-number">1</span>] = <span class="hljs-literal">true</span>;
-            res++;
+        <span class="hljs-keyword">const</span> word = s.substring(j+<span class="hljs-number">1</span>, i);
+        <span class="hljs-keyword">let</span> k = j<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span> (k &gt;= <span class="hljs-number">0</span> &amp;&amp; !<span class="hljs-built_in">isNaN</span>(s[k])) k--;
+        <span class="hljs-keyword">const</span> number = <span class="hljs-built_in">parseInt</span>(s.substring(k+<span class="hljs-number">1</span>, j));
+        <span class="hljs-keyword">let</span> str = <span class="hljs-string">&apos;&apos;</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> ii = <span class="hljs-number">0</span>; ii &lt; number; ii++) {
+            str += word;
         }
-    }
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> gap = <span class="hljs-number">2</span>; gap &lt; len; gap++) {
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i+gap &lt; len; i++) {
-            <span class="hljs-keyword">if</span> (s[i] === s[i+gap] &amp;&amp; dp[i+<span class="hljs-number">1</span>][gap<span class="hljs-number">-2</span>]) {
-                dp[i][gap] = <span class="hljs-literal">true</span>;
-                res++;
-            }
-        }
-    }
-    <span class="hljs-keyword">return</span> res;
-};
-</code></pre>
-<p>&#x6269;&#x5C55;&#x6CD5;&#xFF1A;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> countSubstrings = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
-    <span class="hljs-keyword">const</span> len = s.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-    }
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        res += extend(s, i, i);
-        res += extend(s, i, i+<span class="hljs-number">1</span>);
-    }
-    <span class="hljs-keyword">return</span> res;
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">extend</span>(<span class="hljs-params">s, left, right</span>) </span>{
-    <span class="hljs-keyword">const</span> len = s.length;
-    <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (left &gt;= <span class="hljs-number">0</span> &amp;&amp; right &lt; len) {
-        <span class="hljs-keyword">if</span> (s[left] === s[right]) {
-            count++;
-            left--;
-            right++;
-        } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">const</span> arr = s.split(<span class="hljs-string">&apos;&apos;</span>);
+        arr.splice(k+<span class="hljs-number">1</span>, i-k, str);
+        s = arr.join(<span class="hljs-string">&apos;&apos;</span>);
+        <span class="hljs-keyword">if</span> (!encoded(s)) {
             <span class="hljs-keyword">break</span>;
         }
     }
-    <span class="hljs-keyword">return</span> count;
+    <span class="hljs-keyword">return</span> s;
+
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">encoded</span>(<span class="hljs-params">s</span>) </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; s.length; i++) {
+        <span class="hljs-keyword">if</span> (s[i] === <span class="hljs-string">&apos;[&apos;</span> || s[i] === <span class="hljs-string">&apos;]&apos;</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+</code></pre>
+<p>&#x8BBA;&#x575B;&#x91CC;&#x6709;&#x4EBA;&#x7528;dfs&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5173;&#x952E;&#x662F;&#x628A;pos&#x4EE5;&#x5F15;&#x7528;&#x65B9;&#x5F0F;&#x4F20;&#x5165;&#xFF0C;&#x8FD9;&#x6837;scan&#x4E00;&#x904D;&#x5C31;&#x53EF;&#x4EE5;decode&#x6574;&#x4E2A;string&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> decodeString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+    <span class="hljs-keyword">let</span> len = s.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
+    }
+
+    <span class="hljs-keyword">const</span> pos = [<span class="hljs-number">0</span>];
+    <span class="hljs-keyword">return</span> helper(s, pos);    
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helper</span>(<span class="hljs-params">str, pos</span>) </span>{
+    <span class="hljs-keyword">const</span> len = str.length;
+    <span class="hljs-keyword">if</span> (pos === len) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
+    }
+
+    <span class="hljs-keyword">let</span> num = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> res = <span class="hljs-string">&apos;&apos;</span>;
+    <span class="hljs-keyword">for</span> (;pos[<span class="hljs-number">0</span>] &lt; len; pos[<span class="hljs-number">0</span>]++) {
+        <span class="hljs-keyword">const</span> curr = str[pos[<span class="hljs-number">0</span>]];
+        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isNaN</span>(curr)) {
+            num = num*<span class="hljs-number">10</span> + <span class="hljs-built_in">parseInt</span>(str[pos[<span class="hljs-number">0</span>]]);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (curr === <span class="hljs-string">&apos;[&apos;</span>) {
+            pos[<span class="hljs-number">0</span>]++;
+            word = helper(str, pos);
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; num; i++) {
+                res += word;
+            }
+            num = <span class="hljs-number">0</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (curr === <span class="hljs-string">&apos;]&apos;</span>) {
+            <span class="hljs-keyword">return</span> res;
+        } <span class="hljs-keyword">else</span> {
+            res += curr;
+        }
+    }
+    <span class="hljs-keyword">return</span> res;
 }
 </code></pre>
 
@@ -800,12 +808,12 @@
 
             
                 
-                <a href="394-decode-string.html" class="navigation navigation-prev " aria-label="Previous page: 394: Decode String">
+                <a href="../dynamic-programming/518-coin-change2.html" class="navigation navigation-prev " aria-label="Previous page: 518: Coin Change 2">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../hashmap/954-array-of-doubled-pairs.html" class="navigation navigation-next " aria-label="Next page: 954: Array of Doubled Pairs">
+                <a href="647-palindromic-substrings.html" class="navigation navigation-next " aria-label="Next page: 647: Palindromic Substrings">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -816,7 +824,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"647: Palindromic Substrings","level":"4.1","depth":1,"next":{"title":"954: Array of Doubled Pairs","level":"5.1","depth":1,"path":"hashmap/954-array-of-doubled-pairs.md","ref":"hashmap/954-array-of-doubled-pairs.md","articles":[]},"previous":{"title":"394: Decode String","level":"3.1","depth":1,"path":"string/394-decode-string.md","ref":"string/394-decode-string.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"string/647-palindromic-substrings.md","mtime":"2018-12-29T02:51:33.971Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T00:00:55.261Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"394: Decode String","level":"3.1","depth":1,"next":{"title":"647: Palindromic Substrings","level":"4.1","depth":1,"path":"string/647-palindromic-substrings.md","ref":"string/647-palindromic-substrings.md","articles":[]},"previous":{"title":"518: Coin Change 2","level":"2.1","depth":1,"path":"dynamic-programming/518-coin-change2.md","ref":"dynamic-programming/518-coin-change2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"string/394-decode-string.md","mtime":"2018-12-31T00:00:39.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T00:00:55.261Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

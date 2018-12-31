@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>836: Rectangle Overlap · GitBook</title>
+        <title>348: Design Tic-Tac-Toe · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../stack/739-daily-temperatures.html" />
+    <link rel="next" href="../priority-queue/373-find-k-pairs-with-smallest-sums.html" />
     
     
-    <link rel="prev" href="../array/406-queue-reconstruction-by-height.html" />
+    <link rel="prev" href="353-design-snake-game.html" />
     
 
     </head>
@@ -593,9 +593,9 @@
         
         
     
-        <li class="chapter active" data-level="17.1" data-path="836-rectange-overlap.html">
+        <li class="chapter " data-level="17.1" data-path="../geometry/836-rectange-overlap.html">
             
-                <a href="836-rectange-overlap.html">
+                <a href="../geometry/836-rectange-overlap.html">
             
                     
                     836: Rectangle Overlap
@@ -659,9 +659,9 @@
         
         
     
-        <li class="chapter " data-level="19.1" data-path="../api/380-insert-delete-getrandom-o1.html">
+        <li class="chapter " data-level="19.1" data-path="380-insert-delete-getrandom-o1.html">
             
-                <a href="../api/380-insert-delete-getrandom-o1.html">
+                <a href="380-insert-delete-getrandom-o1.html">
             
                     
                     380: Insert Delete GetRandom O(1)
@@ -672,9 +672,9 @@
             
         </li>
     
-        <li class="chapter " data-level="19.2" data-path="../api/353-design-snake-game.html">
+        <li class="chapter " data-level="19.2" data-path="353-design-snake-game.html">
             
-                <a href="../api/353-design-snake-game.html">
+                <a href="353-design-snake-game.html">
             
                     
                     353: Design Snake Game
@@ -685,9 +685,9 @@
             
         </li>
     
-        <li class="chapter " data-level="19.3" data-path="../api/348-design-tic-tac-toe.html">
+        <li class="chapter active" data-level="19.3" data-path="348-design-tic-tac-toe.html">
             
-                <a href="../api/348-design-tic-tac-toe.html">
+                <a href="348-design-tic-tac-toe.html">
             
                     
                     348: Design Tic-Tac-Toe
@@ -748,7 +748,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >836: Rectangle Overlap</a>
+        <a href=".." >348: Design Tic-Tac-Toe</a>
     </h1>
 </div>
 
@@ -763,11 +763,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x4E2A;&#x9898;&#x4E00;&#x7EF4;&#x4E8C;&#x7EF4;&#x7684;&#x60C5;&#x51B5;&#x90FD;&#x5F88;&#x7ECF;&#x5178;&#xFF0C;&#x53EF;&#x4EE5;&#x8BB0;&#x4F4F;&#x7ED3;&#x8BBA;&#xFF1A;</p>
-<ul>
-<li>&#x4E00;&#x7EF4;&#xFF1A;[l1, r1], [l2, r2]. overlap &lt;=&gt; <code>l1 &lt; r2 &amp;&amp; l2 &lt; r1</code></li>
-<li>&#x4E8C;&#x7EF4;&#xFF1A;[blx1, bly1, trx1, try1], [blx2, bly2, trx2, try2]. overlap &lt;=&gt; <code>blx1 &lt; trx2 &amp;&amp; blx2 &lt; trx1 &amp;&amp; bly1 &lt; try2 &amp;&amp; bly2 &lt; try1</code></li>
-</ul>
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x96BE;&#x70B9;&#x662F;&#x5982;&#x4F55;&#x5FEB;&#x901F;&#x7684;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6EE1;&#x8DB3;&#x83B7;&#x80DC;&#x6761;&#x4EF6;&#x3002;&#x7531;&#x4E8E;&#x83B7;&#x80DC;&#x6761;&#x4EF6;&#x662F;&#x67D0;&#x4E00;&#x884C;/&#x5217;/&#x4E3B;&#x526F;&#x5BF9;&#x89D2;&#x7EBF;&#x5168;&#x90E8;&#x662F;&#x4E00;&#x79CD;&#x68CB;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x6BCF;&#x4E00;&#x884C;/&#x5217;/&#x5BF9;&#x89D2;&#x7EBF;&#xFF0C;&#x6BCF;&#x4E00;&#x4F4D;&#x9009;&#x624B;&#x7684;&#x68CB;&#x5B50;&#x603B;&#x6570;&#x3002;</p>
+<pre><code class="lang-javascript">TicTacToe.prototype.move = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">row, col, player</span>) </span>{
+    <span class="hljs-keyword">this</span>.rowCount[player<span class="hljs-number">-1</span>][row]++;
+    <span class="hljs-keyword">this</span>.colCount[player<span class="hljs-number">-1</span>][col]++;
+    <span class="hljs-keyword">if</span> (row === col) {
+        <span class="hljs-keyword">this</span>.diagCount[player<span class="hljs-number">-1</span>][<span class="hljs-number">0</span>]++;
+    }
+    <span class="hljs-keyword">if</span> (row === <span class="hljs-keyword">this</span>.rows - col - <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">this</span>.diagCount[player<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]++;
+    }
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.rowCount[player<span class="hljs-number">-1</span>][row] === <span class="hljs-keyword">this</span>.rows ||
+        <span class="hljs-keyword">this</span>.colCount[player<span class="hljs-number">-1</span>][col] === <span class="hljs-keyword">this</span>.rows ||
+        <span class="hljs-keyword">this</span>.diagCount[player<span class="hljs-number">-1</span>][<span class="hljs-number">0</span>] === <span class="hljs-keyword">this</span>.rows ||
+        <span class="hljs-keyword">this</span>.diagCount[player<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>] === <span class="hljs-keyword">this</span>.rows
+       ) {
+        <span class="hljs-keyword">return</span> player;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+};
+</code></pre>
 
                                 
                                 </section>
@@ -795,12 +810,12 @@
 
             
                 
-                <a href="../array/406-queue-reconstruction-by-height.html" class="navigation navigation-prev " aria-label="Previous page: 406: Queue Reconstruction by Height">
+                <a href="353-design-snake-game.html" class="navigation navigation-prev " aria-label="Previous page: 353: Design Snake Game">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../stack/739-daily-temperatures.html" class="navigation navigation-next " aria-label="Next page: 739: Daily Temperatures">
+                <a href="../priority-queue/373-find-k-pairs-with-smallest-sums.html" class="navigation navigation-next " aria-label="Next page: 373: Find K Pairs with Smallest Sums">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -811,7 +826,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"836: Rectangle Overlap","level":"17.1","depth":1,"next":{"title":"739: Daily Temperatures","level":"18.1","depth":1,"path":"stack/739-daily-temperatures.md","ref":"stack/739-daily-temperatures.md","articles":[]},"previous":{"title":"406: Queue Reconstruction by Height","level":"16.1","depth":1,"path":"array/406-queue-reconstruction-by-height.md","ref":"array/406-queue-reconstruction-by-height.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"geometry/836-rectange-overlap.md","mtime":"2018-12-27T22:29:57.650Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T06:17:38.182Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"348: Design Tic-Tac-Toe","level":"19.3","depth":1,"next":{"title":"373: Find K Pairs with Smallest Sums","level":"20.1","depth":1,"path":"priority-queue/373-find-k-pairs-with-smallest-sums.md","ref":"priority-queue/373-find-k-pairs-with-smallest-sums.md","articles":[]},"previous":{"title":"353: Design Snake Game","level":"19.2","depth":1,"path":"api/353-design-snake-game.md","ref":"api/353-design-snake-game.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/348-design-tic-tac-toe.md","mtime":"2018-12-31T06:17:25.109Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T06:17:38.182Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

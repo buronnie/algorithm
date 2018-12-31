@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>449: Serialize and Deserialize BST · GitBook</title>
+        <title>347: Top K Frequent Elementss · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="437-path-sum-3.html" />
     
-    
-    <link rel="prev" href="652-find-duplicate-subtrees.html" />
+    <link rel="prev" href="373-find-k-pairs-with-smallest-sums.html" />
     
 
     </head>
@@ -224,9 +222,9 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="958-check-completeness-of-a-binary-tree.html">
+        <li class="chapter " data-level="7.1" data-path="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
-                <a href="958-check-completeness-of-a-binary-tree.html">
+                <a href="../binary-tree/958-check-completeness-of-a-binary-tree.html">
             
                     
                     958: Check Completeness of a Binary Tree
@@ -237,9 +235,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="7.2" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -257,9 +255,9 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="863-all-nodes-distance-K-in-binary-tree.html">
+        <li class="chapter " data-level="8.1" data-path="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
-                <a href="863-all-nodes-distance-K-in-binary-tree.html">
+                <a href="../binary-tree/863-all-nodes-distance-K-in-binary-tree.html">
             
                     
                     863: All Nodes Distance K in Binary Tree
@@ -270,9 +268,9 @@
             
         </li>
     
-        <li class="chapter " data-level="8.2" data-path="652-find-duplicate-subtrees.html">
+        <li class="chapter " data-level="8.2" data-path="../binary-tree/652-find-duplicate-subtrees.html">
             
-                <a href="652-find-duplicate-subtrees.html">
+                <a href="../binary-tree/652-find-duplicate-subtrees.html">
             
                     
                     652: Find Duplicate Subtrees
@@ -283,9 +281,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="8.3" data-path="449-serialize-and-deserialize-bst.html">
+        <li class="chapter " data-level="8.3" data-path="../binary-tree/449-serialize-and-deserialize-bst.html">
             
-                <a href="449-serialize-and-deserialize-bst.html">
+                <a href="../binary-tree/449-serialize-and-deserialize-bst.html">
             
                     
                     449: Serialize and Deserialize BST
@@ -296,9 +294,9 @@
             
         </li>
     
-        <li class="chapter " data-level="8.4" data-path="437-path-sum-3.html">
+        <li class="chapter " data-level="8.4" data-path="../binary-tree/437-path-sum-3.html">
             
-                <a href="437-path-sum-3.html">
+                <a href="../binary-tree/437-path-sum-3.html">
             
                     
                     437: Path Sum III
@@ -705,9 +703,9 @@
         
         
     
-        <li class="chapter " data-level="20.1" data-path="../priority-queue/373-find-k-pairs-with-smallest-sums.html">
+        <li class="chapter " data-level="20.1" data-path="373-find-k-pairs-with-smallest-sums.html">
             
-                <a href="../priority-queue/373-find-k-pairs-with-smallest-sums.html">
+                <a href="373-find-k-pairs-with-smallest-sums.html">
             
                     
                     373: Find K Pairs with Smallest Sums
@@ -718,9 +716,9 @@
             
         </li>
     
-        <li class="chapter " data-level="20.2" data-path="../priority-queue/347-top-K-frequent-elements.html">
+        <li class="chapter active" data-level="20.2" data-path="347-top-K-frequent-elements.html">
             
-                <a href="../priority-queue/347-top-K-frequent-elements.html">
+                <a href="347-top-K-frequent-elements.html">
             
                     
                     347: Top K Frequent Elementss
@@ -761,7 +759,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >449: Serialize and Deserialize BST</a>
+        <a href=".." >347: Top K Frequent Elementss</a>
     </h1>
 </div>
 
@@ -776,61 +774,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x548C;297&#x975E;&#x5E38;&#x50CF;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x8FD9;&#x91CC;&#x4E0D;&#x9700;&#x8981;preorder &#x548C;inorder&#x53BB;&#x91CD;&#x5EFA;binary tree, &#x56E0;&#x4E3A;bst&#x7684;&#x7279;&#x70B9;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> serialize = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x6709;&#x4E24;&#x79CD;&#x89E3;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>priority queue&#xFF1A; &#x8FD9;&#x662F;&#x6700;&#x65E0;&#x8111;&#x7684;&#x89E3;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x628A;(value, freq) &#x4E22;&#x5230;priority queue&#x91CC;&#xFF0C;&#x7136;&#x540E;&#x5F39;&#x51FA;&#x524D;k&#x4E2A;</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">topKFrequent</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> k)</span> </span>{
+    <span class="hljs-keyword">int</span> len = nums.length;
+    List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+    <span class="hljs-keyword">if</span> (len == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> res;
     }
-    <span class="hljs-keyword">const</span> res = dfs(root);
+    <span class="hljs-keyword">if</span> (len == <span class="hljs-number">1</span>) {
+        res.add(nums[<span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">return</span> res;
+    }
+
+    Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+    Queue&lt;Map.Entry&lt;Integer, Integer&gt;&gt; queue = <span class="hljs-keyword">new</span> PriorityQueue&lt;&gt;((a, b) -&gt; b.getValue() - a.getValue());
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> num : nums) {
+        <span class="hljs-keyword">if</span> (!map.containsKey(num)) {
+            map.put(num, <span class="hljs-number">1</span>);
+        } <span class="hljs-keyword">else</span> {
+            map.put(num, map.get(num) + <span class="hljs-number">1</span>);
+        }
+    }
+    <span class="hljs-keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) {
+        queue.offer(entry);
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; k; i++) {
+        res.add(queue.poll().getKey());
+    }
+    <span class="hljs-keyword">return</span> res;
+}
+</code></pre>
+<ul>
+<li>bucket sort: &#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4EC5;&#x5C40;&#x9650;&#x4E8E;&#x6574;&#x6570;&#x6392;&#x5E8F;&#xFF08;range&#x4E0D;&#x592A;&#x5927;&#xFF09;&#x3002;&#x601D;&#x60F3;&#x662F;&#x628A;&#x8981;&#x6392;&#x5E8F;&#x7684;&#x6570;&#x4F5C;&#x4E3A;index&#xFF08;&#x8FD9;&#x91CC;&#x662F;freq)&#xFF0C;&#x7136;&#x540E;&#x6309;index&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x626B;&#x63CF;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> topKFrequent = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">nums, k</span>) </span>{
+    <span class="hljs-keyword">const</span> len = nums.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || k === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> [];
+    }
+    <span class="hljs-keyword">const</span> map = {};
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> num <span class="hljs-keyword">of</span> nums) {
+        <span class="hljs-keyword">if</span> (num <span class="hljs-keyword">in</span> map) {
+            map[num]++;
+        } <span class="hljs-keyword">else</span> {
+            map[num] = <span class="hljs-number">1</span>;
+        }
+    }
+
+    <span class="hljs-keyword">const</span> arr = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();
+    <span class="hljs-keyword">let</span> maxIndex = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> map) {
+        <span class="hljs-keyword">const</span> freq = map[key];
+        <span class="hljs-keyword">if</span> (!arr[freq]) {
+            arr[freq] = [key];
+        } <span class="hljs-keyword">else</span> {
+            arr[freq].push(key);
+        }
+        maxIndex = <span class="hljs-built_in">Math</span>.max(maxIndex, freq);
+    }
+
+    <span class="hljs-keyword">const</span> res = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = maxIndex; i &gt;= <span class="hljs-number">0</span>; i--) {
+        <span class="hljs-keyword">if</span> (arr[i]) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; arr[i].length; j++) {
+                res.push(arr[i][j]);
+                k--;
+                <span class="hljs-keyword">if</span> (k === <span class="hljs-number">0</span>) {
+                    <span class="hljs-keyword">return</span> res;
+                }
+            }
+        }
+    }
     <span class="hljs-keyword">return</span> res;
 };
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">root</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
-    }
-    <span class="hljs-keyword">if</span> (root.left === <span class="hljs-literal">null</span> &amp;&amp; root.right === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">String</span>(root.val);
-    }
-    <span class="hljs-keyword">if</span> (root.left === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${root.val}</span>,<span class="hljs-subst">${dfs(root.right)}</span>`</span>;
-    }
-    <span class="hljs-keyword">if</span> (root.right === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${root.val}</span>,<span class="hljs-subst">${dfs(root.left)}</span>`</span>;
-    }
-    <span class="hljs-keyword">const</span> left = dfs(root.left);
-    <span class="hljs-keyword">const</span> right = dfs(root.right);
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${root.val}</span>,<span class="hljs-subst">${left}</span>,<span class="hljs-subst">${right}</span>`</span>;
-}
-
-<span class="hljs-comment">/**
- * Decodes your encoded data to tree.
- *
- * @param {string} data
- * @return {TreeNode}
- */</span>
-<span class="hljs-keyword">var</span> deserialize = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
-    <span class="hljs-keyword">if</span> (data === <span class="hljs-string">&apos;&apos;</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-    }
-    <span class="hljs-keyword">const</span> arr = data.split(<span class="hljs-string">&apos;,&apos;</span>);
-    <span class="hljs-keyword">return</span> helper(arr);
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helper</span>(<span class="hljs-params">arr</span>) </span>{
-    <span class="hljs-keyword">if</span> (arr.length === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-    }
-    <span class="hljs-keyword">const</span> curr = <span class="hljs-built_in">parseInt</span>(arr[<span class="hljs-number">0</span>]);
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; 
-    <span class="hljs-keyword">while</span> (i &lt; arr.length &amp;&amp; arr[i] !== <span class="hljs-string">&apos;&apos;</span> &amp;&amp; <span class="hljs-built_in">parseInt</span>(arr[i]) &lt; curr) {
-        i++;
-    }
-    <span class="hljs-keyword">const</span> root = <span class="hljs-keyword">new</span> TreeNode(curr);
-    root.left = helper(arr.slice(<span class="hljs-number">1</span>, i));
-    root.right = helper(arr.slice(i));
-    <span class="hljs-keyword">return</span> root;
-}
 </code></pre>
 
                                 
@@ -859,14 +878,10 @@
 
             
                 
-                <a href="652-find-duplicate-subtrees.html" class="navigation navigation-prev " aria-label="Previous page: 652: Find Duplicate Subtrees">
+                <a href="373-find-k-pairs-with-smallest-sums.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 373: Find K Pairs with Smallest Sums">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="437-path-sum-3.html" class="navigation navigation-next " aria-label="Next page: 437: Path Sum III">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -875,7 +890,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"449: Serialize and Deserialize BST","level":"8.3","depth":1,"next":{"title":"437: Path Sum III","level":"8.4","depth":1,"path":"binary-tree/437-path-sum-3.md","ref":"binary-tree/437-path-sum-3.md","articles":[]},"previous":{"title":"652: Find Duplicate Subtrees","level":"8.2","depth":1,"path":"binary-tree/652-find-duplicate-subtrees.md","ref":"binary-tree/652-find-duplicate-subtrees.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binary-tree/449-serialize-and-deserialize-bst.md","mtime":"2018-12-30T02:31:18.517Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T06:47:10.313Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"347: Top K Frequent Elementss","level":"20.2","depth":1,"previous":{"title":"373: Find K Pairs with Smallest Sums","level":"20.1","depth":1,"path":"priority-queue/373-find-k-pairs-with-smallest-sums.md","ref":"priority-queue/373-find-k-pairs-with-smallest-sums.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"priority-queue/347-top-K-frequent-elements.md","mtime":"2018-12-31T06:49:24.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T06:47:10.313Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -74,3 +74,4 @@
 
 ## Priority Queue
 * [373: Find K Pairs with Smallest Sums](priority-queue/373-find-k-pairs-with-smallest-sums.md)
+* [347: Top K Frequent Elementss](priority-queue/347-top-K-frequent-elements.md)

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>957: Prison Cells After N Days · GitBook</title>
+        <title>353: Design Snake Game · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html" />
+    <link rel="next" href="../priority-queue/373-find-k-pairs-with-smallest-sums.html" />
     
     
-    <link rel="prev" href="../intervals/763-partition-labels.html" />
+    <link rel="prev" href="380-insert-delete-getrandom-o1.html" />
     
 
     </head>
@@ -520,9 +520,9 @@
         
         
     
-        <li class="chapter active" data-level="14.1" data-path="957-prison-cells-after-N-days.html">
+        <li class="chapter " data-level="14.1" data-path="../state-loop/957-prison-cells-after-N-days.html">
             
-                <a href="957-prison-cells-after-N-days.html">
+                <a href="../state-loop/957-prison-cells-after-N-days.html">
             
                     
                     957: Prison Cells After N Days
@@ -659,9 +659,9 @@
         
         
     
-        <li class="chapter " data-level="19.1" data-path="../api/380-insert-delete-getrandom-o1.html">
+        <li class="chapter " data-level="19.1" data-path="380-insert-delete-getrandom-o1.html">
             
-                <a href="../api/380-insert-delete-getrandom-o1.html">
+                <a href="380-insert-delete-getrandom-o1.html">
             
                     
                     380: Insert Delete GetRandom O(1)
@@ -672,9 +672,9 @@
             
         </li>
     
-        <li class="chapter " data-level="19.2" data-path="../api/353-design-snake-game.html">
+        <li class="chapter active" data-level="19.2" data-path="353-design-snake-game.html">
             
-                <a href="../api/353-design-snake-game.html">
+                <a href="353-design-snake-game.html">
             
                     
                     353: Design Snake Game
@@ -735,7 +735,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >957: Prison Cells After N Days</a>
+        <a href=".." >353: Design Snake Game</a>
     </h1>
 </div>
 
@@ -750,50 +750,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x5F53;&#x770B;&#x5230;example2&#x7684;N=100000000&#x65F6;&#xFF0C;&#x5C31;&#x5E94;&#x8BE5;&#x610F;&#x8BC6;&#x5230;&#x72B6;&#x6001;&#x80AF;&#x5B9A;&#x4F1A;&#x5FAA;&#x73AF;&#x91CD;&#x590D;&#x3002;&#x53EA;&#x8981;&#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x68C0;&#x6D4B;&#x5230;&#x72B6;&#x6001;&#x91CD;&#x590D;&#x65F6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x5FAA;&#x73AF;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x548C;&#x5FAA;&#x73AF;&#x957F;&#x5EA6;&#x3002;</p>
-<pre><code>pos = (N - periodStart) % period + periodStart
-</code></pre><pre><code class="lang-javascript"><span class="hljs-keyword">var</span> prisonAfterNDays = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cells, N</span>) </span>{
-    <span class="hljs-keyword">const</span> len = cells.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || N === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> [];
-    }
-
-    <span class="hljs-keyword">const</span> map = {[cells.join(<span class="hljs-string">&apos;&apos;</span>)]: <span class="hljs-number">0</span>};
-    <span class="hljs-keyword">const</span> states=  [cells];
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">let</span> period = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">let</span> periodStartPos = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
-        <span class="hljs-keyword">const</span> nextState = getNextCell(cells);
-        <span class="hljs-keyword">const</span> nextStateStr = nextState.join(<span class="hljs-string">&apos;&apos;</span>);
-        <span class="hljs-keyword">if</span> (nextStateStr <span class="hljs-keyword">in</span> map) {
-            periodStartPos = map[nextStateStr];
-            period = states.length - map[nextStateStr];
-            <span class="hljs-keyword">break</span>;
-        } <span class="hljs-keyword">else</span> {
-            map[nextStateStr] = i;
-        }
-        states.push(nextState);
-        cells = nextState;
-        i++;
-    }
-    <span class="hljs-keyword">return</span> states[(N-periodStartPos) % period + periodStartPos];
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x975E;&#x5E38;&#x6709;&#x610F;&#x601D;&#xFF0C;&#x96BE;&#x5EA6;&#x4E0D;&#x5927;&#x4F46;&#x662F;&#x60F3;bug free&#x4E5F;&#x4E0D;&#x5BB9;&#x6613;&#x3002;&#x5982;&#x679C;&#x601D;&#x8DEF;&#x6E05;&#x6670;&#x5219;&#x4EE3;&#x7801;&#x4F1A;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#x3002;</p>
+<ul>
+<li>&#x79FB;&#x52A8;&#x5934;&#x90E8;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;cell</li>
+<li>&#x5224;&#x65AD;&#x6B64;&#x65F6;&#x5934;&#x90E8;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x8D8A;&#x754C;</li>
+<li>&#x5224;&#x65AD;&#x662F;&#x5426;&#x5F53;&#x524D;cell&#x6709;&#x98DF;&#x7269;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5219;&#x5F39;&#x51FA;&#x86C7;&#x5C3E;&#x3002;&#x5224;&#x65AD;&#x5F53;&#x524D;cell&#x662F;&#x5426;&#x548C;&#x86C7;collide&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5219;&#x538B;&#x5165;cell&#x4F5C;&#x4E3A;&#x65B0;&#x7684;&#x86C7;&#x5934;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * Initialize your data structure here.
+        @param width - screen width
+        @param height - screen height 
+        @param food - A list of food positions
+        E.g food = [[1,1], [1,0]] means the first food is positioned at [1,1], the second is at [1,0].
+ * @param {number} width
+ * @param {number} height
+ * @param {number[][]} food
+ */</span>
+<span class="hljs-keyword">var</span> SnakeGame = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">width, height, food</span>) </span>{
+    <span class="hljs-keyword">this</span>.rows = height;
+    <span class="hljs-keyword">this</span>.cols = width;
+    <span class="hljs-keyword">this</span>.food = food;
+    <span class="hljs-keyword">this</span>.foodIdx = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.x = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.y = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.snake = [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]];
 };
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNextCell</span>(<span class="hljs-params">cells</span>) </span>{
-    <span class="hljs-keyword">const</span> len = cells.length;
-    <span class="hljs-keyword">const</span> next = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-    next[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>; 
-    next[len<span class="hljs-number">-1</span>] = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i&lt; len<span class="hljs-number">-1</span>; i++) {
-        <span class="hljs-keyword">if</span> (cells[i<span class="hljs-number">-1</span>] === cells[i+<span class="hljs-number">1</span>]) {
-            next[i] = <span class="hljs-number">1</span>;
-        } <span class="hljs-keyword">else</span> {
-            next[i] = <span class="hljs-number">0</span>;
+<span class="hljs-comment">/**
+ * Moves the snake.
+        @param direction - &apos;U&apos; = Up, &apos;L&apos; = Left, &apos;R&apos; = Right, &apos;D&apos; = Down 
+        @return The game&apos;s score after the move. Return -1 if game over. 
+        Game over when snake crosses the screen boundary or bites its body. 
+ * @param {string} direction
+ * @return {number}
+ */</span>
+SnakeGame.prototype.move = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">direction</span>) </span>{
+    <span class="hljs-keyword">if</span> (direction === <span class="hljs-string">&apos;U&apos;</span>) {
+        <span class="hljs-keyword">this</span>.x--;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (direction === <span class="hljs-string">&apos;D&apos;</span>) {
+        <span class="hljs-keyword">this</span>.x++;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (direction === <span class="hljs-string">&apos;L&apos;</span>) {
+        <span class="hljs-keyword">this</span>.y--;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>.y++;
+    }
+
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isValid(<span class="hljs-keyword">this</span>.x, <span class="hljs-keyword">this</span>.y)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.process(<span class="hljs-keyword">this</span>.x, <span class="hljs-keyword">this</span>.y)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.snake.length - <span class="hljs-number">1</span>;
+};
+
+SnakeGame.prototype.isValid = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{
+    <span class="hljs-keyword">return</span> x &gt;= <span class="hljs-number">0</span> &amp;&amp; x &lt; <span class="hljs-keyword">this</span>.rows &amp;&amp; y &gt;= <span class="hljs-number">0</span> &amp;&amp; y &lt; <span class="hljs-keyword">this</span>.cols;
+}
+
+SnakeGame.prototype.process = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x, y</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.foodIdx === <span class="hljs-keyword">this</span>.food.length) {
+        <span class="hljs-keyword">this</span>.snake.pop();
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.food[<span class="hljs-keyword">this</span>.foodIdx][<span class="hljs-number">0</span>] === x &amp;&amp; <span class="hljs-keyword">this</span>.food[<span class="hljs-keyword">this</span>.foodIdx][<span class="hljs-number">1</span>] === y) {
+        <span class="hljs-keyword">this</span>.foodIdx++;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">this</span>.snake.pop();
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> pos <span class="hljs-keyword">of</span> <span class="hljs-keyword">this</span>.snake) {
+        <span class="hljs-keyword">if</span> (pos[<span class="hljs-number">0</span>] === x &amp;&amp; pos[<span class="hljs-number">1</span>] === y) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
         }
     }
-    <span class="hljs-keyword">return</span> next;
+    <span class="hljs-keyword">this</span>.snake.unshift([x, y]);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
 }
+
+<span class="hljs-comment">/** 
+ * Your SnakeGame object will be instantiated and called as such:
+ * var obj = Object.create(SnakeGame).createNew(width, height, food)
+ * var param_1 = obj.move(direction)
+ */</span>
 </code></pre>
 
                                 
@@ -822,12 +859,12 @@
 
             
                 
-                <a href="../intervals/763-partition-labels.html" class="navigation navigation-prev " aria-label="Previous page: 763: Partition Labels">
+                <a href="380-insert-delete-getrandom-o1.html" class="navigation navigation-prev " aria-label="Previous page: 380: Insert Delete GetRandom O(1)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html" class="navigation navigation-next " aria-label="Next page: 955: Delete Columns to Make Sorted II">
+                <a href="../priority-queue/373-find-k-pairs-with-smallest-sums.html" class="navigation navigation-next " aria-label="Next page: 373: Find K Pairs with Smallest Sums">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -838,7 +875,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"957: Prison Cells After N Days","level":"14.1","depth":1,"next":{"title":"955: Delete Columns to Make Sorted II","level":"15.1","depth":1,"path":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","ref":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","articles":[]},"previous":{"title":"763: Partition Labels","level":"13.1","depth":1,"path":"intervals/763-partition-labels.md","ref":"intervals/763-partition-labels.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"state-loop/957-prison-cells-after-N-days.md","mtime":"2018-12-26T04:42:21.293Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T04:32:13.358Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"353: Design Snake Game","level":"19.2","depth":1,"next":{"title":"373: Find K Pairs with Smallest Sums","level":"20.1","depth":1,"path":"priority-queue/373-find-k-pairs-with-smallest-sums.md","ref":"priority-queue/373-find-k-pairs-with-smallest-sums.md","articles":[]},"previous":{"title":"380: Insert Delete GetRandom O(1)","level":"19.1","depth":1,"path":"api/380-insert-delete-getrandom-o1.md","ref":"api/380-insert-delete-getrandom-o1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/353-design-snake-game.md","mtime":"2018-12-31T04:32:00.949Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T04:32:13.358Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

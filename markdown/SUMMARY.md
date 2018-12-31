@@ -66,3 +66,6 @@
 * [739: Daily Temperatures](stack/739-daily-temperatures.md)
 * [496: Next Greater Element I](stack/496-next-greater-element-1.md)
 * [503: Next Greater Element II](stack/503-next-greater-element-2.md)
+
+## API Design
+* [380: Insert Delete GetRandom O(1)](api/380-insert-delete-getrandom-o1.md)

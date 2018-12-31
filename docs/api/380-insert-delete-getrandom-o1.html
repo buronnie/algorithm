@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>739: Daily Temperatures · GitBook</title>
+        <title>380: Insert Delete GetRandom O(1) · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="496-next-greater-element-1.html" />
     
-    
-    <link rel="prev" href="../geometry/836-rectange-overlap.html" />
+    <link rel="prev" href="../stack/503-next-greater-element-2.html" />
     
 
     </head>
@@ -613,9 +611,9 @@
         
         
     
-        <li class="chapter active" data-level="18.1" data-path="739-daily-temperatures.html">
+        <li class="chapter " data-level="18.1" data-path="../stack/739-daily-temperatures.html">
             
-                <a href="739-daily-temperatures.html">
+                <a href="../stack/739-daily-temperatures.html">
             
                     
                     739: Daily Temperatures
@@ -626,9 +624,9 @@
             
         </li>
     
-        <li class="chapter " data-level="18.2" data-path="496-next-greater-element-1.html">
+        <li class="chapter " data-level="18.2" data-path="../stack/496-next-greater-element-1.html">
             
-                <a href="496-next-greater-element-1.html">
+                <a href="../stack/496-next-greater-element-1.html">
             
                     
                     496: Next Greater Element I
@@ -639,9 +637,9 @@
             
         </li>
     
-        <li class="chapter " data-level="18.3" data-path="503-next-greater-element-2.html">
+        <li class="chapter " data-level="18.3" data-path="../stack/503-next-greater-element-2.html">
             
-                <a href="503-next-greater-element-2.html">
+                <a href="../stack/503-next-greater-element-2.html">
             
                     
                     503: Next Greater Element II
@@ -659,9 +657,9 @@
         
         
     
-        <li class="chapter " data-level="19.1" data-path="../api/380-insert-delete-getrandom-o1.html">
+        <li class="chapter active" data-level="19.1" data-path="380-insert-delete-getrandom-o1.html">
             
-                <a href="../api/380-insert-delete-getrandom-o1.html">
+                <a href="380-insert-delete-getrandom-o1.html">
             
                     
                     380: Insert Delete GetRandom O(1)
@@ -702,7 +700,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >739: Daily Temperatures</a>
+        <a href=".." >380: Insert Delete GetRandom O(1)</a>
     </h1>
 </div>
 
@@ -717,37 +715,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;min stack&#xFF0C;&#x5F53;&#x9047;&#x5230;&#x7834;&#x574F;min stack&#x7684;&#x6570;&#x65F6;&#x5C31;&#x5148;pop, &#x518D;push&#x3002;&#x6280;&#x5DE7;&#x662F;&#x628A;index&#x5165;&#x6808;&#x800C;&#x4E0D;&#x662F;value&#x672C;&#x8EAB;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dailyTemperatures = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">T</span>) </span>{
-    <span class="hljs-keyword">const</span> len = T.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> [];
-    } 
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> [<span class="hljs-number">0</span>];
-    }
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x96BE;&#x70B9;&#x5728;&#x4E8E;&#x9009;&#x62E9;&#x6B63;&#x786E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;&#x5982;&#x679C;&#x7528;array&#xFF0C;getrandom&#x548C;insert&#x5F88;&#x5BB9;&#x6613;O(1)&#xFF0C; &#x4F46;&#x662F;&#x5220;&#x9664;&#x4E0D;&#x5BB9;&#x6613;O(1)&#x3002;&#x8003;&#x8651;&#x5230;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;set&#xFF0C;&#x6570;&#x636E;&#x7684;&#x987A;&#x5E8F;&#x65E0;&#x6240;&#x8C13;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;map&#x5B58;&#x50A8;meta&#x4FE1;&#x606F;&#x3002;</p>
+<ul>
+<li>arr&#x5B58;&#x50A8;&#x6570;&#x636E;</li>
+<li>map&#x7684;key&#x662F;&#x6570;&#x636E;&#x503C;&#xFF0C;value&#x662F;&#x5BF9;&#x5E94;&#x7684;arr&#x7684;&#x4E0B;&#x6807;</li>
+</ul>
+<p>&#x5F53;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6570;&#x65F6;&#xFF0C;</p>
+<ul>
+<li>copy array&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x5230;&#x8981;&#x5220;&#x9664;&#x6570;&#x7684;&#x4F4D;&#x7F6E;, &#x66F4;&#x65B0;map&#x7684;&#x503C;&#xFF0C;&#x5220;&#x9664;&#x8981;&#x5F39;&#x51FA;&#x7684;key, value&#xFF0C;&#x6700;&#x540E;&#x5F39;&#x51FA;array&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x3002;&#x6709;&#x70B9;&#x72F8;&#x732B;&#x6362;&#x592A;&#x5B50;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x633A;&#x5DE7;&#x5999;&#x7684;&#x3002;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> RandomizedSet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.map = {};
+    <span class="hljs-keyword">this</span>.arr = [];
+};
 
-    <span class="hljs-keyword">const</span> stack = [];
-    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        res[i] = <span class="hljs-number">0</span>;
+<span class="hljs-comment">/**
+ * Inserts a value to the set. Returns true if the set did not already contain the specified element. 
+ * @param {number} val
+ * @return {boolean}
+ */</span>
+RandomizedSet.prototype.insert = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">if</span> (val <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.map) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; len; i++) {
-        <span class="hljs-keyword">if</span> (stack.length === <span class="hljs-number">0</span> || T[i] &lt;= T[stack[stack.length<span class="hljs-number">-1</span>]]) {
-            stack.push(i);
-            <span class="hljs-keyword">continue</span>;
-        }
-        <span class="hljs-keyword">while</span> (stack.length &gt; <span class="hljs-number">0</span>) {
-            <span class="hljs-keyword">if</span> (T[i] &gt; T[stack[stack.length<span class="hljs-number">-1</span>]]) {
-                <span class="hljs-keyword">const</span> prevIdx = stack.pop();
-                res[prevIdx] = i - prevIdx;
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-keyword">break</span>;
-            }
-        }
-        stack.push(i);
+    <span class="hljs-keyword">this</span>.arr.push(val);
+    <span class="hljs-keyword">this</span>.map[val] = <span class="hljs-keyword">this</span>.arr.length<span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+<span class="hljs-comment">/**
+ * Removes a value from the set. Returns true if the set contained the specified element. 
+ * @param {number} val
+ * @return {boolean}
+ */</span>
+RandomizedSet.prototype.remove = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">if</span> (!(val <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.map)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">this</span>.arr[<span class="hljs-keyword">this</span>.map[val]] = <span class="hljs-keyword">this</span>.arr[<span class="hljs-keyword">this</span>.arr.length<span class="hljs-number">-1</span>];
+    <span class="hljs-keyword">this</span>.map[<span class="hljs-keyword">this</span>.arr[<span class="hljs-keyword">this</span>.arr.length<span class="hljs-number">-1</span>]] = <span class="hljs-keyword">this</span>.map[val];
+    <span class="hljs-keyword">this</span>.arr.pop();
+    <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>.map[val];
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+<span class="hljs-comment">/**
+ * Get a random element from the set.
+ * @return {number}
+ */</span>
+RandomizedSet.prototype.getRandom = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.arr[<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-keyword">this</span>.arr.length)];
 };
 </code></pre>
 
@@ -777,14 +794,10 @@
 
             
                 
-                <a href="../geometry/836-rectange-overlap.html" class="navigation navigation-prev " aria-label="Previous page: 836: Rectangle Overlap">
+                <a href="../stack/503-next-greater-element-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 503: Next Greater Element II">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="496-next-greater-element-1.html" class="navigation navigation-next " aria-label="Next page: 496: Next Greater Element I">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -793,7 +806,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"739: Daily Temperatures","level":"18.1","depth":1,"next":{"title":"496: Next Greater Element I","level":"18.2","depth":1,"path":"stack/496-next-greater-element-1.md","ref":"stack/496-next-greater-element-1.md","articles":[]},"previous":{"title":"836: Rectangle Overlap","level":"17.1","depth":1,"path":"geometry/836-rectange-overlap.md","ref":"geometry/836-rectange-overlap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"stack/739-daily-temperatures.md","mtime":"2018-12-28T07:09:11.695Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T00:52:45.098Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"380: Insert Delete GetRandom O(1)","level":"19.1","depth":1,"previous":{"title":"503: Next Greater Element II","level":"18.3","depth":1,"path":"stack/503-next-greater-element-2.md","ref":"stack/503-next-greater-element-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/380-insert-delete-getrandom-o1.md","mtime":"2018-12-31T00:45:39.471Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T00:52:45.098Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

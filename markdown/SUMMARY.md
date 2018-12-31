@@ -69,3 +69,6 @@
 
 ## API Design
 * [380: Insert Delete GetRandom O(1)](api/380-insert-delete-getrandom-o1.md)
+
+## Priority Queue
+* [373: Find K Pairs with Smallest Sums](priority-queue/373-find-k-pairs-with-smallest-sums.md)

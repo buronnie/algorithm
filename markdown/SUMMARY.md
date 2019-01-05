@@ -71,6 +71,7 @@
 * [380: Insert Delete GetRandom O(1)](api/380-insert-delete-getrandom-o1.md)
 * [353: Design Snake Game](api/353-design-snake-game.md)
 * [348: Design Tic-Tac-Toe](api/348-design-tic-tac-toe.md)
+* [341: Flatten Nested List Iterator](api/341-flatten-nested-list-iterator.md)
 
 ## Priority Queue
 * [373: Find K Pairs with Smallest Sums](priority-queue/373-find-k-pairs-with-smallest-sums.md)

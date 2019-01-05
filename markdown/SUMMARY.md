@@ -75,3 +75,10 @@
 ## Priority Queue
 * [373: Find K Pairs with Smallest Sums](priority-queue/373-find-k-pairs-with-smallest-sums.md)
 * [347: Top K Frequent Elementss](priority-queue/347-top-K-frequent-elements.md)
+
+## OOP Design
+* [Chess Game](design/chess-game.md)
+* [Deck of Cards](design/deck-of-cards.md)
+* [Parking Lot](design/parking-lot.md)
+* [Tiny Url](design/tiny-url.md)
+* [Vending Machine](design/vending-machine.md)

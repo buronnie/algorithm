@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>678: Valid Parenthesis String · GitBook</title>
+        <title>Chess Game · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../array/406-queue-reconstruction-by-height.html" />
+    <link rel="next" href="deck-of-cards.html" />
     
     
-    <link rel="prev" href="955-delete-columns-to-make-sorted-2.html" />
+    <link rel="prev" href="../priority-queue/347-top-K-frequent-elements.html" />
     
 
     </head>
@@ -540,9 +540,9 @@
         
         
     
-        <li class="chapter " data-level="15.1" data-path="955-delete-columns-to-make-sorted-2.html">
+        <li class="chapter " data-level="15.1" data-path="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html">
             
-                <a href="955-delete-columns-to-make-sorted-2.html">
+                <a href="../divide-and-conqueor/955-delete-columns-to-make-sorted-2.html">
             
                     
                     955: Delete Columns to Make Sorted II
@@ -553,9 +553,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="15.2" data-path="678-valid-parenthesis-string.html">
+        <li class="chapter " data-level="15.2" data-path="../divide-and-conqueor/678-valid-parenthesis-string.html">
             
-                <a href="678-valid-parenthesis-string.html">
+                <a href="../divide-and-conqueor/678-valid-parenthesis-string.html">
             
                     
                     678: Valid Parenthesis String
@@ -738,9 +738,9 @@
         
         
     
-        <li class="chapter " data-level="21.1" data-path="../design/chess-game.html">
+        <li class="chapter active" data-level="21.1" data-path="chess-game.html">
             
-                <a href="../design/chess-game.html">
+                <a href="chess-game.html">
             
                     
                     Chess Game
@@ -751,9 +751,9 @@
             
         </li>
     
-        <li class="chapter " data-level="21.2" data-path="../design/deck-of-cards.html">
+        <li class="chapter " data-level="21.2" data-path="deck-of-cards.html">
             
-                <a href="../design/deck-of-cards.html">
+                <a href="deck-of-cards.html">
             
                     
                     Deck of Cards
@@ -764,9 +764,9 @@
             
         </li>
     
-        <li class="chapter " data-level="21.3" data-path="../design/parking-lot.html">
+        <li class="chapter " data-level="21.3" data-path="parking-lot.html">
             
-                <a href="../design/parking-lot.html">
+                <a href="parking-lot.html">
             
                     
                     Parking Lot
@@ -777,9 +777,9 @@
             
         </li>
     
-        <li class="chapter " data-level="21.4" data-path="../design/tiny-url.html">
+        <li class="chapter " data-level="21.4" data-path="tiny-url.html">
             
-                <a href="../design/tiny-url.html">
+                <a href="tiny-url.html">
             
                     
                     Tiny Url
@@ -790,9 +790,9 @@
             
         </li>
     
-        <li class="chapter " data-level="21.5" data-path="../design/vending-machine.html">
+        <li class="chapter " data-level="21.5" data-path="vending-machine.html">
             
-                <a href="../design/vending-machine.html">
+                <a href="vending-machine.html">
             
                     
                     Vending Machine
@@ -833,7 +833,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >678: Valid Parenthesis String</a>
+        <a href=".." >Chess Game</a>
     </h1>
 </div>
 
@@ -848,28 +848,111 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x6BD4;&#x6CA1;&#x6709;wild card&#x7684;&#x90A3;&#x9053;&#x770B;&#x8D77;&#x6765;&#x8981;&#x96BE;&#x4E86;&#x4E0D;&#x5C11;&#x3002;&#x5173;&#x952E;&#x662F;&#x6BCF;&#x6B21;&#x9047;&#x5230;*&#x5C31;&#x4F1A;&#x6709;3&#x4E2A;&#x5206;&#x652F;&#xFF0C;&#x8FD9;&#x6837;&#x603B;&#x5171;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x662F;&#x6307;&#x6570;&#x4E0A;&#x5347;&#x7684;&#x3002;&#x4E0D;&#x8003;&#x8651;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x60F3;&#x6CD5;&#x662F;&#x5206;&#x6CBB;&#x3002;&#x7528;&#x4E00;&#x4E2A;counter&#x7EDF;&#x8BA1;&#x5DE6;&#x53F3;&#x62EC;&#x53F7;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x7684;&#x5DEE;&#x3002;&#x5408;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8981;&#x6C42;&#x6700;&#x7EC8;&#x7684;counter = 0&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> checkValidString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
-    <span class="hljs-keyword">const</span> len = s.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                                <p>&#x95EE;&#x9898;&#xFF1A;&#x8BBE;&#x8BA1;chess game?</p>
+<p>Classes:</p>
+<ul>
+<li><p>Game</p>
+<ul>
+<li>Board</li>
+<li>two players</li>
+</ul>
+</li>
+<li><p>Board</p>
+<ul>
+<li>2-D 8x8 cells</li>
+<li>init(): initialize array and pieces</li>
+<li>canMove(command)</li>
+<li>movePiece()</li>
+<li>removePiece()</li>
+</ul>
+</li>
+<li><p>Cell</p>
+<ul>
+<li>piece</li>
+<li>x, y coordinates</li>
+</ul>
+</li>
+<li><p>Piece (abstract class)</p>
+<ul>
+<li>x, y coordiates</li>
+<li>isValidMove(board, fromX, fromY, toX, toY)</li>
+<li>live: is alive or dead</li>
+</ul>
+</li>
+<li><p>Player</p>
+<ul>
+<li>list of pieces</li>
+<li>list of commands</li>
+<li>meta data (username, score)</li>
+</ul>
+</li>
+<li><p>Command</p>
+<ul>
+<li>Piece</li>
+<li>Destination</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Game</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> Board board;
+    <span class="hljs-keyword">private</span> Player p1;
+    <span class="hljs-keyword">private</span> Player p2;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Game</span><span class="hljs-params">(username1, username2)</span> </span>{
+        board = <span class="hljs-keyword">new</span> Board();
+        p1 = <span class="hljs-keyword">new</span> Player(username1);
+        p2 = <span class="hljs-keyword">new</span> Player(username2);
     }
-    <span class="hljs-keyword">return</span> dfs(<span class="hljs-number">0</span>, s, <span class="hljs-number">0</span>);
-};
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">pos, str, curr</span>) </span>{
-    <span class="hljs-keyword">if</span> (pos &gt;= str.length) {
-        <span class="hljs-keyword">return</span> curr === <span class="hljs-number">0</span>;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">startGame</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) {
+            process(p1);
+            <span class="hljs-keyword">if</span> (board.getWin()) {
+                System.out.println(<span class="hljs-string">&quot;P1 win&quot;</span>);
+                <span class="hljs-keyword">break</span>;
+            }
+            process(p2);
+            <span class="hljs-keyword">if</span> (board.getWin()) {
+                System.out.println(<span class="hljs-string">&quot;P2 win&quot;</span>);
+                <span class="hljs-keyword">break</span>;
+            }
+        }
     }
-    <span class="hljs-keyword">if</span> (curr &lt; <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">process</span><span class="hljs-params">(Player p)</span> </span>{
+        Command cmd = <span class="hljs-keyword">new</span> Command(input);
+        p.addCommand(cmd);
+        board.executeCommand(p);
     }
-    <span class="hljs-keyword">if</span> (str[pos] === <span class="hljs-string">&apos;(&apos;</span>) {
-        <span class="hljs-keyword">return</span> dfs(pos+<span class="hljs-number">1</span>, str, curr+<span class="hljs-number">1</span>);
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (str[pos] === <span class="hljs-string">&apos;)&apos;</span>) {
-        <span class="hljs-keyword">return</span> dfs(pos+<span class="hljs-number">1</span>, str, curr<span class="hljs-number">-1</span>);
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Board</span> </span>{
+    <span class="hljs-keyword">private</span> Spot[][] spots;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> win;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Board</span><span class="hljs-params">()</span> </span>{
+        win = <span class="hljs-keyword">false</span>;
+        spots = <span class="hljs-keyword">new</span> Spot[<span class="hljs-number">8</span>][<span class="hljs-number">8</span>];
     }
-    <span class="hljs-keyword">return</span> dfs(pos+<span class="hljs-number">1</span>, str, curr) || dfs(pos+<span class="hljs-number">1</span>, str, curr+<span class="hljs-number">1</span>) || dfs(pos+<span class="hljs-number">1</span>, str, curr<span class="hljs-number">-1</span>);
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(Player p)</span> </span>{
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">executeCommand</span><span class="hljs-params">(Player p)</span> </span>{
+        Command cmd = p.getCurrentCommand(p);
+        <span class="hljs-keyword">if</span> (!piece.validMove(<span class="hljs-keyword">this</span>, cmd.curX, cmd.curY, cmd.desX, dstY)) {
+            p.removeCurrentCmd();
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        <span class="hljs-keyword">if</span> (spot[cmd.desX][cmd.desY] != <span class="hljs-keyword">null</span> &amp;&amp; spot[cmd.desX][cmd.desY].color == piece.color) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        }
+        spot[cmd.desX][cmd.desY].occupy(piece);
+        <span class="hljs-keyword">if</span> (piece.getClass().getName().equals(<span class="hljs-string">&quot;King&quot;</span>)) {
+            win = <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
 }
 </code></pre>
 
@@ -899,12 +982,12 @@
 
             
                 
-                <a href="955-delete-columns-to-make-sorted-2.html" class="navigation navigation-prev " aria-label="Previous page: 955: Delete Columns to Make Sorted II">
+                <a href="../priority-queue/347-top-K-frequent-elements.html" class="navigation navigation-prev " aria-label="Previous page: 347: Top K Frequent Elementss">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../array/406-queue-reconstruction-by-height.html" class="navigation navigation-next " aria-label="Next page: 406: Queue Reconstruction by Height">
+                <a href="deck-of-cards.html" class="navigation navigation-next " aria-label="Next page: Deck of Cards">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -915,7 +998,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"678: Valid Parenthesis String","level":"15.2","depth":1,"next":{"title":"406: Queue Reconstruction by Height","level":"16.1","depth":1,"path":"array/406-queue-reconstruction-by-height.md","ref":"array/406-queue-reconstruction-by-height.md","articles":[]},"previous":{"title":"955: Delete Columns to Make Sorted II","level":"15.1","depth":1,"path":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","ref":"divide-and-conqueor/955-delete-columns-to-make-sorted-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"divide-and-conqueor/678-valid-parenthesis-string.md","mtime":"2018-12-28T22:02:08.719Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-05T17:57:23.050Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Chess Game","level":"21.1","depth":1,"next":{"title":"Deck of Cards","level":"21.2","depth":1,"path":"design/deck-of-cards.md","ref":"design/deck-of-cards.md","articles":[]},"previous":{"title":"347: Top K Frequent Elementss","level":"20.2","depth":1,"path":"priority-queue/347-top-K-frequent-elements.md","ref":"priority-queue/347-top-K-frequent-elements.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"design/chess-game.md","mtime":"2019-01-02T05:20:57.602Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-05T17:57:23.050Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

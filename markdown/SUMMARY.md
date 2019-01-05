@@ -45,6 +45,7 @@
 
 ### Directed Graph
 * [787 : Cheapest Flights Within K Stops](graph/787-cheapest-flights-within-K-stops.md)
+* [332 : Reconstruct Itinerary](graph/332-reconstruct-itinerary.md)
 
 ## Intervals
 * [763: Partition Labels](intervals/763-partition-labels.md)

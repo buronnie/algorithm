@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>653: Two Sum IV - Input is a BST · GitBook</title>
+        <title>670: Maximum Swap · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="454-4-sum-2.html" />
+    <link rel="next" href="../geometry/836-rectange-overlap.html" />
     
     
-    <link rel="prev" href="954-array-of-doubled-pairs.html" />
+    <link rel="prev" href="325-maximum-size-subarray-sum-equals-k.html" />
     
 
     </head>
@@ -171,9 +171,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="954-array-of-doubled-pairs.html">
+        <li class="chapter " data-level="5.1" data-path="../hashmap/954-array-of-doubled-pairs.html">
             
-                <a href="954-array-of-doubled-pairs.html">
+                <a href="../hashmap/954-array-of-doubled-pairs.html">
             
                     
                     954: Array of Doubled Pairs
@@ -184,9 +184,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.2" data-path="653-two-sum-iv-binary-tree.html">
+        <li class="chapter " data-level="5.2" data-path="../hashmap/653-two-sum-iv-binary-tree.html">
             
-                <a href="653-two-sum-iv-binary-tree.html">
+                <a href="../hashmap/653-two-sum-iv-binary-tree.html">
             
                     
                     653: Two Sum IV - Input is a BST
@@ -197,9 +197,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="454-4-sum-2.html">
+        <li class="chapter " data-level="5.3" data-path="../hashmap/454-4-sum-2.html">
             
-                <a href="454-4-sum-2.html">
+                <a href="../hashmap/454-4-sum-2.html">
             
                     
                     454: 4Sum II
@@ -625,9 +625,9 @@
         
         
     
-        <li class="chapter " data-level="16.1" data-path="../array/406-queue-reconstruction-by-height.html">
+        <li class="chapter " data-level="16.1" data-path="406-queue-reconstruction-by-height.html">
             
-                <a href="../array/406-queue-reconstruction-by-height.html">
+                <a href="406-queue-reconstruction-by-height.html">
             
                     
                     406: Queue Reconstruction by Height
@@ -638,9 +638,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.2" data-path="../array/325-maximum-size-subarray-sum-equals-k.html">
+        <li class="chapter " data-level="16.2" data-path="325-maximum-size-subarray-sum-equals-k.html">
             
-                <a href="../array/325-maximum-size-subarray-sum-equals-k.html">
+                <a href="325-maximum-size-subarray-sum-equals-k.html">
             
                     
                     325: Maximum Size Subarray Sum Equals k
@@ -651,9 +651,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.3" data-path="../array/670-maximum-swap.html">
+        <li class="chapter active" data-level="16.3" data-path="670-maximum-swap.html">
             
-                <a href="../array/670-maximum-swap.html">
+                <a href="670-maximum-swap.html">
             
                     
                     670: Maximum Swap
@@ -924,7 +924,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >653: Two Sum IV - Input is a BST</a>
+        <a href=".." >670: Maximum Swap</a>
     </h1>
 </div>
 
@@ -939,24 +939,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x867D;&#x7136;&#x8F93;&#x5165;&#x662F;bst, &#x4F46;&#x662F;&#x5982;&#x679C;&#x7528;hashmap&#x6765;&#x8BB0;&#x5F55;&#x9047;&#x5230;&#x70B9;&#x7684;&#x503C;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x63A8;&#x5E7F;&#x5230;&#x6240;&#x6709;binary tree&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> findTarget = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">root, k</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x53EF;&#x4EE5;&#x6309;&#x5982;&#x4E0B;&#x7684;&#x6B65;&#x9AA4;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li>input -&gt; digit array (arr)</li>
+<li>clone array and sort (sorted)</li>
+<li>scan from i = 0, and find the first digit where arr[i] != sorted[i]</li>
+<li>scan from i = len-1, and find the first max digit (best deal to swap the lowest position)</li>
+<li>swap</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> maximumSwap = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">num</span>) </span>{
+    <span class="hljs-keyword">const</span> arr = <span class="hljs-built_in">String</span>(num).split(<span class="hljs-string">&apos;&apos;</span>);
+    <span class="hljs-keyword">const</span> sorted = [...arr];
+    sorted.sort((a, b) =&gt; b - a);
+    <span class="hljs-keyword">const</span> len = arr.length;
+
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (i &lt; len &amp;&amp; arr[i] === sorted[i]) i++;
+    <span class="hljs-keyword">if</span> (i === len) {
+        <span class="hljs-keyword">return</span> num;
     }
-    <span class="hljs-keyword">const</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
-    <span class="hljs-keyword">return</span> dfs(root, k, set);
+    <span class="hljs-keyword">const</span> left = i;
+    i = len<span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">while</span> (i &gt; left &amp;&amp; arr[i] !== sorted[left]) i--;
+    swap(arr, left, i);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">parseInt</span>(arr.join(<span class="hljs-string">&apos;&apos;</span>));
 };
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dfs</span>(<span class="hljs-params">root, k, set</span>) </span>{
-    <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    }
-    <span class="hljs-keyword">if</span> (set.has(root.val)) {
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-    }
-    set.add(k-root.val);
-    <span class="hljs-keyword">return</span> dfs(root.left, k, set) || dfs(root.right, k, set);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span>(<span class="hljs-params">arr, i, j</span>) </span>{
+    <span class="hljs-keyword">const</span> tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
 }
 </code></pre>
 
@@ -986,12 +998,12 @@
 
             
                 
-                <a href="954-array-of-doubled-pairs.html" class="navigation navigation-prev " aria-label="Previous page: 954: Array of Doubled Pairs">
+                <a href="325-maximum-size-subarray-sum-equals-k.html" class="navigation navigation-prev " aria-label="Previous page: 325: Maximum Size Subarray Sum Equals k">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="454-4-sum-2.html" class="navigation navigation-next " aria-label="Next page: 454: 4Sum II">
+                <a href="../geometry/836-rectange-overlap.html" class="navigation navigation-next " aria-label="Next page: 836: Rectangle Overlap">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1002,7 +1014,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"653: Two Sum IV - Input is a BST","level":"5.2","depth":1,"next":{"title":"454: 4Sum II","level":"5.3","depth":1,"path":"hashmap/454-4-sum-2.md","ref":"hashmap/454-4-sum-2.md","articles":[]},"previous":{"title":"954: Array of Doubled Pairs","level":"5.1","depth":1,"path":"hashmap/954-array-of-doubled-pairs.md","ref":"hashmap/954-array-of-doubled-pairs.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"hashmap/653-two-sum-iv-binary-tree.md","mtime":"2018-12-28T23:23:31.562Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-06T07:31:07.482Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"670: Maximum Swap","level":"16.3","depth":1,"next":{"title":"836: Rectangle Overlap","level":"17.1","depth":1,"path":"geometry/836-rectange-overlap.md","ref":"geometry/836-rectange-overlap.md","articles":[]},"previous":{"title":"325: Maximum Size Subarray Sum Equals k","level":"16.2","depth":1,"path":"array/325-maximum-size-subarray-sum-equals-k.md","ref":"array/325-maximum-size-subarray-sum-equals-k.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"array/670-maximum-swap.md","mtime":"2019-01-06T07:30:56.410Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-06T07:31:07.482Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

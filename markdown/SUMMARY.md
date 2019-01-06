@@ -51,6 +51,7 @@
 
 ## Intervals
 * [763: Partition Labels](intervals/763-partition-labels.md)
+* [646: Maximum Length of Pair Chain](intervals/646-maximum-length-of-pair-chain.md)
 
 ## State loop
 * [957: Prison Cells After N Days](state-loop/957-prison-cells-after-N-days.md)

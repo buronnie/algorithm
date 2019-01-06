@@ -60,6 +60,7 @@
 
 ## Array
 * [406: Queue Reconstruction by Height](array/406-queue-reconstruction-by-height.md)
+* [325: Maximum Size Subarray Sum Equals k](array/325-maximum-size-subarray-sum-equals-k.md)
 
 ## Geometry
 * [836: Rectangle Overlap](geometry/836-rectange-overlap.md)

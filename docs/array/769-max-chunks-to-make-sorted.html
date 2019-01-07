@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>394: Decode String · GitBook</title>
+        <title>769: Max Chunks To Make Sorted · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="647-palindromic-substrings.html" />
+    <link rel="next" href="../geometry/836-rectange-overlap.html" />
     
     
-    <link rel="prev" href="../dynamic-programming/518-coin-change2.html" />
+    <link rel="prev" href="670-maximum-swap.html" />
     
 
     </head>
@@ -131,9 +131,9 @@
         
         
     
-        <li class="chapter active" data-level="3.1" data-path="394-decode-string.html">
+        <li class="chapter " data-level="3.1" data-path="../string/394-decode-string.html">
             
-                <a href="394-decode-string.html">
+                <a href="../string/394-decode-string.html">
             
                     
                     394: Decode String
@@ -151,9 +151,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="647-palindromic-substrings.html">
+        <li class="chapter " data-level="4.1" data-path="../string/647-palindromic-substrings.html">
             
-                <a href="647-palindromic-substrings.html">
+                <a href="../string/647-palindromic-substrings.html">
             
                     
                     647: Palindromic Substrings
@@ -625,9 +625,9 @@
         
         
     
-        <li class="chapter " data-level="16.1" data-path="../array/406-queue-reconstruction-by-height.html">
+        <li class="chapter " data-level="16.1" data-path="406-queue-reconstruction-by-height.html">
             
-                <a href="../array/406-queue-reconstruction-by-height.html">
+                <a href="406-queue-reconstruction-by-height.html">
             
                     
                     406: Queue Reconstruction by Height
@@ -638,9 +638,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.2" data-path="../array/325-maximum-size-subarray-sum-equals-k.html">
+        <li class="chapter " data-level="16.2" data-path="325-maximum-size-subarray-sum-equals-k.html">
             
-                <a href="../array/325-maximum-size-subarray-sum-equals-k.html">
+                <a href="325-maximum-size-subarray-sum-equals-k.html">
             
                     
                     325: Maximum Size Subarray Sum Equals k
@@ -651,9 +651,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.3" data-path="../array/670-maximum-swap.html">
+        <li class="chapter " data-level="16.3" data-path="670-maximum-swap.html">
             
-                <a href="../array/670-maximum-swap.html">
+                <a href="670-maximum-swap.html">
             
                     
                     670: Maximum Swap
@@ -664,9 +664,9 @@
             
         </li>
     
-        <li class="chapter " data-level="16.4" data-path="../array/769-max-chunks-to-make-sorted.html">
+        <li class="chapter active" data-level="16.4" data-path="769-max-chunks-to-make-sorted.html">
             
-                <a href="../array/769-max-chunks-to-make-sorted.html">
+                <a href="769-max-chunks-to-make-sorted.html">
             
                     
                     769: Max Chunks To Make Sorted
@@ -937,7 +937,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >394: Decode String</a>
+        <a href=".." >769: Max Chunks To Make Sorted</a>
     </h1>
 </div>
 
@@ -952,88 +952,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x53EF;&#x4EE5;&#x4ECE;&#x4EBA;&#x7684;&#x601D;&#x7EF4;&#x65B9;&#x5F0F;&#x5165;&#x624B;&#x3002;&#x5982;&#x679C;&#x662F;&#x4EBA;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F1A;&#x5148;&#x627E;&#x5230;&#x6700;&#x5185;&#x5C42;&#x7684;[]&#xFF0C;&#x7136;&#x540E;decode&#x4E4B;&#x95F4;&#x7684;string&#x3002;&#x91CD;&#x590D;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x76F4;&#x5230;&#x6240;&#x6709;&#x7684;[]&#x90FD;&#x88AB;decode&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> decodeString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
-    <span class="hljs-keyword">let</span> len = s.length;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x5173;&#x952E;&#x662F;&#x627E;&#x5230;partition&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5BF9;&#x4E8E;index i&#xFF0C;&#x5DE6;&#x8FB9;subarray&#x7684;&#x6700;&#x5927;&#x503C; &lt;= &#x53F3;&#x8FB9;subarray&#x7684;&#x6700;&#x5C0F;&#x503C;&#x3002;
+&#x53EF;&#x4EE5;&#x7EF4;&#x62A4;maxLeft, minRight array&#xFF0C;&#x4F7F;&#x5224;&#x65AD;&#x7B80;&#x5316;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> maxChunksToSorted = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">arr</span>) </span>{
+    <span class="hljs-keyword">const</span> len = arr.length;
     <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
-        <span class="hljs-comment">// find first &apos;]&apos; and corresponding matched &apos;[&apos;</span>
-        <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; 
-        len = s.length;
-        <span class="hljs-keyword">while</span> (i &lt; len &amp;&amp; s[i] !== <span class="hljs-string">&apos;]&apos;</span>) i++;
-        <span class="hljs-keyword">if</span> (i === len) {
-            <span class="hljs-keyword">return</span> s;
-        }
-        <span class="hljs-keyword">let</span> j = i<span class="hljs-number">-1</span>;
-        <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; s[j] !== <span class="hljs-string">&apos;[&apos;</span>) j--;
 
-        <span class="hljs-keyword">const</span> word = s.substring(j+<span class="hljs-number">1</span>, i);
-        <span class="hljs-keyword">let</span> k = j<span class="hljs-number">-1</span>;
-        <span class="hljs-keyword">while</span> (k &gt;= <span class="hljs-number">0</span> &amp;&amp; !<span class="hljs-built_in">isNaN</span>(s[k])) k--;
-        <span class="hljs-keyword">const</span> number = <span class="hljs-built_in">parseInt</span>(s.substring(k+<span class="hljs-number">1</span>, j));
-        <span class="hljs-keyword">let</span> str = <span class="hljs-string">&apos;&apos;</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> ii = <span class="hljs-number">0</span>; ii &lt; number; ii++) {
-            str += word;
-        }
-        <span class="hljs-keyword">const</span> arr = s.split(<span class="hljs-string">&apos;&apos;</span>);
-        arr.splice(k+<span class="hljs-number">1</span>, i-k, str);
-        s = arr.join(<span class="hljs-string">&apos;&apos;</span>);
-        <span class="hljs-keyword">if</span> (!encoded(s)) {
-            <span class="hljs-keyword">break</span>;
-        }
+    <span class="hljs-keyword">const</span> maxLeft = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    <span class="hljs-keyword">const</span> minRight = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    maxLeft[<span class="hljs-number">0</span>] = arr[<span class="hljs-number">0</span>];
+    minRight[len<span class="hljs-number">-1</span>] = arr[len<span class="hljs-number">-1</span>];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; len; i++) {
+        maxLeft[i] = <span class="hljs-built_in">Math</span>.max(maxLeft[i<span class="hljs-number">-1</span>], arr[i]);
     }
-    <span class="hljs-keyword">return</span> s;
-
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = len<span class="hljs-number">-2</span>; i&gt;= <span class="hljs-number">0</span>; i--) {
+        minRight[i] = <span class="hljs-built_in">Math</span>.min(minRight[i+<span class="hljs-number">1</span>], arr[i]);
+    }
+    <span class="hljs-keyword">return</span> helper(arr, maxLeft, minRight, <span class="hljs-number">0</span>, len<span class="hljs-number">-1</span>);
 };
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">encoded</span>(<span class="hljs-params">s</span>) </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; s.length; i++) {
-        <span class="hljs-keyword">if</span> (s[i] === <span class="hljs-string">&apos;[&apos;</span> || s[i] === <span class="hljs-string">&apos;]&apos;</span>) {
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helper</span>(<span class="hljs-params">arr, maxLeft, minRight, left, right</span>) </span>{
+    <span class="hljs-keyword">if</span> (left &gt; right) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = left; i &lt; right; i++) {
+        <span class="hljs-keyword">if</span> (maxLeft[i] &lt;= minRight[i+<span class="hljs-number">1</span>]) {
+            <span class="hljs-keyword">return</span> helper(arr, maxLeft, minRight, left, i) + helper(arr, maxLeft, minRight, i+<span class="hljs-number">1</span>, right) ;
         }
     }
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-}
-</code></pre>
-<p>&#x8BBA;&#x575B;&#x91CC;&#x6709;&#x4EBA;&#x7528;dfs&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5173;&#x952E;&#x662F;&#x628A;pos&#x4EE5;&#x5F15;&#x7528;&#x65B9;&#x5F0F;&#x4F20;&#x5165;&#xFF0C;&#x8FD9;&#x6837;scan&#x4E00;&#x904D;&#x5C31;&#x53EF;&#x4EE5;decode&#x6574;&#x4E2A;string&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> decodeString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
-    <span class="hljs-keyword">let</span> len = s.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
-    }
-
-    <span class="hljs-keyword">const</span> pos = [<span class="hljs-number">0</span>];
-    <span class="hljs-keyword">return</span> helper(s, pos);    
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helper</span>(<span class="hljs-params">str, pos</span>) </span>{
-    <span class="hljs-keyword">const</span> len = str.length;
-    <span class="hljs-keyword">if</span> (pos === len) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&apos;</span>;
-    }
-
-    <span class="hljs-keyword">let</span> num = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">let</span> res = <span class="hljs-string">&apos;&apos;</span>;
-    <span class="hljs-keyword">for</span> (;pos[<span class="hljs-number">0</span>] &lt; len; pos[<span class="hljs-number">0</span>]++) {
-        <span class="hljs-keyword">const</span> curr = str[pos[<span class="hljs-number">0</span>]];
-        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isNaN</span>(curr)) {
-            num = num*<span class="hljs-number">10</span> + <span class="hljs-built_in">parseInt</span>(str[pos[<span class="hljs-number">0</span>]]);
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (curr === <span class="hljs-string">&apos;[&apos;</span>) {
-            pos[<span class="hljs-number">0</span>]++;
-            word = helper(str, pos);
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; num; i++) {
-                res += word;
-            }
-            num = <span class="hljs-number">0</span>;
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (curr === <span class="hljs-string">&apos;]&apos;</span>) {
-            <span class="hljs-keyword">return</span> res;
-        } <span class="hljs-keyword">else</span> {
-            res += curr;
-        }
-    }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
 }
 </code></pre>
 
@@ -1063,12 +1013,12 @@
 
             
                 
-                <a href="../dynamic-programming/518-coin-change2.html" class="navigation navigation-prev " aria-label="Previous page: 518: Coin Change 2">
+                <a href="670-maximum-swap.html" class="navigation navigation-prev " aria-label="Previous page: 670: Maximum Swap">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="647-palindromic-substrings.html" class="navigation navigation-next " aria-label="Next page: 647: Palindromic Substrings">
+                <a href="../geometry/836-rectange-overlap.html" class="navigation navigation-next " aria-label="Next page: 836: Rectangle Overlap">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1079,7 +1029,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"394: Decode String","level":"3.1","depth":1,"next":{"title":"647: Palindromic Substrings","level":"4.1","depth":1,"path":"string/647-palindromic-substrings.md","ref":"string/647-palindromic-substrings.md","articles":[]},"previous":{"title":"518: Coin Change 2","level":"2.1","depth":1,"path":"dynamic-programming/518-coin-change2.md","ref":"dynamic-programming/518-coin-change2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"string/394-decode-string.md","mtime":"2018-12-31T00:00:39.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-07T05:28:01.504Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"769: Max Chunks To Make Sorted","level":"16.4","depth":1,"next":{"title":"836: Rectangle Overlap","level":"17.1","depth":1,"path":"geometry/836-rectange-overlap.md","ref":"geometry/836-rectange-overlap.md","articles":[]},"previous":{"title":"670: Maximum Swap","level":"16.3","depth":1,"path":"array/670-maximum-swap.md","ref":"array/670-maximum-swap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"array/769-max-chunks-to-make-sorted.md","mtime":"2019-01-07T05:27:56.269Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-07T05:28:01.504Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

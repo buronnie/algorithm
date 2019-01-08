@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>948: Bag of Tokens · GitBook</title>
+        <title>Design Pastebin · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../graph/947-moast-stones-removed-with-same-row-or-col.html" />
     
-    
-    <link rel="prev" href="962-max-width-ramp.html" />
+    <link rel="prev" href="../design/vending-machine.html" />
     
 
     </head>
@@ -329,9 +327,9 @@
         
         
     
-        <li class="chapter " data-level="9.1" data-path="962-max-width-ramp.html">
+        <li class="chapter " data-level="9.1" data-path="../two-pointer/962-max-width-ramp.html">
             
-                <a href="962-max-width-ramp.html">
+                <a href="../two-pointer/962-max-width-ramp.html">
             
                     
                     962: Max Width Ramp
@@ -342,9 +340,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="9.2" data-path="948-bag-of-tokens.html">
+        <li class="chapter " data-level="9.2" data-path="../two-pointer/948-bag-of-tokens.html">
             
-                <a href="948-bag-of-tokens.html">
+                <a href="../two-pointer/948-bag-of-tokens.html">
             
                     
                     948: Bag of Tokens
@@ -927,9 +925,9 @@
         
         
     
-        <li class="chapter " data-level="22.1" data-path="../system-design/design-pastebin.html">
+        <li class="chapter active" data-level="22.1" data-path="design-pastebin.html">
             
-                <a href="../system-design/design-pastebin.html">
+                <a href="design-pastebin.html">
             
                     
                     Design Pastebin
@@ -970,7 +968,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >948: Bag of Tokens</a>
+        <a href=".." >Design Pastebin</a>
     </h1>
 </div>
 
@@ -985,39 +983,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9996;&#x9898;&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x5230;dp, &#x5206;&#x6CBB;&#x53BB;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x70B9;&#x50CF;&#x53D6;&#x77F3;&#x5B50;&#x7684;&#x9898;&#x3002;&#x7528;&#x5206;&#x6CBB;&#x6CD5;&#x5199;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x6700;&#x540E;&#x8FD8;&#x8D85;&#x65F6;&#x4E86;&#x3002;&#x6CA1;&#x529E;&#x6CD5;&#x91CD;&#x65B0;&#x60F3;&#x601D;&#x8DEF;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x9053;&#x9898;&#x6709;&#x4E00;&#x4E2A;&#x9690;&#x542B;&#x6761;&#x4EF6;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x4E70;&#x5165;&#x6700;&#x5C0F;&#x7684;&#xFF0C;&#x5356;&#x51FA;&#x6700;&#x5927;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x51ED;&#x7A7A;&#x589E;&#x52A0;power&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x80FD;&#x4E70;&#x5230;&#x66F4;&#x591A;&#x7684;&#x5206;&#x6570;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#x8FD8;&#x662F;&#x4E00;&#x9053;&#x53CC;&#x6307;&#x9488;&#x9898;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x6BCF;&#x6B21;&#x4E70;&#x5165;&#x524D;&#x8981;&#x68C0;&#x5BDF;&#x662F;&#x5426;&#x5F53;&#x524D;&#x7684;power&#x6570;&#x8DB3;&#x591F;&#x4E70;&#x5165;point.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> bagOfTokensScore = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tokens, P</span>) </span>{
-    <span class="hljs-keyword">const</span> len = tokens.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || P &lt;= <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    }
-    tokens.sort((a, b) =&gt; a - b);
-
-    <span class="hljs-keyword">let</span> max = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>, end = len<span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">while</span> (start &lt;= end) {
-        max = <span class="hljs-built_in">Math</span>.max(max, getPoints(tokens, start, end, P));
-        <span class="hljs-keyword">if</span> (P &gt;= tokens[start]) {
-            P += (tokens[end--] - tokens[start++]);
-        } <span class="hljs-keyword">else</span> {
-            <span class="hljs-keyword">break</span>;
-        }
-    }
-    <span class="hljs-keyword">return</span> max;
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPoints</span>(<span class="hljs-params">tokens, start, end, P</span>) </span>{
-    <span class="hljs-keyword">if</span> (end - start &lt; <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">let</span> points = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (start &lt;= end &amp;&amp; P &gt;= tokens[start]) {
-        P -= tokens[start++];
-        points++;
-    }
-    <span class="hljs-keyword">return</span> points;
-}
-</code></pre>
+                                <p>&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x95EE;&#x81EA;&#x5DF1;&#x95EE;&#x9898;&#xFF0C;&#x5E76;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x6709;&#x5F88;&#x5F3A;&#x7684;&#x5957;&#x8DEF;&#x6027;&#xFF0C;&#x53EA;&#x8981;&#x7EC3;&#x51E0;&#x4E2A;&#x5C31;&#x80FD;&#x628A;&#x89C4;&#x5F8B;&#x6478;&#x719F;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x95EE;&#xFF1A;&#x8BBE;&#x8BA1;&#x7684;&#x7CFB;&#x7EDF;&#x662F;&#x5E72;&#x5565;&#x7528;&#x7684; (use cases)&#xFF1F;</p>
+<ul>
+<li>&#x7528;&#x6237;&#x8F93;&#x5165;&#x4E00;&#x4E9B;&#x6587;&#x5B57;&#xFF0C;&#x63D0;&#x4EA4;&#x540E;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;sharable&#x7684;url</li>
+<li>&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x751F;&#x6210;&#x7684;url&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6587;&#x5B57;&#x5185;&#x5BB9;</li>
+</ul>
+<p>&#x7B2C;&#x4E8C;&#x95EE;&#xFF1A;&#x8BBE;&#x8BA1;&#x7684;&#x7CFB;&#x7EDF;&#x6709;&#x54EA;&#x4E9B;&#x9650;&#x5236;&#x6761;&#x4EF6;&#xFF1F;</p>
+<ul>
+<li>&#x7528;&#x6237;&#xFF1A;&#x53EF;&#x4EE5;&#x533F;&#x540D;&#x4F7F;&#x7528;</li>
+<li>url: &#x591A;&#x4E45;&#x5230;&#x671F;&#xFF0C;&#x8FD8;&#x662F;&#x4E00;&#x76F4;&#x6709;&#x6548;&#xFF0C;&#x5982;&#x679C;&#x5230;&#x671F;&#x9700;&#x8981;&#x5220;&#x9664;&#x5BF9;&#x5E94;&#x7684;&#x5185;&#x5BB9;</li>
+</ul>
+<p>&#x7B2C;&#x4E09;&#x95EE;&#xFF1A;&#x8BBE;&#x8BA1;&#x7CFB;&#x7EDF;&#x65F6;&#x6709;&#x54EA;&#x4E9B;&#x5047;&#x8BBE;&#xFF1F;</p>
+<ul>
+<li>&#x5185;&#x5BB9;&#x53EA;&#x662F;&#x6587;&#x5B57;</li>
+<li>&#x7528;&#x6237;&#x603B;&#x6570;&#xFF1A;10million</li>
+<li>&#x65E5;&#x8BBF;&#x95EE;&#x91CF;&#xFF1A;10million read, 1million write</li>
+<li>&#x6BCF;&#x4E2A;paste&#x7684;&#x5927;&#x5C0F;&#xFF1A;1KB content</li>
+<li>url: 7B</li>
+</ul>
+<p>&#x7B2C;&#x56DB;&#x95EE;&#xFF1A;&#x57FA;&#x4E8E;&#x5047;&#x8BBE;&#x7684;&#x4F30;&#x8BA1;?</p>
+<ul>
+<li>&#x6BCF;&#x65E5;&#x751F;&#x6210;&#x7684;paste&#x5927;&#x5C0F;&#xFF1A;1M * 1KB = 1GB, &#x4E00;&#x5E74;&#x5C31;&#x662F;365GB</li>
+<li>&#x6BCF;&#x65E5;url&#x6570;&#x91CF;1M, &#x4E00;&#x5E74;&#x5C31;&#x662F;365M</li>
+<li>116 read requests per second</li>
+<li>12 write requests per second</li>
+</ul>
+<p>&#x7B2C;&#x4E94;&#x95EE;&#xFF1A;&#x5982;&#x4F55;&#x505A;high level design?</p>
+<ul>
+<li>client -&gt; web server -&gt; write api / read api -&gt; sql db</li>
+</ul>
+<p>&#x7B2C;&#x516D;&#x95EE;&#xFF1A;&#x5982;&#x4F55;&#x8BBE;&#x8BA1;&#x5173;&#x952E;&#x90E8;&#x4EF6;&#xFF1F;(&#x57FA;&#x4E8E;user case)</p>
+<ul>
+<li>&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x6587;&#x5B57; -&gt; write api -&gt; generate unique url -&gt; save data into paste table -&gt; return url</li>
+<li>&#x7528;&#x6237;&#x8BBF;&#x95EE;url -&gt; query paste table -&gt; return content</li>
+<li>&#x4ECE;&#x8868;&#x5F00;&#x59CB;&#x8BBE;&#x8BA1;&#xFF1A;</li>
+<li>paste table: id, content, url, created_by, created_at</li>
+</ul>
+<p>&#x7B2C;&#x4E03;&#x95EE;&#xFF1A;&#x5982;&#x4F55;scale?</p>
+<ul>
+<li>Load balancer</li>
+<li>Cache</li>
+<li>DB sharding</li>
+</ul>
 
                                 
                                 </section>
@@ -1045,14 +1053,10 @@
 
             
                 
-                <a href="962-max-width-ramp.html" class="navigation navigation-prev " aria-label="Previous page: 962: Max Width Ramp">
+                <a href="../design/vending-machine.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Vending Machine">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../graph/947-moast-stones-removed-with-same-row-or-col.html" class="navigation navigation-next " aria-label="Next page: 947: Most Stones Removed with Same Row or Column">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1061,7 +1065,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"948: Bag of Tokens","level":"9.2","depth":1,"next":{"title":"947: Most Stones Removed with Same Row or Column","level":"11.1","depth":1,"path":"graph/947-moast-stones-removed-with-same-row-or-col.md","ref":"graph/947-moast-stones-removed-with-same-row-or-col.md","articles":[]},"previous":{"title":"962: Max Width Ramp","level":"9.1","depth":1,"path":"two-pointer/962-max-width-ramp.md","ref":"two-pointer/962-max-width-ramp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"two-pointer/948-bag-of-tokens.md","mtime":"2018-12-26T18:40:35.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-08T06:08:45.717Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Design Pastebin","level":"22.1","depth":1,"previous":{"title":"Vending Machine","level":"21.5","depth":1,"path":"design/vending-machine.md","ref":"design/vending-machine.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"system-design/design-pastebin.md","mtime":"2019-01-08T06:07:02.579Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-08T06:08:45.717Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

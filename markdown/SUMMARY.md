@@ -44,6 +44,7 @@
 * [490 : The Maze](graph/490-the-maze.md)
 * [489 : Robot Room Cleaner](graph/489-robot-room-cleaner.md)
 * [329 : Longest Increasing Path in a Matrix](graph/329-longest-increasing-path-in-a-matrix.md)
+* [323 : Number of Connected Components in an Undirected Graph](graph/323-number-of-connected-components-in-an-undirected-graph.md)
 
 ### Directed Graph
 * [787 : Cheapest Flights Within K Stops](graph/787-cheapest-flights-within-K-stops.md)
@@ -90,3 +91,6 @@
 * [Parking Lot](design/parking-lot.md)
 * [Tiny Url](design/tiny-url.md)
 * [Vending Machine](design/vending-machine.md)
+
+## System Design
+* [Design Pastebin](system-design/design-pastebin.md)

@@ -9,4 +9,4 @@ npm-debug.log
 *.tgz
 /.settings/
 /.project
-/package-lock.json
+/package-lock.jsonfsa

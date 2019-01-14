@@ -80,6 +80,7 @@
 * [353: Design Snake Game](api/353-design-snake-game.md)
 * [348: Design Tic-Tac-Toe](api/348-design-tic-tac-toe.md)
 * [341: Flatten Nested List Iterator](api/341-flatten-nested-list-iterator.md)
+* [Implement Linux Find Command](api/linux-find-command.md)
 
 ## Priority Queue
 * [373: Find K Pairs with Smallest Sums](priority-queue/373-find-k-pairs-with-smallest-sums.md)
@@ -94,3 +95,4 @@
 
 ## System Design
 * [Design Pastebin](system-design/design-pastebin.md)
+* [Design Twitter Timeline](system-design/design-twitter-timeline.md)

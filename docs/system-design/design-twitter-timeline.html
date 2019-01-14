@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>646: Maximum Length of Pair Chain · GitBook</title>
+        <title>Design Twitter Timeline · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
     
-    
-    <link rel="prev" href="763-partition-labels.html" />
+    <link rel="prev" href="design-pastebin.html" />
     
 
     </head>
@@ -552,9 +550,9 @@
         
         
     
-        <li class="chapter " data-level="13.1" data-path="763-partition-labels.html">
+        <li class="chapter " data-level="13.1" data-path="../intervals/763-partition-labels.html">
             
-                <a href="763-partition-labels.html">
+                <a href="../intervals/763-partition-labels.html">
             
                     
                     763: Partition Labels
@@ -565,9 +563,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="13.2" data-path="646-maximum-length-of-pair-chain.html">
+        <li class="chapter " data-level="13.2" data-path="../intervals/646-maximum-length-of-pair-chain.html">
             
-                <a href="646-maximum-length-of-pair-chain.html">
+                <a href="../intervals/646-maximum-length-of-pair-chain.html">
             
                     
                     646: Maximum Length of Pair Chain
@@ -940,9 +938,9 @@
         
         
     
-        <li class="chapter " data-level="22.1" data-path="../system-design/design-pastebin.html">
+        <li class="chapter " data-level="22.1" data-path="design-pastebin.html">
             
-                <a href="../system-design/design-pastebin.html">
+                <a href="design-pastebin.html">
             
                     
                     Design Pastebin
@@ -953,9 +951,9 @@
             
         </li>
     
-        <li class="chapter " data-level="22.2" data-path="../system-design/design-twitter-timeline.html">
+        <li class="chapter active" data-level="22.2" data-path="design-twitter-timeline.html">
             
-                <a href="../system-design/design-twitter-timeline.html">
+                <a href="design-twitter-timeline.html">
             
                     
                     Design Twitter Timeline
@@ -996,7 +994,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >646: Maximum Length of Pair Chain</a>
+        <a href=".." >Design Twitter Timeline</a>
     </h1>
 </div>
 
@@ -1011,27 +1009,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;interval&#x878D;&#x5408;&#x95EE;&#x9898;&#x3002;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x89E3;&#x51B3;interval&#x95EE;&#x9898;&#x90FD;&#x662F;&#x6309;&#x5DE6;&#x8FB9;&#x754C;&#x6392;&#x5E8F;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E00;&#x9053;&#x9898;&#x7528;&#x53F3;&#x8FB9;&#x754C;&#x6392;&#x5E8F;&#x4F1A;&#x66F4;&#x7B80;&#x5355;&#x3002;&#x7528;&#x53F3;&#x8FB9;&#x754C;&#x6392;&#x5E8F;&#x7684;&#x597D;&#x5904;&#x662F;&#x5F53;&#x7B2C;i&#x4E2A;&#x548C;&#x7B2C;i+1&#x4E2A;interval&#x6709;&#x91CD;&#x53E0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x679C;&#x65AD;&#x653E;&#x5F03;&#x7B2C;i+1&#x4E2A;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x62C5;&#x5FC3;&#x662F;&#x5426;&#x9519;&#x8FC7;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x56E0;&#x4E3A;&#x80FD;&#x548C;&#x7B2C;i+1&#x4E2A;&#x878D;&#x5408;&#x7684;interval&#x4E5F;&#x5FC5;&#x7136;&#x80FD;&#x548C;&#x7B2C;i&#x4E2A;&#x878D;&#x5408;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> findLongestChain = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">pairs</span>) </span>{
-    <span class="hljs-keyword">const</span> len = pairs.length;
-    <span class="hljs-keyword">if</span> (len &lt;= <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> len;
-    }
-    pairs.sort((a, b) =&gt; a[<span class="hljs-number">1</span>] - b[<span class="hljs-number">1</span>]);
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">let</span> curr = pairs[<span class="hljs-number">0</span>];
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">while</span> (i &lt; len) {
-        <span class="hljs-keyword">const</span> next = pairs[i];
-        <span class="hljs-keyword">if</span> (curr[<span class="hljs-number">1</span>] &lt; next[<span class="hljs-number">0</span>]) {
-            res++;
-            curr = [<span class="hljs-built_in">Math</span>.min(curr[<span class="hljs-number">0</span>], next[<span class="hljs-number">0</span>]), next[<span class="hljs-number">1</span>]];
-        }
-        i++;
-    }
-    <span class="hljs-keyword">return</span> res;
-};
-</code></pre>
+                                <p>&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x95EE;&#x81EA;&#x5DF1;&#x95EE;&#x9898;&#xFF0C;&#x5E76;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x6709;&#x5F88;&#x5F3A;&#x7684;&#x5957;&#x8DEF;&#x6027;&#xFF0C;&#x53EA;&#x8981;&#x7EC3;&#x51E0;&#x4E2A;&#x5C31;&#x80FD;&#x628A;&#x89C4;&#x5F8B;&#x6478;&#x719F;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x95EE;&#xFF1A;&#x8BBE;&#x8BA1;&#x7684;&#x7CFB;&#x7EDF;&#x662F;&#x5E72;&#x5565;&#x7528;&#x7684; (use cases)&#xFF1F;</p>
+<ul>
+<li>User posts a tweet, which will be pushed to followers</li>
+<li>User views a user&apos;s timeline</li>
+<li>User views homepage</li>
+<li>User search</li>
+</ul>
+<p>&#x7B2C;&#x4E8C;&#x95EE;&#xFF1A;&#x8BBE;&#x8BA1;&#x7684;&#x7CFB;&#x7EDF;&#x6709;&#x54EA;&#x4E9B;&#x9650;&#x5236;&#x6761;&#x4EF6;&#xFF1F;</p>
+<ul>
+<li>Posting a tweet should be fast</li>
+<li>Fanning out a tweet should be fast, unless there are millions of followers</li>
+<li>Viewing the timeline should be fast</li>
+<li>Searching should be fast</li>
+</ul>
+<p>&#x7B2C;&#x4E09;&#x95EE;&#xFF1A;&#x8BBE;&#x8BA1;&#x7CFB;&#x7EDF;&#x65F6;&#x6709;&#x54EA;&#x4E9B;&#x5047;&#x8BBE;&#xFF1F;</p>
+<ul>
+<li>&#x7528;&#x6237;&#x603B;&#x6570;&#xFF1A;100 million daily active user</li>
+<li>&#x65E5;&#x8BBF;&#x95EE;&#x91CF;&#xFF1A;500 million write per day with average fan out 10 deliveries. 10 billion read per day.</li>
+</ul>
+<p>&#x7B2C;&#x56DB;&#x95EE;&#xFF1A;&#x57FA;&#x4E8E;&#x5047;&#x8BBE;&#x7684;&#x4F30;&#x8BA1;?</p>
+<ul>
+<li>tweet size: 10KB, 5TB per day</li>
+<li>5700 write requests per second, 115K read requests per second, 57K deliveries on fanout per day.</li>
+</ul>
+<p>&#x7B2C;&#x4E94;&#x95EE;&#xFF1A;&#x5982;&#x4F55;&#x505A;high level design?</p>
+<ul>
+<li>client -&gt; web server -&gt; write api / read api -&gt; fanout service / timeline service -&gt; cache -&gt; sql db</li>
+</ul>
+<p>&#x7B2C;&#x516D;&#x95EE;&#xFF1A;&#x5982;&#x4F55;&#x8BBE;&#x8BA1;&#x5173;&#x952E;&#x90E8;&#x4EF6;&#xFF1F;(&#x57FA;&#x4E8E;user case)</p>
+<ul>
+<li>user posts a tweet -&gt; write api -&gt; stores user&apos;s tweet -&gt; fanout service finds followers -&gt; store tweet in follower&apos;s timeline -&gt; notification service to notify followers (async)</li>
+<li>user views home timeline -&gt; user service to get all user&apos;s followers -&gt; fetch all tweets</li>
+</ul>
+<p>&#x7B2C;&#x4E03;&#x95EE;&#xFF1A;&#x5982;&#x4F55;scale?</p>
+<ul>
+<li>Load balancer</li>
+<li>Cache</li>
+<li>DB sharding</li>
+</ul>
 
                                 
                                 </section>
@@ -1059,14 +1076,10 @@
 
             
                 
-                <a href="763-partition-labels.html" class="navigation navigation-prev " aria-label="Previous page: 763: Partition Labels">
+                <a href="design-pastebin.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Design Pastebin">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1075,7 +1088,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"646: Maximum Length of Pair Chain","level":"13.2","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"14.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"763: Partition Labels","level":"13.1","depth":1,"path":"intervals/763-partition-labels.md","ref":"intervals/763-partition-labels.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intervals/646-maximum-length-of-pair-chain.md","mtime":"2019-01-06T06:35:51.293Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-14T06:48:09.824Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Design Twitter Timeline","level":"22.2","depth":1,"previous":{"title":"Design Pastebin","level":"22.1","depth":1,"path":"system-design/design-pastebin.md","ref":"system-design/design-pastebin.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"system-design/design-twitter-timeline.md","mtime":"2019-01-08T06:29:23.264Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-14T06:48:09.824Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

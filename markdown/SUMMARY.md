@@ -25,7 +25,7 @@
 * [652: Find Duplicate Subtrees](binary-tree/652-find-duplicate-subtrees.md)
 * [449: Serialize and Deserialize BST](binary-tree/449-serialize-and-deserialize-bst.md)
 * [437: Path Sum III](binary-tree/437-path-sum-3.md)
-* [124: Binary Tree Maximum Path Sum](binary-tree/123-binary-tree-maximum-path-sum.md)
+* [124: Binary Tree Maximum Path Sum](binary-tree/124-binary-tree-maximum-path-sum.md)
 
 ## Two Pointers
 * [962: Max Width Ramp](two-pointer/962-max-width-ramp.md)

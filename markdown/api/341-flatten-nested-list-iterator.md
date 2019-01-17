@@ -1,7 +1,7 @@
 这个题需要一个一个把数据读出，所以不能一次性把array全部flat然后存起来. 既然是iterative method, 基本上是离不开stack的，需要存当前遍历的array及index。
 
 输入：[[1, 1], 2, [3, 3]]
-Stack: 
+Stack: asdfas
 
 [[1, 1], 0]
 [[[1,1], 2, [3,3]], 0]

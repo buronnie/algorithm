@@ -13,7 +13,7 @@ TicTacToe.prototype.move = function(row, col, player) {
     if (this.rowCount[player-1][row] === this.rows ||
         this.colCount[player-1][col] === this.rows ||
         this.diagCount[player-1][0] === this.rows ||
-        this.diagCount[player-1][1] === this.rows
+        this.diagCount[player-1][1] === this.rowsfsdfa
        ) {
         return player;
     }

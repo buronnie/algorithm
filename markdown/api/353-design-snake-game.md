@@ -2,7 +2,7 @@
 * 移动头部到下一个cell
 * 判断此时头部是否已经越界
 * 判断是否当前cell有食物，如果没有则弹出蛇尾。判断当前cell是否和蛇collide，如果没有则压入cell作为新的蛇头
-
+adfas
 ```javascript
 /**
  * Initialize your data structure here.

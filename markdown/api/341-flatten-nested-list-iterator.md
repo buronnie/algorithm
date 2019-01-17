@@ -9,7 +9,7 @@ Stack:
 如果当前是nestedList, 则把list取出入栈. 当pos到达array尾部，则出栈，并把栈头的pos + 1.
 
 ```javascript
-/**
+/**sdfa
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
  * function NestedInteger() {

@@ -15,7 +15,7 @@ Stack:
  * function NestedInteger() {
  *
  *     Return true if this NestedInteger holds a single integer, rather than a nested list.
- *     @return {boolean}
+ *     @return {boolean}adfas
  *     this.isInteger = function() {
  *         ...
  *     };

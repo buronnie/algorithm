@@ -1,5 +1,8 @@
 ## [Introduction](README.md)
 
+## DFS
+* [967. Numbers With Same Consecutive Differences](backtracking/967-numbers-with-same-consecurtive-differences.md)
+
 ## Dynamic Programming
 * [518: Coin Change 2](dynamic-programming/518-coin-change2.md)
 

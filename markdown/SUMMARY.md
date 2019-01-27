@@ -87,6 +87,9 @@
 * [373: Find K Pairs with Smallest Sums](priority-queue/373-find-k-pairs-with-smallest-sums.md)
 * [347: Top K Frequent Elementss](priority-queue/347-top-K-frequent-elements.md)
 
+## Sort
+* [969: Pancake Sorting](sort/969-pancake-sorting.md)
+
 ## OOP Design
 * [Chess Game](design/chess-game.md)
 * [Deck of Cards](design/deck-of-cards.md)

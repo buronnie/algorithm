@@ -4,6 +4,7 @@
 * [967. Numbers With Same Consecutive Differences](backtracking/967-numbers-with-same-consecurtive-differences.md)
 
 ## Dynamic Programming
+* [983. Minimum Cost For Tickets](dynamic-programming/983-minimum-cost-for-tickets.md)
 * [518: Coin Change 2](dynamic-programming/518-coin-change2.md)
 
 ## String

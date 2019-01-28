@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>646: Maximum Length of Pair Chain · GitBook</title>
+        <title>983. Minimum Cost For Tickets · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../state-loop/957-prison-cells-after-N-days.html" />
+    <link rel="next" href="518-coin-change2.html" />
     
     
-    <link rel="prev" href="763-partition-labels.html" />
+    <link rel="prev" href="../backtracking/967-numbers-with-same-consecurtive-differences.html" />
     
 
     </head>
@@ -131,9 +131,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../dynamic-programming/983-minimum-cost-for-tickets.html">
+        <li class="chapter active" data-level="3.1" data-path="983-minimum-cost-for-tickets.html">
             
-                <a href="../dynamic-programming/983-minimum-cost-for-tickets.html">
+                <a href="983-minimum-cost-for-tickets.html">
             
                     
                     983. Minimum Cost For Tickets
@@ -144,9 +144,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../dynamic-programming/518-coin-change2.html">
+        <li class="chapter " data-level="3.2" data-path="518-coin-change2.html">
             
-                <a href="../dynamic-programming/518-coin-change2.html">
+                <a href="518-coin-change2.html">
             
                     
                     518: Coin Change 2
@@ -598,9 +598,9 @@
         
         
     
-        <li class="chapter " data-level="14.1" data-path="763-partition-labels.html">
+        <li class="chapter " data-level="14.1" data-path="../intervals/763-partition-labels.html">
             
-                <a href="763-partition-labels.html">
+                <a href="../intervals/763-partition-labels.html">
             
                     
                     763: Partition Labels
@@ -611,9 +611,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="14.2" data-path="646-maximum-length-of-pair-chain.html">
+        <li class="chapter " data-level="14.2" data-path="../intervals/646-maximum-length-of-pair-chain.html">
             
-                <a href="646-maximum-length-of-pair-chain.html">
+                <a href="../intervals/646-maximum-length-of-pair-chain.html">
             
                     
                     646: Maximum Length of Pair Chain
@@ -1062,7 +1062,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >646: Maximum Length of Pair Chain</a>
+        <a href=".." >983. Minimum Cost For Tickets</a>
     </h1>
 </div>
 
@@ -1077,25 +1077,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9053;&#x9898;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;interval&#x878D;&#x5408;&#x95EE;&#x9898;&#x3002;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x89E3;&#x51B3;interval&#x95EE;&#x9898;&#x90FD;&#x662F;&#x6309;&#x5DE6;&#x8FB9;&#x754C;&#x6392;&#x5E8F;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E00;&#x9053;&#x9898;&#x7528;&#x53F3;&#x8FB9;&#x754C;&#x6392;&#x5E8F;&#x4F1A;&#x66F4;&#x7B80;&#x5355;&#x3002;&#x7528;&#x53F3;&#x8FB9;&#x754C;&#x6392;&#x5E8F;&#x7684;&#x597D;&#x5904;&#x662F;&#x5F53;&#x7B2C;i&#x4E2A;&#x548C;&#x7B2C;i+1&#x4E2A;interval&#x6709;&#x91CD;&#x53E0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x679C;&#x65AD;&#x653E;&#x5F03;&#x7B2C;i+1&#x4E2A;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x62C5;&#x5FC3;&#x662F;&#x5426;&#x9519;&#x8FC7;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x56E0;&#x4E3A;&#x80FD;&#x548C;&#x7B2C;i+1&#x4E2A;&#x878D;&#x5408;&#x7684;interval&#x4E5F;&#x5FC5;&#x7136;&#x80FD;&#x548C;&#x7B2C;i&#x4E2A;&#x878D;&#x5408;&#x3002;</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> findLongestChain = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">pairs</span>) </span>{
-    <span class="hljs-keyword">const</span> len = pairs.length;
-    <span class="hljs-keyword">if</span> (len &lt;= <span class="hljs-number">1</span>) {
-        <span class="hljs-keyword">return</span> len;
+                                <p>&#x8FD9;&#x9053;&#x9898;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x660E;&#x663E;&#x7684;DP&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x4E2A;&#x65C5;&#x884C;&#x5929;&#x4E0A;&#x6709;&#x4E09;&#x79CD;&#x9009;&#x62E9;&#xFF1A;
+1) &#x4E70;1-day pass&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x8FD9;&#x4E00;&#x5929;&#x4E3A;&#x6B62;&#x6700;&#x5C0F;&#x603B;&#x82B1;&#x9500;&#x5C31;&#x662F;dp[i-1] + costs[0]
+2) &#x4E70;7-day pass, &#x90A3;&#x4E48;&#x5C31;&#x8981;&#x5F80;&#x524D;&#x63A8;&#x4E00;&#x76F4;&#x627E;&#x5230;&#x8DDD;&#x79BB;&#x4ECA;&#x5929;&#x8D85;&#x8FC7;7&#x5929;&#x7684;&#x65C5;&#x884C;&#x65E5;&#x5B50;&#xFF0C;&#x6700;&#x5C0F;&#x603B;&#x82B1;&#x9500;&#x5C31;&#x662F;dp[j] + costs[1] where argmax(j, days[i] - days[j] &gt; 6)
+2) &#x4E70;30-day pass, &#x90A3;&#x4E48;&#x5C31;&#x8981;&#x5F80;&#x524D;&#x63A8;&#x4E00;&#x76F4;&#x627E;&#x5230;&#x8DDD;&#x79BB;&#x4ECA;&#x5929;&#x8D85;&#x8FC7;30&#x5929;&#x7684;&#x65C5;&#x884C;&#x65E5;&#x5B50;&#xFF0C;&#x6700;&#x5C0F;&#x603B;&#x82B1;&#x9500;&#x5C31;&#x662F;dp[j] + costs[2] where argmax(j, days[i] - days[j] &gt; 29)</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> mincostTickets = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">days, costs</span>) </span>{
+    <span class="hljs-keyword">const</span> len = days.length;
+    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    pairs.sort((a, b) =&gt; a[<span class="hljs-number">1</span>] - b[<span class="hljs-number">1</span>]);
-    <span class="hljs-keyword">let</span> res = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">let</span> curr = pairs[<span class="hljs-number">0</span>];
-    <span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">while</span> (i &lt; len) {
-        <span class="hljs-keyword">const</span> next = pairs[i];
-        <span class="hljs-keyword">if</span> (curr[<span class="hljs-number">1</span>] &lt; next[<span class="hljs-number">0</span>]) {
-            res++;
-            curr = [<span class="hljs-built_in">Math</span>.min(curr[<span class="hljs-number">0</span>], next[<span class="hljs-number">0</span>]), next[<span class="hljs-number">1</span>]];
+    <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(len);
+    dp[<span class="hljs-number">0</span>] = costs[<span class="hljs-number">0</span>];
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; len; i++) {
+        <span class="hljs-keyword">const</span> val1 = dp[i<span class="hljs-number">-1</span>] + costs[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">let</span> j = i<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; days[i] - days[j] &lt;= <span class="hljs-number">6</span>) {
+            j--;
         }
-        i++;
+        <span class="hljs-keyword">let</span> val2 = j &lt; <span class="hljs-number">0</span> ? costs[<span class="hljs-number">1</span>] : dp[j] + costs[<span class="hljs-number">1</span>];
+        j = i<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; days[i] - days[j] &lt;= <span class="hljs-number">29</span>) {
+            j--;
+        }
+        <span class="hljs-keyword">let</span> val3 = j &lt; <span class="hljs-number">0</span> ? costs[<span class="hljs-number">2</span>] : dp[j] + costs[<span class="hljs-number">2</span>];
+        dp[i] = <span class="hljs-built_in">Math</span>.min(val1, val2, val3);
     }
-    <span class="hljs-keyword">return</span> res;
+    <span class="hljs-keyword">return</span> dp[len<span class="hljs-number">-1</span>];
 };
 </code></pre>
 
@@ -1125,12 +1133,12 @@
 
             
                 
-                <a href="763-partition-labels.html" class="navigation navigation-prev " aria-label="Previous page: 763: Partition Labels">
+                <a href="../backtracking/967-numbers-with-same-consecurtive-differences.html" class="navigation navigation-prev " aria-label="Previous page: 967. Numbers With Same Consecutive Differences">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../state-loop/957-prison-cells-after-N-days.html" class="navigation navigation-next " aria-label="Next page: 957: Prison Cells After N Days">
+                <a href="518-coin-change2.html" class="navigation navigation-next " aria-label="Next page: 518: Coin Change 2">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1141,7 +1149,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"646: Maximum Length of Pair Chain","level":"14.2","depth":1,"next":{"title":"957: Prison Cells After N Days","level":"15.1","depth":1,"path":"state-loop/957-prison-cells-after-N-days.md","ref":"state-loop/957-prison-cells-after-N-days.md","articles":[]},"previous":{"title":"763: Partition Labels","level":"14.1","depth":1,"path":"intervals/763-partition-labels.md","ref":"intervals/763-partition-labels.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"intervals/646-maximum-length-of-pair-chain.md","mtime":"2019-01-06T06:35:51.293Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-28T04:56:32.147Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"983. Minimum Cost For Tickets","level":"3.1","depth":1,"next":{"title":"518: Coin Change 2","level":"3.2","depth":1,"path":"dynamic-programming/518-coin-change2.md","ref":"dynamic-programming/518-coin-change2.md","articles":[]},"previous":{"title":"967. Numbers With Same Consecutive Differences","level":"2.1","depth":1,"path":"backtracking/967-numbers-with-same-consecurtive-differences.md","ref":"backtracking/967-numbers-with-same-consecurtive-differences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dynamic-programming/983-minimum-cost-for-tickets.md","mtime":"2019-01-28T04:55:01.941Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-28T04:56:32.147Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

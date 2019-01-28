@@ -67,6 +67,7 @@
 * [678: Valid Parenthesis String](divide-and-conqueor/678-valid-parenthesis-string.md)
 
 ## Array
+* [974. Subarray Sums Divisible by K](array/974-subarray-sums-divisible-by-K.md)
 * [406: Queue Reconstruction by Height](array/406-queue-reconstruction-by-height.md)
 * [325: Maximum Size Subarray Sum Equals k](array/325-maximum-size-subarray-sum-equals-k.md)
 * [670: Maximum Swap](array/670-maximum-swap.md)

@@ -6,6 +6,7 @@
 ## Dynamic Programming
 * [983. Minimum Cost For Tickets](dynamic-programming/983-minimum-cost-for-tickets.md)
 * [518: Coin Change 2](dynamic-programming/518-coin-change2.md)
+* [1043: Partition Array For Maximum Sum](dynamic-programming/1043-partition-array-for-maximum-sum.md)
 
 ## String
 * [394: Decode String](string/394-decode-string.md)

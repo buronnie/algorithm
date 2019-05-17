@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>948: Bag of Tokens · GitBook</title>
+        <title>1043: Partition Array For Maximum Sum · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../graph/947-moast-stones-removed-with-same-row-or-col.html" />
+    <link rel="next" href="../string/394-decode-string.html" />
     
     
-    <link rel="prev" href="962-max-width-ramp.html" />
+    <link rel="prev" href="518-coin-change2.html" />
     
 
     </head>
@@ -131,9 +131,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../dynamic-programming/983-minimum-cost-for-tickets.html">
+        <li class="chapter " data-level="3.1" data-path="983-minimum-cost-for-tickets.html">
             
-                <a href="../dynamic-programming/983-minimum-cost-for-tickets.html">
+                <a href="983-minimum-cost-for-tickets.html">
             
                     
                     983. Minimum Cost For Tickets
@@ -144,9 +144,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../dynamic-programming/518-coin-change2.html">
+        <li class="chapter " data-level="3.2" data-path="518-coin-change2.html">
             
-                <a href="../dynamic-programming/518-coin-change2.html">
+                <a href="518-coin-change2.html">
             
                     
                     518: Coin Change 2
@@ -157,9 +157,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="../dynamic-programming/1043-partition-array-for-maximum-sum.html">
+        <li class="chapter active" data-level="3.3" data-path="1043-partition-array-for-maximum-sum.html">
             
-                <a href="../dynamic-programming/1043-partition-array-for-maximum-sum.html">
+                <a href="1043-partition-array-for-maximum-sum.html">
             
                     
                     1043: Partition Array For Maximum Sum
@@ -401,9 +401,9 @@
         
         
     
-        <li class="chapter " data-level="10.1" data-path="962-max-width-ramp.html">
+        <li class="chapter " data-level="10.1" data-path="../two-pointer/962-max-width-ramp.html">
             
-                <a href="962-max-width-ramp.html">
+                <a href="../two-pointer/962-max-width-ramp.html">
             
                     
                     962: Max Width Ramp
@@ -414,9 +414,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="10.2" data-path="948-bag-of-tokens.html">
+        <li class="chapter " data-level="10.2" data-path="../two-pointer/948-bag-of-tokens.html">
             
-                <a href="948-bag-of-tokens.html">
+                <a href="../two-pointer/948-bag-of-tokens.html">
             
                     
                     948: Bag of Tokens
@@ -1101,7 +1101,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >948: Bag of Tokens</a>
+        <a href=".." >1043: Partition Array For Maximum Sum</a>
     </h1>
 </div>
 
@@ -1116,40 +1116,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x8FD9;&#x9996;&#x9898;&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x5230;dp, &#x5206;&#x6CBB;&#x53BB;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x70B9;&#x50CF;&#x53D6;&#x77F3;&#x5B50;&#x7684;&#x9898;&#x3002;&#x7528;&#x5206;&#x6CBB;&#x6CD5;&#x5199;&#x5F88;&#x9EBB;&#x70E6;&#xFF0C;&#x6700;&#x540E;&#x8FD8;&#x8D85;&#x65F6;&#x4E86;&#x3002;&#x6CA1;&#x529E;&#x6CD5;&#x91CD;&#x65B0;&#x60F3;&#x601D;&#x8DEF;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x9053;&#x9898;&#x6709;&#x4E00;&#x4E2A;&#x9690;&#x542B;&#x6761;&#x4EF6;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x4E70;&#x5165;&#x6700;&#x5C0F;&#x7684;&#xFF0C;&#x5356;&#x51FA;&#x6700;&#x5927;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x51ED;&#x7A7A;&#x589E;&#x52A0;power&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x80FD;&#x4E70;&#x5230;&#x66F4;&#x591A;&#x7684;&#x5206;&#x6570;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#x8FD8;&#x662F;&#x4E00;&#x9053;&#x53CC;&#x6307;&#x9488;&#x9898;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x6BCF;&#x6B21;&#x4E70;&#x5165;&#x524D;&#x8981;&#x68C0;&#x5BDF;&#x662F;&#x5426;&#x5F53;&#x524D;&#x7684;power&#x6570;&#x8DB3;&#x591F;&#x4E70;&#x5165;point.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> bagOfTokensScore = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tokens, P</span>) </span>{
-    <span class="hljs-keyword">const</span> len = tokens.length;
-    <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span> || P &lt;= <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    }
-    tokens.sort((a, b) =&gt; a - b);
-
-    <span class="hljs-keyword">let</span> max = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>, end = len<span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">while</span> (start &lt;= end) {
-        max = <span class="hljs-built_in">Math</span>.max(max, getPoints(tokens, start, end, P));
-        <span class="hljs-keyword">if</span> (P &gt;= tokens[start]) {
-            P += (tokens[end--] - tokens[start++]);
-        } <span class="hljs-keyword">else</span> {
-            <span class="hljs-keyword">break</span>;
+                                <p>&#x770B;&#x5230;consecutive sum&#x5C31;&#x5E94;&#x8BE5;&#x60F3;&#x5230;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;DP&#x95EE;&#x9898;&#x3002;&#x5F53;&#x6211;&#x4EEC;&#x77E5;&#x9053;dp[0], dp[1], ...dp[i-1]&#x65F6;&#xFF0C;&#x5982;&#x4F55;&#x63A8;&#x51FA;dp[i]&#x5462;&#xFF1F;
+A[i]&#x7684;&#x6548;&#x679C;&#x662F;&#x6709;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x5230;&#x5B83;&#x524D;&#x9762;&#x6700;&#x591A;K&#x4E2A;&#x6570;&#xFF0C;&#x6709;K&#x79CD;&#x53EF;&#x80FD;&#x5F97;&#x5230;&#x6700;&#x5927;&#x503C;&#xFF1A;
+A[i]&#x5355;&#x72EC;&#x662F;&#x4E00;&#x4E2A;partition, dp[i] = dp[i-1] + A[i]
+A[i], A[i-1]&#x662F;&#x4E00;&#x4E2A;partition, dp[i] = dp[i-2] + max(A[i], A[i-1]) <em> 2
+...
+A[i], A[i-1], ..., A[i-j]&#x662F;&#x4E00;&#x4E2A;partition, dp[i] = dp[i-j-1] + max(A[i], A[i-1], ..., A[i-j]) </em> (j+1)</p>
+<pre><code>class Solution {
+    public int maxSumAfterPartitioning(int[] A, int K) {
+        int len = A.length;
+        if (len == 0) {
+            return 0;
         }
+        if (len == 1) {
+            return A[0];
+        }
+        int[] dp = new int[len];
+        dp[0] = A[0];
+        int res = Integer.MIN_VALUE;
+        for (int i = 1; i &lt; len; i++) {
+            int max = Integer.MIN_VALUE;
+            dp[i] = Integer.MIN_VALUE;
+            for (int j = 0; j &lt; K; j++) {
+                if (i-j &lt; 0) {
+                    break;
+                }
+                max = Math.max(max, A[i-j]);
+                if (i-j-1 == -1) {
+                    dp[i] = Math.max(dp[i], max*(j+1));
+                } else {
+                    dp[i] = Math.max(dp[i], dp[i-j-1] + max*(j+1));
+                }
+            }
+            res = Math.max(res, dp[i]);
+        }
+        return res;
     }
-    <span class="hljs-keyword">return</span> max;
-};
-
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPoints</span>(<span class="hljs-params">tokens, start, end, P</span>) </span>{
-    <span class="hljs-keyword">if</span> (end - start &lt; <span class="hljs-number">0</span>) {
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    }
-    <span class="hljs-keyword">let</span> points = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (start &lt;= end &amp;&amp; P &gt;= tokens[start]) {
-        P -= tokens[start++];
-        points++;
-    }
-    <span class="hljs-keyword">return</span> points;
 }
 </code></pre>
-
                                 
                                 </section>
                             
@@ -1176,12 +1180,12 @@
 
             
                 
-                <a href="962-max-width-ramp.html" class="navigation navigation-prev " aria-label="Previous page: 962: Max Width Ramp">
+                <a href="518-coin-change2.html" class="navigation navigation-prev " aria-label="Previous page: 518: Coin Change 2">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../graph/947-moast-stones-removed-with-same-row-or-col.html" class="navigation navigation-next " aria-label="Next page: 947: Most Stones Removed with Same Row or Column">
+                <a href="../string/394-decode-string.html" class="navigation navigation-next " aria-label="Next page: 394: Decode String">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1192,7 +1196,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"948: Bag of Tokens","level":"10.2","depth":1,"next":{"title":"947: Most Stones Removed with Same Row or Column","level":"12.1","depth":1,"path":"graph/947-moast-stones-removed-with-same-row-or-col.md","ref":"graph/947-moast-stones-removed-with-same-row-or-col.md","articles":[]},"previous":{"title":"962: Max Width Ramp","level":"10.1","depth":1,"path":"two-pointer/962-max-width-ramp.md","ref":"two-pointer/962-max-width-ramp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"two-pointer/948-bag-of-tokens.md","mtime":"2018-12-26T18:40:35.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-17T06:42:14.038Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1043: Partition Array For Maximum Sum","level":"3.3","depth":1,"next":{"title":"394: Decode String","level":"4.1","depth":1,"path":"string/394-decode-string.md","ref":"string/394-decode-string.md","articles":[]},"previous":{"title":"518: Coin Change 2","level":"3.2","depth":1,"path":"dynamic-programming/518-coin-change2.md","ref":"dynamic-programming/518-coin-change2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"dynamic-programming/1043-partition-array-for-maximum-sum.md","mtime":"2019-05-17T06:39:32.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-17T06:42:14.038Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

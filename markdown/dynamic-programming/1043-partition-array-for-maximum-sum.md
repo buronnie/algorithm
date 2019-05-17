@@ -1,8 +1,12 @@
 看到consecutive sum就应该想到这是一个DP问题。当我们知道dp[0], dp[1], ...dp[i-1]时，如何推出dp[i]呢？
 A[i]的效果是有可能影响到它前面最多K个数，有K种可能得到最大值：
+
 A[i]单独是一个partition, dp[i] = dp[i-1] + A[i]
+
 A[i], A[i-1]是一个partition, dp[i] = dp[i-2] + max(A[i], A[i-1]) * 2
+
 ...
+
 A[i], A[i-1], ..., A[i-j]是一个partition, dp[i] = dp[i-j-1] + max(A[i], A[i-1], ..., A[i-j]) * (j+1)
 
 ```
